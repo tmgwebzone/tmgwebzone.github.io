@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قرية برجا - التاريخ والجغرافيا والحياة في جبل لبنان</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+  
+  <!-- تحسين محركات البحث SEO -->
+  <meta name="description" content="اكتشف بلدة برجا في إقليم الخروب، جبل لبنان. تعرف على تاريخها، عدد سكانها، معالمها، وأنشطتها الثقافية والاجتماعية.">
+  <meta name="keywords" content="برجا, برجا لبنان, تاريخ برجا, سكان برجا, بلدية برجا, موقع برجا, آثار برجا, قرى جبل لبنان, اقليم الخروب, معالم برجا">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="برجا - التاريخ والجغرافيا والحياة في جبل لبنان">
+  <meta property="og:description" content="معلومات شاملة عن بلدة برجا: الموقع، التاريخ، السكان، المهرجانات، والمعالم الثقافية.">
+  <meta property="og:image" content="barjaimg/barja3.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tahaghoch.github.io/tmgweb">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LFRXX629B8');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7999209256244874">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <!-- خط Cairo من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #b87d4f;
+      --primary-hover: #966139;
+      --secondary-color: #d4a373;
+      --bg-color: #fdf6f0;
+      --card-bg: #ffffff;
+      --text-color: #2b2b2b;
+      --accent-color: #00adb5;
+      --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+      --shadow-lg: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* --- الهيدر و الغلاف (barja3.jpg) --- */
+    header {
+      position: relative;
+      height: 75vh;
+      min-height: 450px;
+      background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('barjaimg/barja3.jpg') center/cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0;
+      text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.7);
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      margin-top: 15px;
+      max-width: 600px;
+      text-shadow: 1px 2px 8px rgba(0,0,0,0.7);
+      animation: fadeInUp 1.4s ease-out;
+    }
+
+    /* --- القائمة العلوية Navigation --- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--primary-color);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 12px 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 5px 15px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      right: 0;
+      background-color: var(--bg-color);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* --- المحتوى الرئيسي Main Content --- */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background: var(--card-bg);
+      padding: 35px;
+      margin-bottom: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInSection 0.8s ease-out forwards;
+    }
+
+    section:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    h2 {
+      color: var(--primary-color);
+      font-size: 2rem;
+      border-bottom: 3px solid var(--secondary-color);
+      padding-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    h3 {
+      color: #8c6e54;
+      font-size: 1.3rem;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #444;
+      text-align: justify;
+      margin-bottom: 15px;
+    }
+
+    /* --- تنسيق معرض الصور المعزز --- */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .image-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      height: 220px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .image-card:hover img {
+      transform: scale(1.08);
+    }
+
+    /* --- الأزرار والتعديلات --- */
+    .map-btn {
+      display: inline-block;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(184, 125, 79, 0.3);
+    }
+
+    .map-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(184, 125, 79, 0.4);
+    }
+
+    .ad-container {
+      margin: 30px 0;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* --- الأنيميشن Animations --- */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInSection {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --- الاستجابة للشاشات الصغيرة --- */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.3rem; }
+      header p { font-size: 1.1rem; }
+      section { padding: 20px; }
+      nav a { margin: 5px 10px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header مع خلفية barja3.jpg -->
+  <header>
+    <h1>قرية برجا</h1>
+    <p>التاريخ والجغرافيا والحياة في قلب جبل لبنان</p>
+  </header>
+
+  <!-- القائمة العلوية -->
+  <nav>
+    <a href="#location">جغرافيا وموقع</a>
+    <a href="#monuments">الآثار</a>
+    <a href="#activities">النشاطات</a>
+    <a href="#history">التاريخ</a>
+    <a href="#festivals">المهرجانات</a>
+  </nav>
+
+  <!-- إعلان AdSense علوي -->
+  <div class="ad-container">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7999209256244874"
+         data-ad-slot="9117689493"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <main>
+    <!-- قسم الجغرافيا والموقع -->
+    <section id="location">
+      <h2>جغرافيا وموقع</h2>
+      <p>تقع بلدة بَرْجا جنوب بيروت بنحو ٣٠ كم، عند الطرف الشمالي لوادي الزهراني، وتشكّل حلقة وصل بين الساحل والجبل. ترتفع بين ١٠٠ و٣٠٠ متر عن سطح البحر، فتحظى بمناخ معتدل شتاءً ومنعش صيفًا.</p>
+      <a href="https://maps.app.goo.gl/7TNkKmj69KbUgrt46" target="_blank" class="map-btn">📍 اضغط هنا لرؤية الموقع على الخريطة</a>
+    </section>
+
+    <!-- معرض الصور المميز (barja1.jpg و barja2.jpg) -->
+    <div class="image-gallery">
+      <div class="image-card">
+        <img src="barjaimg/barja1.jpg" alt="طبيعة قرية برجا">
+        <div class="overlay">الأعمدة الكورنثية الشهيرة</div>
+      </div>
+      <div class="image-card">
+        <img src="barjaimg/barja2.jpg" alt="معالم قرية برجا">
+      </div>
+    </div>
+
+    <!-- قسم الآثار -->
+    <section id="monuments">
+      <h2>الآثار والتراث</h2>
+      <p>تنتشر في محيط برجا عشرات الكهوف والمغاور المدفونة في الصخور، يعود بعضها إلى العصر الحجري الحديث. تُعد مقابر نواويس محفورة في صخور شواقي الأعالي، ورُصدت رسومات وأوانٍ فخارية خلال الحفريات. وقد زارت بعثة رينان الفرنسية هذه المنطقة عام 1863 ووصفتها بـ"المدينة المدفنية"، بعد العثور على نصب يوناني يحمل نقش "خورستوس الشريف سلام…" يعود للعام 228 م.</p>
+      
+      <h3>1. كهوف ونواويس</h3>
+      <p>تكثر الكهوف المدفونة والمقابر الصخرية في محيط برجا، وتظهر فيها نقوش قديمة وأدوات فخارية يرجّح أنها استخدمت للدفن في العصر الحجري الحديث والرومان والبيزنطي.</p>
+      
+      <h3>2. قلعة النواويس</h3>
+      <p>بجانب الثانوية العامة تطل على وادي سبلين، وهي مغاور صخرية يُعتقد أنها كانت تستخدم لدفن الكهنة أو كبار الشخصيات الدينية في فترات الوثنية.</p>
+      
+      <h3>3. جامع برجا الكبير</h3>
+      <p>هو المعلم الرئيسي الديني في القرية، يعود إلى العصر العثماني وقد كان ولا يزال من أبرز المساجد في جبل لبنان، وقد شهد ترميمًا وتوسعات عدة خلال القرن العشرين.</p>
+    </section>
+
+    <!-- إعلان AdSense أوسط -->
+    <div class="ad-container">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7999209256244874"
+           data-ad-slot="5338124564"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- قسم النشاطات -->
+    <section id="activities">
+      <h2>النشاطات الاقتصادية والزراعية</h2>
+      <p>تقع برجا ضمن منطقة خصبة تشتهر بزراعة الزيتون الذي كان مصدرًا مهمًا، وتُنتَج منها آلاف الأوكيات سنويًا عبر المعاصر التقليدية.</p>
+      <p>كما تُزرع الخروب والتين واللوز والعنب إضافة إلى زراعة التوت لتربية دودة القز وصناعة الحرير، التي اشتهرت بها قديماً وساهمت في الاقتصاد المحلي حتى القرن العشرين.</p>
+      
+      <h3>تربية النحل</h3>
+      <p>اخْتَصّت برجا بإنتاج العسل بعد إنشاء حوالى 600 خلية نحل، وصدرت كميات معتبرة من العسل إلى بيروت وصيدا وغيرها.</p>
+
+      <h3>القرية اليوم</h3>
+      <p>تضم برجا حوالي 40,000 نسمة، وهي منطقة عامرة تمثل نموذجًا للحفاظ على الثقافة والعلم بتوافر مكتبة عامة ومركز ثقافي.</p>
+      <p>تتمثل الحياة الريفية فيها في الجمع بين الزراعة والحرف التقليدية، وتُعرف بمبادراتها الفنية مثل طلاء الجدران بألوان زاهية ضمن مشروع "انتفاضة الألوان" الذي أضفى روحًا شبابية وألواناً طبيعية على واجهات المباني.</p>
+    </section>
+
+    <!-- قسم التاريخ -->
+    <section id="history">
+      <h2>التاريخ العريق</h2>
+      <p>تشير لقى فخّاريّة إلى أن المنطقة مأهولة منذ العصر البرونزي، ثم ازدهرت في العهد الفينيقي كاستراحة للقوافل البحريّة. في العصر المملوكي بُنِيت فيها خزّانات مياه لحفظ الأمطار، وبقي بعضها قائمًا يُستخدم حتّى اليوم لريّ بساتين الليمون.</p>
+      
+      <h3>1. العهود الفينيقية-الرومانية-البيزنطية</h3>
+      <p>تُظهر النقوش والمنحوتات ضمن المغاور والشواهد على تأثر برجا بشعوب بلاد الرافدين، الفرس، اليونانيين، الرومان والبيزنطيين.</p>
+      
+      <h3>2. العهد العثماني والأيوبي</h3>
+      <p>خلال حكم الأمير فخر الدين المعني الثاني (1572–1635)، تأسس جامع تاريخي، كما شُيّدت مبانٍ ذات أقواس ونوافذ زجاجية مزخرفة من الحقبة العثمانية.</p>
+    </section>
+
+    <!-- قسم المهرجانات -->
+    <section id="festivals">
+      <h2>المهرجانات والفعاليات</h2>
+      <h3>1. مهرجان الزيتون في برجا</h3>
+      <p>يُعد مهرجان الزيتون في برجا من أهم المهرجانات الزراعية التي تحتفل بها البلدة في فصل الخريف من كل عام.</p>
+
+      <h3>2. مهرجان ليالي برجا الثقافية</h3>
+      <p>في فصل الصيف، تتحول ساحة برجا ومراكزها الثقافية إلى منصّات فنية تجمع بين الفنون الشعبية والحديثة.</p>
+
+      <h3>3. مهرجان الحرف اليدوية والتراث</h3>
+      <p>يهدف إلى إحياء التراث القروي والحِرفي الذي كانت تعرف به البلدة منذ عقود.</p>
+    </section>
+  </main>
+
+  <!-- Footer المُطلب -->
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="about2.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="privacy2.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="terms2.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="contact2.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+</body>
+</html>

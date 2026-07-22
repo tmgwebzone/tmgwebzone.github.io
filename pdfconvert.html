@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapPDFImg – تحويل PDF إلى صور والعكس أونلاين مجاناً</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- تحسين لمحركات البحث (SEO) -->
+  <meta name="description" content="أداة سريعة وآمنة لتحويل ملفات PDF إلى صور عالية الجودة (JPG/PNG) أو دمج الصور في ملف PDF واحد مباشرة داخل المتصفح وبشكل مجاني.">
+  <meta name="keywords" content="تحويل PDF إلى صور, تحويل صور إلى PDF, PDF to PNG, PDF to JPG, PNG to PDF, JPG to PDF, SnapPDFImg, TMGWEB">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / Meta Social -->
+  <meta property="og:title" content="SnapPDFImg – أسهل طريقة للتحويل بين PDF والصور">
+  <meta property="og:description" content="حوّل صفحات PDF إلى صور أو العكس بخطوة واحدة وبدون رفع ملفاتك إلى خوادم خارجية.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tahaghoch.github.io/SnapPDFImg/">
+  <meta property="og:image" content="https://tahaghoch.github.io/SnapPDFImg/icon-512.png">
+
+  <!-- PWA & Icons -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png" type="image/png">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LFRXX629B8');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7999209256244874">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <!-- Google Fonts (Cairo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- CSS Styles -->
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #00adb5;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+      50% { box-shadow: 0 0 25px rgba(37, 99, 235, 0.4); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 3rem 1rem 2.5rem;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Layout Containers */
+    main {
+      max-width: 950px;
+      margin: -20px auto 2rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card-box {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      animation: fadeIn 0.8s ease-out;
+      transition: var(--transition);
+    }
+
+    .card-box:hover {
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    /* Navigation Mode Switcher */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-btn {
+      flex: 1;
+      max-width: 220px;
+      background: #e2e8f0;
+      color: var(--text);
+      border: 2px solid transparent;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .nav-btn.active, .nav-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Uploader Area */
+    .uploader {
+      border: 2px dashed var(--primary);
+      border-radius: var(--border-radius);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      background: #f8fafc;
+      transition: var(--transition);
+      display: block;
+      animation: pulseGlow 3s infinite;
+    }
+
+    .uploader:hover {
+      background: #eef2ff;
+      border-color: var(--primary-hover);
+      transform: scale(1.01);
+    }
+
+    .uploader-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .uploader strong {
+      font-size: 1.2rem;
+      color: var(--primary);
+      display: block;
+    }
+
+    .uploader span {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Output Grid & Dynamic Cards */
+    #images, #pdfresult {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .result-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      animation: fadeIn 0.5s ease-in-out;
+      transition: var(--transition);
+    }
+
+    .result-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .result-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Buttons */
+    .btn-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-action:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-secondary {
+      background: #64748b;
+    }
+
+    .btn-secondary:hover {
+      background: #475569;
+    }
+
+    /* Loader Spinner */
+    .loader-container {
+      text-align: center;
+      padding: 2rem;
+      grid-column: 1 / -1;
+    }
+
+    .spinner {
+      width: 45px;
+      height: 45px;
+      border: 4px solid #e2e8f0;
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    /* Features & How to section */
+    .info-section h2 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-section ul, .info-section ol {
+      padding-right: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-section li {
+      margin-bottom: 0.5rem;
+      color: #334155;
+    }
+
+    /* App Install Banner */
+    .install-box {
+      text-align: center;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+    }
+
+    .install-box p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px 15px;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--secondary);
+      margin: 0 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+      color: var(--primary);
+    }
+
+    /* Responsive Utilities */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      .card-box { padding: 1.2rem; }
+      .uploader { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>📄 SnapPDFImg</h1>
+    <p>الأداة الأسرع والأكثر أماناً لتحويل ملفات PDF والصور أونلاين</p>
+  </header>
+  
+ <section id="pdf-converter-section" style="text-align: center; padding: 20px 0;">
+    <img src="./pdfimg/pdf1.jpg" alt="تحويل PDF إلى صور والعكس" id="pdfimj" style="max-width: 100%; height: auto; border-radius: 8px;">
+ </section>
+  
+  <main>
+    <!-- App Download Action -->
+    <div class="install-box card-box">
+      <button class="btn-action" style="max-width: 250px; margin: 0 auto;" onclick="promptInstall()">📲 تنزيل التطبيق</button>
+      <p>أو من إعدادات المتصفح اختر "إضافة إلى الشاشة الرئيسية"</p>
+    </div>
+
+    <!-- Mode Switcher Buttons -->
+    <nav>
+      <button id="btn-pdf2img" class="nav-btn active" onclick="switchMode('pdf2img')">PDF ⬅️ صور</button>
+      <button id="btn-img2pdf" class="nav-btn" onclick="switchMode('img2pdf')">صور ⬅️ PDF</button>
+    </nav>
+
+    <!-- Converter Main Card -->
+    <div class="card-box">
+      <!-- Section 1: PDF to Image -->
+      <section id="pdf2imgSection">
+        <label class="uploader" id="pdfUploader">
+          <span class="uploader-icon">📥</span>
+          <strong>اسحب ملف PDF هنا أو اضغط لاختياره</strong>
+          <span>يدعم جميع ملفات الـ PDF عالية الدقة</span>
+          <input type="file" id="pdfFile" accept="application/pdf" class="hidden">
+        </label>
+        <div id="images"></div>
+      </section>
+
+      <!-- Section 2: Image to PDF -->
+      <section id="img2pdfSection" class="hidden">
+        <label class="uploader" id="imgUploader">
+          <span class="uploader-icon">🖼️</span>
+          <strong>اختر الصور لإنشاء ملف PDF</strong>
+          <span>يمكنك تحديد عدة صور في نفس الوقت (JPG, PNG)</span>
+          <input type="file" id="imgFiles" accept="image/*" multiple class="hidden">
+        </label>
+        <div id="pdfresult"></div>
+      </section>
+    </div>
+
+    <!-- Ad Unit: Interested for you -->
+    <div style="margin: 2rem 0; text-align: center;">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7999209256244874"
+           data-ad-slot="5338124564"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Share Link Button -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <button class="btn-action btn-secondary" style="max-width: 220px;" onclick="copySiteLink()">📋 نسخ رابط الموقع</button>
+    </div>
+
+    <!-- Instructions & Info Section -->
+    <div class="card-box info-section">
+      <h2>✨ مميزات الأداة</h2>
+      <ul>
+        <li>تحويل ملفات PDF إلى صور عالية الجودة (JPG / PNG) فوراً.</li>
+        <li>دمج عدة صور مختلفة في ملف PDF منظم بضغطة زر.</li>
+        <li>معالجة سريعة وآمنة 100% مباشرة داخل المتصفح بدون رفع الملفات لأي خادم.</li>
+        <li>سهولة السحب والإفلات وتجاوب كامل مع أجهزة الهاتف والحاسوب.</li>
+      </ul>
+
+      <h2>💡 طريقة الاستخدام</h2>
+      <ol>
+        <li>اختر وضع التحويل المناسب من الأزرار بالأعلى (PDF إلى صور أو العكس).</li>
+        <li>اضغط على منطقة التحميل أو قم بسحب الملفات وإسقاطها داخل المربع.</li>
+        <li>انتظر لحظات لمعالجة الملف، ثم اضغط على زر "تحميل" لتنزيل النتيجة مباشرة.</li>
+      </ol>
+
+      <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 1.5rem 0;">
+
+      <p style="color: var(--text-muted); font-size: 0.95rem;">
+        في عالم التقنية الحديث، أصبحت الحاجة لتحويل الملفات بين الصيغ المختلفة أمرًا أساسيًا في الحياة اليومية. تتيح لك أداة <strong>SnapPDFImg</strong> تحويل مستنداتك وسحب الصور منها بسهولة تامة. تتم عمليات المعالجة محلياً في جهازك حفاظاً على خصوصيتك وأمان بياناتك. الأداة مجانية بالكامل ومتاحة للاستخدام في أي وقت ومن أي جهاز.
+      </p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p style="margin-top: 10px;">
+      <a href="about3.html">عن الموقع</a> | 
+      <a href="privacy3.html">سياسة الخصوصية</a> | 
+      <a href="terms3.html">الشروط والأحكام</a> | 
+      <a href="contact3.html">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript Logic -->
+  <script>
+    let deferredPrompt;
+
+    // Register PWA Install Prompt
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function promptInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(() => deferredPrompt = null);
+      } else {
+        alert("من إعدادات المتصفح يمكنك إضافة التطبيق مباشرة إلى الشاشة الرئيسية.");
+      }
+    }
+
+    // Switch between PDF2IMG and IMG2PDF Modes
+    function switchMode(mode) {
+      const isPdf2Img = mode === 'pdf2img';
+      document.getElementById("pdf2imgSection").classList.toggle("hidden", !isPdf2Img);
+      document.getElementById("img2pdfSection").classList.toggle("hidden", isPdf2Img);
+      
+      document.getElementById("btn-pdf2img").classList.toggle("active", isPdf2Img);
+      document.getElementById("btn-img2pdf").classList.toggle("active", !isPdf2Img);
+    }
+
+    // Initialize PDF.js Worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+    // PDF to Image Conversion Logic
+    const pdfInput = document.getElementById("pdfFile");
+    const imagesDiv = document.getElementById("images");
+
+    pdfInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      imagesDiv.innerHTML = "";
+
+      // Show Animated Loader
+      const loader = document.createElement("div");
+      loader.className = "loader-container";
+      loader.innerHTML = `<div class="spinner"></div><p style="color:var(--primary); font-weight:bold;">جارٍ تحويل الصفحات إلى صور...</p>`;
+      imagesDiv.appendChild(loader);
+
+      try {
+        const buffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: new Uint8Array(buffer) }).promise;
+        imagesDiv.removeChild(loader);
+
+        for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+          const page = await pdf.getPage(pageNum);
+          const viewport = page.getViewport({ scale: 2 }); // Quality ratio
+
+          const canvas = document.createElement("canvas");
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+
+          await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+
+          const imgURL = canvas.toDataURL("image/png");
+
+          // Create Output Result Card
+          const card = document.createElement("div");
+          card.className = "result-card";
+
+          const imgElement = document.createElement("img");
+          imgElement.src = imgURL;
+          imgElement.alt = `صفحة ${pageNum}`;
+
+          const downloadLink = document.createElement("a");
+          downloadLink.href = imgURL;
+          downloadLink.download = `page-${pageNum}.png`;
+          downloadLink.style.textDecoration = "none";
+          downloadLink.innerHTML = `<button class="btn-action">⬇️ تحميل الصفحة ${pageNum}</button>`;
+
+          card.appendChild(imgElement);
+          card.appendChild(downloadLink);
+          imagesDiv.appendChild(card);
+        }
+      } catch (err) {
+        imagesDiv.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">حدث خطأ أثناء قراءة ملف الـ PDF. يرجى تجربة ملف آخر.</p>`;
+      }
+    });
+
+    // Image to PDF Conversion Logic
+    const imgInput = document.getElementById("imgFiles");
+    const resultDiv = document.getElementById("pdfresult");
+
+    imgInput.addEventListener("change", async (e) => {
+      const files = [...e.target.files];
+      if (!files.length) return;
+      resultDiv.innerHTML = "";
+
+      // Show Animated Loader
+      const loader = document.createElement("div");
+      loader.className = "loader-container";
+      loader.innerHTML = `<div class="spinner"></div><p style="color:var(--primary); font-weight:bold;">جارٍ إنشاء ملف الـ PDF...</p>`;
+      resultDiv.appendChild(loader);
+
+      try {
+        const { jsPDF } = window.jspdf;
+        const pdfDoc = new jsPDF();
+
+        for (let i = 0; i < files.length; i++) {
+          const img = await createImageBitmap(files[i]);
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          canvas.getContext("2d").drawImage(img, 0, 0);
+          const imgData = canvas.toDataURL("image/jpeg");
+          
+          if (i > 0) pdfDoc.addPage();
+          pdfDoc.addImage(imgData, "JPEG", 10, 10, 190, 0);
+        }
+
+        const pdfURL = pdfDoc.output("bloburl");
+        resultDiv.removeChild(loader);
+
+        const card = document.createElement("div");
+        card.className = "result-card";
+        card.style.gridColumn = "1 / -1";
+        card.innerHTML = `
+          <p style="font-weight:bold; margin-bottom:1rem; color:green;">✅ تم إنشاء ملف الـ PDF بنجاح!</p>
+          <a href="${pdfURL}" download="converted.pdf" style="text-decoration:none;">
+            <button class="btn-action" style="max-width:250px; margin:auto;">⬇️ تحميل ملف PDF</button>
+          </a>
+        `;
+        resultDiv.appendChild(card);
+      } catch (err) {
+        resultDiv.innerHTML = `<p style="color:red; text-align:center; grid-column:1/-1;">حدث خطأ أثناء تحويل الصور إلى PDF.</p>`;
+      }
+    });
+
+    // Copy Link Functionality
+    function copySiteLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("✅ تم نسخ رابط الموقع إلى الحافظة بنجاح!");
+      }).catch(() => {
+        alert("❌ تعذر النسخ التلقائي، يرجى نسخ الرابط من شريط العنوان.");
+      });
+    }
+  </script>
+</body>
+</html>

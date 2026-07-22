@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قلعة بعلبك - موقع سياحي ثقافي</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="معلومات كاملة عن قلعة بعلبك في لبنان، تشمل الموقع الجغرافي، الآثار الرومانية، التاريخ، ومهرجانات بعلبك الشهيرة.">
+  <meta name="keywords" content="قلعة بعلبك, آثار بعلبك, تاريخ قلعة بعلبك, معبد جوبيتر, بعلبك لبنان, السياحة في بعلبك, معالم بعلبك, مهرجانات بعلبك, المعبد الروماني, جبل لبنان">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="قلعة بعلبك - اكتشف التاريخ والسياحة في لبنان">
+  <meta property="og:description" content="تعرف على أهم المعالم الأثرية في قلعة بعلبك، من معبد جوبيتر حتى المهرجانات الثقافية.">
+  <meta property="og:image" content="https://beqaana.com/wp-content/uploads/2021/07/435.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tahaghoch.github.io/tmgweb">
+  
+  <!-- Google Fonts (Tajawal) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics -->
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LFRXX629B8');
+</script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7999209256244874">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-dark: #0f1115;
+      --card-bg: #181b22;
+      --card-border: #2a2e39;
+      --gold-primary: #d4af37;
+      --gold-hover: #f3e5ab;
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Tajawal', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      direction: rtl;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styling */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 17, 21, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Header / Hero Section */
+    header {
+      position: relative;
+      height: 70vh;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15, 17, 21, 0.4) 0%, var(--bg-dark) 100%), 
+                  url('./img/baalbek1.jpg') center/cover no-repeat;
+      padding: 0 20px;
+      overflow: hidden;
+      animation: heroZoom 15s infinite alternate ease-in-out;
+    }
+
+    @keyframes heroZoom {
+      0% { background-scale: 1; }
+      100% { background-scale: 1.08; }
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #ffffff, var(--gold-primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      color: var(--gold-hover);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+      animation: fadeInUp 1s ease 0.3s forwards;
+      opacity: 0;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: -60px auto 40px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Section Cards with Scroll Animation */
+    section {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      
+      /* Scroll animation initial states */
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section:hover {
+      border-color: rgba(212, 175, 55, 0.4);
+      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.08);
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--gold-primary);
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-primary), transparent);
+      border-radius: 2px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* Image Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .gallery-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      height: 250px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-card .overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      padding: 15px;
+      color: var(--gold-hover);
+      font-size: 0.95rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Custom Styled List */
+    ul {
+      list-style: none;
+      padding-right: 10px;
+      margin: 20px 0;
+    }
+
+    ul li {
+      position: relative;
+      padding-right: 30px;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    ul li::before {
+      content: "✦";
+      position: absolute;
+      right: 0;
+      color: var(--gold-primary);
+      font-size: 1.2rem;
+    }
+
+    /* Ads Container */
+    .ad-box {
+      text-align: center;
+      margin: 30px 0;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      border: 1px dashed var(--card-border);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #090a0d;
+      border-top: 1px solid var(--card-border);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 50px;
+      font-size: 1rem;
+    }
+
+    footer a {
+      color: var(--gold-primary);
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--gold-hover);
+      text-decoration: underline;
+    }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.3rem; }
+      header p { font-size: 1.1rem; }
+      section { padding: 25px; }
+      nav a { font-size: 0.9rem; padding: 5px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="#about">من نحن</a>
+      <a href="#description">مقدمة عامة</a>
+      <a href="#location">الموقع الجغرافي</a>
+      <a href="#history">لمحة تاريخية</a>
+      <a href="#monuments">الآثار والمواقع</a>
+      <a href="#festivals">مهرجانات بعلبك</a>
+    </div>
+  </nav>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874"
+     crossorigin="anonymous"></script>
+<!-- ad intersted for you -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7999209256244874"
+     data-ad-slot="5338124564"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  <!-- Hero Header -->
+  <header>
+    <h1>قلعة بعلبك</h1>
+    <p>رحلة في أعماق التاريخ والحضارة اللبنانية</p>
+  </header>
+
+  <!-- Content Container -->
+  <div class="container">
+    
+    <section id="about">
+      <h2>من نحن</h2>
+      <p>نحن فريق شغوف بالتراث اللبناني، نسعى لتقديم محتوى عربي مميز وغني عن أهم المعالم التاريخية في لبنان، وعلى رأسها قلعة بعلبك. هدفنا هو نشر المعرفة السياحية والثقافية بأسلوب بسيط وموثوق ومتاح للجميع، وتشجيع السياحة الداخلية والخارجية نحو هذه المدينة الأسطورية.</p>
+    </section>
+
+    <!-- Banner Top Home Ad -->
+    <div class="ad-box">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7999209256244874"
+           data-ad-slot="9117689493"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <section id="description">
+      <h2>مقدمة عامة</h2>
+      <p>على رُفوف التاريخ تتربّع قلعة بعلبك كأحد أعظم الشواهد المعمارية في شرق المتوسّط. يقع المجمع الأثريّ على مشارف سهل البقاع الخصيب، ويرتفع أكثر من ألف متر عن سطح البحر، ما يمنح الزائر إطلالة فريدة تجمع بين القمم الثلجية لسلسلة لبنان الشرقية وحقول العنب المنتشرة في الوادي.</p>
+    </section>
+
+    <!-- Photo Gallery Section using the requested images -->
+    <section>
+      <h2>معرض الصور الفاخر</h2>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="./img/baalbek1.jpg" alt="قلعة بعلبك - المعبد">
+          <div class="overlay">عظمة المعبد الروماني</div>
+        </div>
+        <div class="gallery-card">
+          <img src="./img/baalbek2.jpg" alt="قلعة بعلبك - الأعمدة">
+          <div class="overlay">الأعمدة الكورنثية الشهيرة</div>
+        </div>
+        <div class="gallery-card">
+          <img src="./img/baalbek3.jpg" alt="قلعة بعلبك - الآثار">
+          <div class="overlay">زخارف تاريخية</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <h2>الموقع الجغرافي لقلعة بعلبك</h2>
+      <p>تقع قلعة بعلبك في سهل البقاع الشرقي على ارتفاع 1150 مترًا فوق سطح البحر، وتبعد عن العاصمة بيروت نحو 85 كلم. تشتهر المدينة بمناخها المعتدل صيفًا، وشتائها البارد، وتُعد من أخصب المناطق الزراعية في لبنان. قرب المدينة من الحدود السورية منحها على مرّ العصور أهمية جغرافية واستراتيجية كبرى، مما جعلها ملتقى للتجارة والحضارات.</p>
+    </section>
+
+    <section id="history">
+      <h2>لمحة تاريخية عن بعلبك</h2>
+      <p>بعلبك تُعتبر من أقدم المدن التي استوطنها الإنسان في منطقة الشرق الأوسط. يعود تاريخها إلى أكثر من تسعة آلاف سنة قبل الميلاد، حين كانت موقعًا لعبادة الآلهة الكنعانية. لاحقًا، أصبحت مركزًا هامًا في العصر الروماني وشُيّدت فيها معابد ضخمة مثل معبد جوبيتر، ومعبد باخوس، وفينوس، التي لا تزال أطلالها قائمة حتى اليوم.</p>
+      <p>تحوّلت بعلبك بعد انتشار المسيحية إلى مركز ديني مهم، ثم في العهد الإسلامي أصبحت قلعة حصينة، وقد أضيف إليها مسجد وخزانات مياه وسور دفاعي. في العصر العثماني تراجعت أهميتها، لكن مع بداية القرن العشرين بدأت حملات ترميم واسعة أعادت لها بعضًا من مجدها.</p>
+    </section>
+
+    <section id="monuments">
+      <h2>الآثار في قلعة بعلبك</h2>
+      <p>يمتاز الموقع بثلاثة معابد رئيسة بُنيت بين القرنين الأول والثالث للميلاد. أكبرها معبد جوبيتر الذي يُدهش بحجارته الضخمة—بعضها يزن أكثر من ٧٠٠ طن. أمّا معبد باخوس الأصغر حجمًا فيُعتبر اليوم من أفضل المعابد الرومانيّة حفظًا في العالم؛ إذ ما زالت زخارف كورنثيّة دقيقة تزيّن تيجان أعمدته البالغ ارتفاعها ١٩ مترًا. ويكتمل المشهد بمعبد فينوس الدائريّ الذي أُعيد استعماله كنيسة بيزنطيّة في القرن الخامس.</p>
+      <ul>
+        <li><strong>معبد جوبيتر:</strong> يُعد من أكبر المعابد الرومانية عالميًا، وتُعرف أعمدته بأنها الأعلى والأضخم.</li>
+        <li><strong>معبد باخوس:</strong> لا يزال بحالة ممتازة نسبيًا، ويُستخدم اليوم في بعض المهرجانات الثقافية.</li>
+        <li><strong>معبد فينوس:</strong> صُمم بشكل دائري فريد ومميز مقارنة بباقي المعابد التقليدية.</li>
+        <li><strong>الأبنية الإسلامية:</strong> مثل الجامع الكبير، ومقام السيدة خولة، وخزانات المياه المحصّنة.</li>
+      </ul>
+      <p>بعلبك ليست فقط أطلالًا، بل هي سجلٌّ نابض يروي قصة تحوّلات حضارية، وثقافية، ودينية، امتدت عبر آلاف السنين.</p>
+    </section>
+
+    <section id="festivals">
+      <h2>مهرجانات بعلبك</h2>
+      <p>تُعد مهرجانات بعلبك الدولية من أقدم وأشهر المهرجانات الفنية والثقافية في الشرق الأوسط، وتُقام كل صيف داخل جدران قلعة بعلبك الرومانية التاريخية، مما يمنحها طابعًا ساحرًا لا مثيل له. تأسست عام 1956.</p>
+      <p>وشهدت عروضًا عالمية لفنانين كبار مثل أم كلثوم، فيروز، شارل أزنافور، وغيرهم. تمتزج في هذه المهرجانات الموسيقى الكلاسيكية، الرقص، الأوبرا، والمسرح، وتُعدّ مناسبة استثنائية تستقطب الزوار من لبنان والعالم أجمع، لتجربة ثقافية وفنية فريدة في أحضان التاريخ.</p>
+    </section>
+
+    <!-- Bottom Ad Container -->
+    <div class="ad-box">
+      <ins class="adsbygoogle" 
+           style="display:block" 
+           data-ad-client="ca-pub-7999209256244874" 
+           data-ad-slot="9117689493" 
+           data-ad-format="auto" 
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+ <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="about.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="privacy.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="terms.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="contact.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <!-- Scroll Animation Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Trigger once
+          }
+        });
+      }, observerOptions);
+
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
+  </script>
+</body>
+</html>

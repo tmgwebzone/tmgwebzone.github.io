@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار تحليل الشخصية الشامل | TMG WEB ZONE</title>
+
+  <!-- SEO & Verification Meta Tags -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+  <meta name="description" content="اختبر شخصيتك مجانًا عبر 20 سؤالًا تفاعليًا واحصل على تقرير مفصل ودقيق عن نمطك، نقاط قوتك، واقتراحات للتطوير الشخصي والمهني.">
+  <meta name="keywords" content="تحليل شخصية, اختبار نمط الشخصية, تطوير الذات, اعرف شخصيتك, TMGWEB, TMG WEB ZONE">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LFRXX629B8');
+  </script>
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-7999209256244874">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <!-- Font & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --secondary: #06b6d4;
+      --accent: #f59e0b;
+      --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Glows */
+    .glow-1, .glow-2 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: -1;
+      opacity: 0.35;
+      animation: floatGlow 10s infinite alternate ease-in-out;
+    }
+    .glow-1 {
+      width: 350px;
+      height: 350px;
+      background: #6366f1;
+      top: -50px;
+      right: -50px;
+    }
+    .glow-2 {
+      width: 300px;
+      height: 300px;
+      background: #06b6d4;
+      bottom: -50px;
+      left: -50px;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 40px) scale(1.1); }
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #818cf8, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header p {
+      color: var(--text-sub);
+      font-size: 1.1rem;
+    }
+
+    /* Main Container */
+    main {
+      max-width: 800px;
+      width: 90%;
+      margin: 0 auto 3rem;
+      flex: 1;
+    }
+
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    /* Intro Section */
+    .intro-section h2 {
+      color: #38bdf8;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .intro-section ol, .intro-section ul {
+      margin-right: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+    .intro-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-start:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 15px 30px rgba(79, 70, 229, 0.6);
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      margin-bottom: 1.5rem;
+      display: none;
+    }
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-sub);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+
+    /* Quiz Area */
+    .question-box {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .question-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .options button {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
+      font-size: 1rem;
+      text-align: right;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .options button:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #818cf8;
+      transform: translateX(-5px);
+    }
+    .options button::after {
+      content: '\f104';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .options button:hover::after {
+      opacity: 1;
+      transform: translateX(-5px);
+    }
+
+    /* Result Section */
+    .result-card {
+      text-align: center;
+      animation: zoomIn 0.6s ease-out;
+    }
+    .result-icon {
+      font-size: 4rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+    .result-card h2 {
+      font-size: 1.8rem;
+      color: #38bdf8;
+      margin-bottom: 1rem;
+    }
+    .result-body {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: right;
+      line-height: 1.9;
+      margin: 1.5rem 0;
+      white-space: pre-line;
+      border-right: 4px solid var(--secondary);
+    }
+
+    .social-share {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+    .btn-share {
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, filter 0.2s;
+      text-decoration: none;
+    }
+    .btn-share:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+    }
+    .btn-wa { background: #25D366; }
+    .btn-x { background: #000000; border: 1px solid #333; }
+    .btn-copy { background: #4b5563; }
+
+    .btn-action-site {
+      background: rgba(255,255,255,0.08);
+      color: var(--text-main);
+      border: 1px solid var(--card-border);
+      padding: 0.7rem 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.3s;
+    }
+    .btn-action-site:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+    /* Ad Banner Container */
+    .ad-wrapper {
+      margin: 1.5rem 0;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      margin-top: auto;
+      padding: 25px 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #888;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(8px);
+    }
+    footer p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+    footer a {
+      color: #00adb5;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #38bdf8;
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Effects -->
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
+  <header>
+    <h1><i class="fa-solid fa-brain"></i> اختبار تحليل الشخصية</h1>
+    <p>أجب عن 20 سؤالًا واكتشف خبايا شخصيتك وتفاصيلها العميقة</p>
+  </header>
+
+  <main>
+
+    <!-- Intro Card -->
+    <div id="intro" class="glass-card intro-section">
+      <h2><i class="fa-solid fa-circle-info"></i> كيف يعمل الاختبار؟</h2>
+      <ol>
+        <li>اقرأ كل سؤال بعناية واختر الإجابة الأقرب لطبيعتك الحقيقية.</li>
+        <li>يتكون الاختبار من 20 سؤالًا ممتعًا ودقيقًا.</li>
+        <li>في النهاية ستحصل على تقرير شامل يبين نمطك ومعالم شخصيتك.</li>
+      </ol>
+
+      <h2><i class="fa-solid fa-star"></i> فوائد معرفة نمطك</h2>
+      <ul>
+        <li>فهم أعمق لذاتك وتواصل أكثر فعالية مع الآخرين.</li>
+        <li>تحديد مساراتك الدراسية والمهنية المناسبة.</li>
+        <li>التعرف على نقاط القوة وطرق التعامل مع الضغوط.</li>
+      </ul>
+
+      <section id="pdf-converter-section" style="text-align: center; padding: 20px 0;">
+       <img src="./analysisimg/analysis1.jpg" alt="تحويل PDF إلى صور والعكس" id="analysisimg" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </section>
+
+      <button class="btn-start" onclick="startQuiz()">
+        <i class="fa-solid fa-play"></i> ابدأ الاختبار الآن
+      </button>
+    </div>
+
+    <!-- Ad Unit 1 -->
+    <div class="ad-wrapper">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7999209256244874"
+           data-ad-slot="5338124564"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Quiz Card Container -->
+    <div id="quiz-container" class="glass-card" style="display: none;">
+      <!-- Progress Bar -->
+      <div id="progress-container" class="progress-container">
+        <div class="progress-info">
+          <span id="progress-text">السؤال 1 من 20</span>
+          <span id="progress-percent">5%</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Question Box -->
+      <div id="quiz" class="question-box"></div>
+    </div>
+
+    <!-- Share Button Top -->
+    <div id="share-top-btn" style="text-align:center; margin-bottom: 1rem;">
+      <button class="btn-action-site" onclick="sharePage()">
+        <i class="fa-solid fa-share-nodes"></i> شارك الموقع مع أصدقائك
+      </button>
+    </div>
+
+    <!-- Result Card Container -->
+    <div id="result" class="glass-card result-card" style="display:none"></div>
+
+    <!-- SEO Content Section -->
+    <div class="glass-card" style="font-size:0.95rem; line-height: 1.8; color: var(--text-sub);">
+      <p>صفحة تحليل الشخصية تمكّنك من فهم ذاتك بطريقة تفاعلية ممتعة، من خلال الإجابة على مجموعة من الأسئلة المصممة بعناية. كل سؤال يساعدك على اكتشاف جانب من جوانب سلوكك وتفكيرك وتعاملك مع الآخرين. في نهاية الاختبار، ستحصل على نتيجة شاملة توضّح لك نمط شخصيتك وصفاتك الأساسية. هذه الأداة مفيدة للطلاب، المهتمين بالتنمية الذاتية، والمقبلين على قرارات مهمة في حياتهم.</p>
+    </div>
+
+    <!-- Ad Unit 2 -->
+    <div class="ad-wrapper">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-7999209256244874"
+           data-ad-slot="9117689493"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="about4.html">عن الموقع</a> | 
+      <a href="privacy4.html">سياسة الخصوصية</a> | 
+      <a href="terms4.html">الشروط والأحكام</a> | 
+      <a href="contact4.html">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <script>
+    const questions = [
+      {q:'كيف تتصرف عند مقابلة أشخاص جدد؟', o:['أبادر بالحديث فورًا', 'أراقب أولًا ثم أتحدث', 'أكتفي بالتحية وأنتظر']},
+      {q:'عندما تخطّط لرحلة، ما أول ما تفكر فيه؟', o:['المغامرات والأنشطة', 'الميزانية والتفاصيل', 'مع من سأقضي الوقت']},
+      {q:'كيف تتعامل مع التوتر؟', o:['أمارس رياضة أو نشاط', 'أكتب أفكاري وأحللها', 'أتحدث مع صديق مقرب']},
+      {q:'أيهما يصفك أكثر؟', o:['حاسم وسريع', 'منظم ودقيق', 'متعاون وعطوف']},
+      {q:'ما الذي يجعلك تشعر بالإنجاز؟', o:['تجربة شيء جديد', 'إتمام مهمة معقدة', 'مساعدة شخص ما']},
+      {q:'في عطلة نهاية الأسبوع، تفضل؟', o:['نشاطات خارجية', 'البقاء بالمنزل للقراءة', 'لقاء الأصدقاء']},
+      {q:'كيف تتخذ قراراتك المهمة؟', o:['باتباع حدسي', 'بجمع البيانات والتحليل', 'بالتشاور مع من أثق بهم']},
+      {q:'ما نوع الأفلام المفضل لديك؟', o:['أكشن ومغامرة', 'وثائقي ودراما', 'رومانسية واجتماعية']},
+      {q:'إذا تعرّض صديق لمشكلة، ماذا تفعل؟', o:['أقدم حلًا فوريًا', 'أحلل المشكلة معه', 'أدعمه عاطفيًا']},
+      {q:'كيف تصف مكتبك أو غرفتك؟', o:['حيوي وغير مرتب', 'مرتب ومنظم', 'يحتوي تذكارات وصور']},
+      {q:'في العمل الجماعي أنت غالبًا؟', o:['القائد المبادِر', 'المخطط والمنسق', 'الروح الاجتماعية للفريق']},
+      {q:'أكثر ما يزعجك هو؟', o:['الروتين اليومي', 'الفوضى وعدم النظام', 'الوحدة']},
+      {q:'عندما تتعلم مهارة جديدة، تفضّل؟', o:['التجريب العملي', 'قراءة الشروحات المفصلة', 'التعلم مع مجموعة']},
+      {q:'في حفلة كبيرة، تجد نفسك؟', o:['تتحدث إلى أشخاص كُثر', 'تركز على محادثة عميقة', 'تساعد في تنظيم الأجواء']},
+      {q:'أي نوع من الهدايا يفرحك أكثر؟', o:['تجربة أو مغامرة', 'كتاب أو أداة مفيدة', 'رسالة شخصية أو شيء رمزي']},
+      {q:'كيف تتفاعل مع التغيير السريع؟', o:['بحماسة وتكيّف سريع', 'أحتاج خطة واضحة أولًا', 'أبحث عن دعم الأصدقاء']},
+      {q:'عند حل مشكلة، تبدأ بـ؟', o:['تجربة حلول مختلفة', 'تحليل الأسباب الجذرية', 'مناقشة المشاعر المرتبطة']},
+      {q:'ماذا يمثل النجاح بالنسبة لك؟', o:['تحقيق أهدافي ورؤيتي', 'امتلاك معرفة عميقة', 'علاقات قوية وسعيدة']},
+      {q:'اختَر النشاط الذي يجذبك أكثر:', o:['تسلّق جبل', 'متابعة كورس أونلاين', 'تطوع في حدث خيري']},
+      {q:'أي صفة تعتز بها أكثر؟', o:['الشجاعة', 'الدقة', 'التعاطف']}
+    ];
+
+    let current = 0;
+    const scores = {A:0, B:0, C:0};
+
+    const introDiv = document.getElementById('intro');
+    const quizContainer = document.getElementById('quiz-container');
+    const quizDiv = document.getElementById('quiz');
+    const resultDiv = document.getElementById('result');
+    const progressContainer = document.getElementById('progress-container');
+
+    function startQuiz() {
+      introDiv.style.display = 'none';
+      quizContainer.style.display = 'block';
+      progressContainer.style.display = 'block';
+      render();
+    }
+
+    function updateProgress() {
+      const percentage = Math.round((current / questions.length) * 100);
+      document.getElementById('progress-fill').style.width = percentage + '%';
+      document.getElementById('progress-text').innerText = `السؤال ${current + 1} من ${questions.length}`;
+      document.getElementById('progress-percent').innerText = percentage + '%';
+    }
+
+    function render() {
+      if(current === questions.length) {
+        return showResult();
+      }
+      updateProgress();
+      
+      const q = questions[current];
+      quizDiv.innerHTML = `
+        <div class="question-title">${current + 1}. ${q.q}</div>
+        <div class="options">
+          <button onclick="select('A')"><span>${q.o[0]}</span></button>
+          <button onclick="select('B')">${q.o[1]}</button>
+          <button onclick="select('C')">${q.o[2]}</button>
+        </div>
+      `;
+    }
+
+    function select(opt) {
+      scores[opt]++;
+      current++;
+      
+      // أنيميشن سريعة عند الانتقال للسؤال التالي
+      quizDiv.style.animation = 'none';
+      quizDiv.offsetHeight; // Reflow
+      quizDiv.style.animation = 'fadeIn 0.4s ease-in-out';
+      
+      render();
+    }
+
+    function showResult() {
+      quizContainer.style.display = 'none';
+      resultDiv.style.display = 'block';
+      
+      const dominant = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+      
+      const details = {
+        A: `• أنت شخص مبادر وشجاع يحب المغامرة والتجارب الجديدة.\n• تتحمس للتحديات ولا تخشى المخاطر المحسوبة.\n• تُلهم من حولك بالطاقة والحماس.\n• قد تحتاج أحيانًا للتأنّي قبل اتخاذ القرارات الكبيرة.`,
+        B: `• تتميز بعقل تحليلي ومنظم يركز على التفاصيل الدقيقة.\n• تبحث دائمًا عن المنطق والأسباب قبل اتخاذ أي قرار.\n• تحب التعلم المستمر وتطوير مهاراتك بعمق.\n• احرص على منح نفسك وقتًا للراحة والتواصل الاجتماعي.`,
+        C: `• شخصية اجتماعية دافئة تهتم بالعلاقات الإنسانية.\n• تتمتع بقدرة عالية على التعاطف وفهم مشاعر الآخرين.\n• تجد سعادتك في مساعدة الآخرين وخلق أجواء إيجابية.\n• احرص على وضع حدود لطاقتك لتجنّب الإرهاق النفسي.`
+      };
+
+      const titles = {
+        A: 'الشخصية القيادية والمغامرة (المبادِر)',
+        B: 'الشخصية التحليلية والمنظمة (المفكر)',
+        C: 'الشخصية الداعمة والاجتماعية (الودود)'
+      };
+
+      resultDiv.innerHTML = `
+        <div class="result-icon"><i class="fa-solid fa-award"></i></div>
+        <h2>نمط شخصيتك هو:</h2>
+        <h3 style="color:var(--accent); font-size:1.4rem; margin-bottom:1rem;">${titles[dominant]}</h3>
+        
+        <div class="result-body">${details[dominant]}</div>
+        
+        <p style="color:var(--text-sub); font-size:0.95rem;">إجمالي توزيع النقاط: A (${scores.A}) | B (${scores.B}) | C (${scores.C})</p>
+        
+        <div class="social-share">
+          <button class="btn-share btn-wa" onclick="shareWhatsApp('${titles[dominant]}')">
+            <i class="fa-brands fa-whatsapp"></i> واتساب
+          </button>
+          <button class="btn-share btn-x" onclick="shareTwitter('${titles[dominant]}')">
+            <i class="fa-brands fa-x-twitter"></i> تويتر
+          </button>
+          <button class="btn-share btn-copy" onclick="copySiteLink()">
+            <i class="fa-solid fa-link"></i> نسخ الرابط
+          </button>
+        </div>
+      `;
+    }
+
+    function shareWhatsApp(title) {
+      const pageURL = window.location.href;
+      const text = encodeURIComponent(`✨ نتيجتي في اختبار تحليل الشخصية هي: [${title}]\n\nاختبر شخصيتك الآن عبر الرابط:`);
+      window.open(`https://wa.me/?text=${text}%0A${pageURL}`, '_blank');
+    }
+
+    function shareTwitter(title) {
+      const pageURL = window.location.href;
+      const text = encodeURIComponent(`✨ اكتشفت نمط شخصيتي: [${title}] في اختبار تحليل الشخصية! جربه الآن:`);
+      window.open(`https://twitter.com/intent/tweet?text=${text}&url=${pageURL}`, '_blank');
+    }
+
+    function sharePage() {
+      const shareURL = window.location.href;
+      const text = "اكتشف شخصيتك ونمط تفكيرك عبر هذا الاختبار الرائع:";
+      if (navigator.share) {
+        navigator.share({
+          title: document.title,
+          text: text,
+          url: shareURL
+        });
+      } else {
+        copySiteLink();
+      }
+    }
+
+    function copySiteLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("✅ تم نسخ رابط الموقع بنجاح!");
+      }).catch(() => {
+        alert("❌ تعذر النسخ تلقائيًا، يرجى نسخ الرابط من شريط العنوان.");
+      });
+    }
+  </script>
+</body>
+</html>
