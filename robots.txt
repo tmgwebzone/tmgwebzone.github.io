@@ -1,4 +1,4 @@
 User-agents: *
 Allow: /
 Sitemap:
-https://tmgwebzone.github.io/TMG/sitemap.xml
+https://tmgwebzone.github.io/sitemap.xml
