@@ -1,9 +1,11 @@
 const CACHE_NAME = "snappdfimg-v1";
 
 const FILES_TO_CACHE = [
-  "pdfconvert.html",
-  "manifest.json",
-  "pdf1.jpg"
+  "/",
+  "/pdfconvert.html",
+  "/manifest.json",
+  "/icon-192.png",
+  "/icon-512.png"
 ];
 
 self.addEventListener("install", event => {
