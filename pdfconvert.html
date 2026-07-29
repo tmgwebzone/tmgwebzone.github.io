@@ -23,10 +23,9 @@
 
   <!-- PWA & Icons -->
   <link rel="manifest" href="pdfimg/manifest.json">
-  <link rel="icon" href="pdf1.jpg" type="image/jpg">
+  <link rel="icon" href="pdfimg/pdf1.jpg" type="image/jpg">
   <meta name="theme-color" content="#2563eb">
-  <link rel="apple-touch-icon" href="/icon-192.png">
-
+<link rel="apple-touch-icon" href="pdfimg/icon-192.png">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
@@ -608,11 +607,12 @@
         alert("❌ تعذر النسخ التلقائي، يرجى نسخ الرابط من شريط العنوان.");
       });
     }
-  </script>
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("pdfimg/sw.js");
+    navigator.serviceWorker.register("pdfimg/sw.js")
+      .then(() => console.log("SW Registered"))
+      .catch(err => console.error(err));
   });
 }
 </script>
