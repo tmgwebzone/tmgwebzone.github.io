@@ -19,13 +19,13 @@
   <meta property="og:description" content="حوّل صفحات PDF إلى صور أو العكس بخطوة واحدة وبدون رفع ملفاتك إلى خوادم خارجية.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tmgwebzone.github.io/pdfconvert.html/">
-  <meta property="og:image" content="https://tmgwebzone.github.io/pdfimg/pdf1.jpg">
+  <meta property="og:image" content="https://tmgwebzone.github.io/pdf/pdf1.jpg">
 
   <!-- PWA & Icons -->
   <link rel="manifest" href="pdfimg/manifest.json">
-  <link rel="icon" href="pdfimg/pdf1.jpg" type="image/jpg">
+  <link rel="icon" href="pdf/pdf1.jpg" type="image/jpg">
   <meta name="theme-color" content="#2563eb">
-  <link rel="apple-touch-icon" href="pdfimg/icon-192.png">
+  <link rel="apple-touch-icon" href="pdf/icon-192.png">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
@@ -368,7 +368,7 @@
   </header>
   
  <section id="pdf-converter-section" style="text-align: center; padding: 20px 0;">
-    <img src="./pdfimg/pdf1.jpg" alt="تحويل PDF إلى صور والعكس" id="pdfimj" style="max-width: 100%; height: auto; border-radius: 8px;">
+    <img src="./pdf/pdf1.jpg" alt="تحويل PDF إلى صور والعكس" id="pdfimj" style="max-width: 100%; height: auto; border-radius: 8px;">
  </section>
   
   <main>
@@ -456,10 +456,10 @@
   <footer>
     <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
     <p style="margin-top: 10px;">
-      <a href="about3.html">عن الموقع</a> | 
-      <a href="privacy3.html">سياسة الخصوصية</a> | 
-      <a href="terms3.html">الشروط والأحكام</a> | 
-      <a href="contact3.html">اتصل بنا</a>
+      <a href="pdf/about3.html">عن الموقع</a> | 
+      <a href="pdf/privacy3.html">سياسة الخصوصية</a> | 
+      <a href="pdf/terms3.html">الشروط والأحكام</a> | 
+      <a href="pdf/contact3.html">اتصل بنا</a>
     </p>
   </footer>
 
@@ -611,7 +611,7 @@
     // Register Service Worker
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("pdfimg/sw.js")
+        navigator.serviceWorker.register("pdf/sw.js")
           .then(() => console.log("SW Registered"))
           .catch(err => console.error(err));
       });
