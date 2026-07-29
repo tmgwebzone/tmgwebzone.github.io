@@ -22,7 +22,7 @@
   <meta property="og:image" content="https://tmgwebzone.github.io/pdfimg/pdf1.jpg">
 
   <!-- PWA & Icons -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="pdfimg/manifest.json">
   <link rel="icon" href="pdf1.jpg" type="image/jpg">
   <meta name="theme-color" content="#2563eb">
   <link rel="apple-touch-icon" href="/icon-192.png">
@@ -609,16 +609,10 @@
       });
     }
   </script>
-  <script>
+<script>
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
-    navigator.serviceWorker.register("sw.js")
-      .then(function () {
-        console.log("Service Worker Registered");
-      })
-      .catch(function (error) {
-        console.log("Service Worker Error:", error);
-      });
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("pdfimg/sw.js");
   });
 }
 </script>
