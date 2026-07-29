@@ -608,14 +608,14 @@
       });
     }
 
-    // Register Service Worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("pdf/sw.js")
-          .then(() => console.log("SW Registered"))
-          .catch(err => console.error(err));
-      });
-    }
-  </script>
+  // Register Service Worker
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./pdf/sw.js", { scope: "./pdf/" })
+        .then(() => console.log("SW Registered"))
+        .catch(err => console.error("SW Error:", err));
+    });
+  }
+</script>
 </body>
 </html>
