@@ -3,7 +3,7 @@
   "short_name": "SnapPDFImg",
   "description": "Convert PDF files to images easily online.",
   "start_url": "./pdfconvert.html",
-  "scope": "./",
+  "scope": "./pdfconvert.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
