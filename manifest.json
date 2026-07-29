@@ -2,17 +2,21 @@
   "name": "SnapPDFImg - PDF Converter",
   "short_name": "SnapPDFImg",
   "description": "Convert PDF files to images easily online.",
-  "start_url": "pdfconvert.html",
-  "scope": "./",
+  "start_url": "/pdfconvert.html",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "pdf1.jpg",
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
