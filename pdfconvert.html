@@ -25,7 +25,7 @@
   <link rel="manifest" href="pdfimg/manifest.json">
   <link rel="icon" href="pdfimg/pdf1.jpg" type="image/jpg">
   <meta name="theme-color" content="#2563eb">
-<link rel="apple-touch-icon" href="pdfimg/icon-192.png">
+  <link rel="apple-touch-icon" href="pdfimg/icon-192.png">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFRXX629B8"></script>
@@ -376,7 +376,6 @@
     <div class="install-box card-box">
       <button class="btn-action" style="max-width: 250px; margin: 0 auto;" onclick="promptInstall()">📲 تنزيل التطبيق</button>
       <p>او بجانب شريط البحث اضغط<br>"install"<br>و في الهاتف اختار اضافة الى الشاشة الرئسية من خلال الضغط على ثلاث نقاط</p>
-
     </div>
 
     <!-- Mode Switcher Buttons -->
@@ -389,7 +388,7 @@
     <div class="card-box">
       <!-- Section 1: PDF to Image -->
       <section id="pdf2imgSection">
-        <label class="uploader" id="pdfUploader">
+        <label class="uploader" id="pdfUploader" for="pdfFile">
           <span class="uploader-icon">📥</span>
           <strong>اسحب ملف PDF هنا أو اضغط لاختياره</strong>
           <span>يدعم جميع ملفات الـ PDF عالية الدقة</span>
@@ -400,7 +399,7 @@
 
       <!-- Section 2: Image to PDF -->
       <section id="img2pdfSection" class="hidden">
-        <label class="uploader" id="imgUploader">
+        <label class="uploader" id="imgUploader" for="imgFiles">
           <span class="uploader-icon">🖼️</span>
           <strong>اختر الصور لإنشاء ملف PDF</strong>
           <span>يمكنك تحديد عدة صور في نفس الوقت (JPG, PNG)</span>
@@ -608,14 +607,15 @@
         alert("❌ تعذر النسخ التلقائي، يرجى نسخ الرابط من شريط العنوان.");
       });
     }
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("pdfimg/sw.js")
-      .then(() => console.log("SW Registered"))
-      .catch(err => console.error(err));
-  });
-}
-</script>
+
+    // Register Service Worker
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("pdfimg/sw.js")
+          .then(() => console.log("SW Registered"))
+          .catch(err => console.error(err));
+      });
+    }
+  </script>
 </body>
 </html>
