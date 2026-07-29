@@ -15,25 +15,25 @@
 
    <!-- about -->
     <url>
-    <loc>https://tmgwebzone.github.io/about.html</loc>
+    <loc>https://tmgwebzone.github.io/baalbek/about.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- contact  -->
     <url>
-    <loc>https://tmgwebzone.github.io/contact.html</loc>
+    <loc>https://tmgwebzone.github.io/baalbek/contact.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- privacy -->
     <url>
-    <loc>https://tmgwebzone.github.io/privacy.html</loc>
+    <loc>https://tmgwebzone.github.io/baalbek/privacy.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- terms -->
     <url>
-    <loc>https://tmgwebzone.github.io/terms.html</loc>
+    <loc>https://tmgwebzone.github.io/baalbek/terms.html</loc>
     <priority>0.80</priority>
   </url>
 
@@ -44,25 +44,25 @@
 
    <!-- about -->
     <url>
-    <loc>https://tmgwebzone.github.io/about2.html</loc>
+    <loc>https://tmgwebzone.github.io/barja/about2.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- contact  -->
     <url>
-    <loc>https://tmgwebzone.github.io/contact2.html</loc>
+    <loc>https://tmgwebzone.github.io/barja/contact2.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- privacy -->
     <url>
-    <loc>https://tmgwebzone.github.io/privacy2.html</loc>
+    <loc>https://tmgwebzone.github.io/barja/privacy2.html</loc>
     <priority>0.80</priority>
   </url>
 
    <!-- terms -->
     <url>
-    <loc>https://tmgwebzone.github.io/terms2.html</loc>
+    <loc>https://tmgwebzone.github.io/barja/terms2.html</loc>
     <priority>0.80</priority>
   </url>
 
@@ -72,22 +72,22 @@
 </url>
 <!--  about  -->
 <url>
-<loc>https://tmgwebzone.github.io/about3.html</loc>
+<loc>https://tmgwebzone.github.io/pdf/about3.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  contact   -->
 <url>
-<loc>https://tmgwebzone.github.io/contact3.html</loc>
+<loc>https://tmgwebzone.github.io/pdf/contact3.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  privacy  -->
 <url>
-<loc>https://tmgwebzone.github.io/privacy3.html</loc>
+<loc>https://tmgwebzone.github.io/pdf/privacy3.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  terms  -->
 <url>
-<loc>https://tmgwebzone.github.io/terms3.html</loc>
+<loc>https://tmgwebzone.github.io/pdf/terms3.html</loc>
 <priority>0.80</priority>
 </url>
 
@@ -97,22 +97,22 @@
 </url>
 <!--  about  -->
 <url>
-<loc>https://tmgwebzone.github.io/about4.html</loc>
+<loc>https://tmgwebzone.github.io/analysis/about4.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  contact   -->
 <url>
-<loc>https://tmgwebzone.github.io/contact4.html</loc>
+<loc>https://tmgwebzone.github.io/analysis/contact4.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  privacy  -->
 <url>
-<loc>https://tmgwebzone.github.io/privacy4.html</loc>
+<loc>https://tmgwebzone.github.io/analysis/privacy4.html</loc>
 <priority>0.80</priority>
 </url>
 <!--  terms  -->
 <url>
-<loc>https://tmgwebzone.github.io/terms4.html</loc>
+<loc>https://tmgwebzone.github.io/analysis/terms4.html</loc>
 <priority>0.80</priority>
 </url>
   
