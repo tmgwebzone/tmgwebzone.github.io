@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapPhotoConvert – تحويل أبعاد وصيغ الصور أونلاين مجاناً</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- SEO & Optimization -->
+  <meta name="description" content="أسرع أداة مجانية لتحويل صيغ الصور (PNG, JPG, WEBP, GIF, BMP) وتغيير أبعادها وأحجامها محلياً بأمان تام ودون رفع ملفاتك لأي سيرفر.">
+  <meta name="keywords" content="تحويل الصور, تحويل PNG الى JPG, تحويل WEBP, تغيير حجم الصور, SnapPhotoConvert, TMGWEB, convert image online">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://tmgwebzone.github.io/photoconvert.html" />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SnapPhotoConvert – تحويل صيغ وأبعاد الصور فوراً">
+  <meta property="og:description" content="قم بتحويل جميع أنواع الصور وتعديل مقاساتها مجاناً وبأمان 100% داخل جهازك.">
+  <meta property="og:url" content="https://tmgwebzone.github.io/photoconvert.html">
+  <meta property="og:site_name" content="SnapPhotoConvert">
+  <meta property="og:image" content="https://tmgwebzone.github.io/photoconvert/photoconvert1.jpg">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "SnapPhotoConvert",
+    "url": "https://tmgwebzone.github.io/photoconvert.html",
+    "description": "أداة احترافية مجانية لتحويل صيغ الصور وأبعادها أونلاين محلياً داخل المتصفح.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "author": {
+      "@type": "Organization",
+      "name": "TMG WEB ZONE"
+    }
+  }
+  </script>
+
+  <!-- PWA Settings -->
+  <link rel="manifest" href="./photoconvert/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./photoconvert/icon-96.png">
+  <link rel="shortcut icon" href="./photoconvert/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./photoconvert/icon-192.png">
+  
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #00adb5;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border-radius: 20px;
+      --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 15px rgba(37, 99, 235, 0.2); }
+      50% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.45); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 3.5rem 1rem 3rem;
+      text-align: center;
+      border-bottom-left-radius: 35px;
+      border-bottom-right-radius: 35px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.25);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    header h1 span {
+      animation: floatIcon 3s infinite ease-in-out;
+      display: inline-block;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 950px;
+      margin: -25px auto 2rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card-box {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2.2rem;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out;
+      transition: var(--transition);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .uploader {
+      border: 2px dashed var(--primary);
+      border-radius: var(--border-radius);
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      background: #f8fafc;
+      transition: var(--transition);
+      display: block;
+      animation: pulseGlow 3s infinite;
+    }
+
+    .uploader:hover {
+      background: #eef2ff;
+      border-color: var(--primary-hover);
+      transform: scale(1.015);
+    }
+
+    .uploader-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: floatIcon 4s infinite ease-in-out;
+    }
+
+    .hidden { display: none !important; }
+
+    .control-group {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .form-group {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .btn-action:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-secondary { background: #64748b; }
+    .btn-secondary:hover { background: #475569; }
+
+    .result-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      margin-top: 1.5rem;
+    }
+
+    .preview-img {
+      max-width: 100%;
+      max-height: 280px;
+      border-radius: 12px;
+      margin: 1rem 0;
+      object-fit: contain;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .install-box {
+      text-align: center;
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      padding: 1.8rem;
+      border-radius: var(--border-radius);
+      margin-bottom: 2rem;
+    }
+
+    .info-section h2 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .info-section ul, .info-section ol { padding-right: 1.3rem; margin-bottom: 1.5rem; }
+    .info-section li { margin-bottom: 0.6rem; color: #334155; font-weight: 600; }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 35px 15px;
+      border-top: 1px solid #e2e8f0;
+      background: #fff;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--secondary);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover { text-decoration: underline; color: var(--primary); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><span>🖼️</span> SnapPhotoConvert</h1>
+    <p>تحويل كافة صيغ الصور وتغيير المقاسات أونلاين مجاناً وبأمان 100%</p>
+  </header>
+  
+  <section id="banner-section" style="text-align: center; padding: 20px 0;">
+    <img src="photoconvert/photoconvert1.jpg" alt="تحويل الصور احترافي" style="max-width: 100%; height: auto; border-radius: 12px; max-height: 250px; object-fit: cover;">
+  </section>
+  
+  <main>
+    <!-- App Download Box -->
+    <div class="install-box card-box">
+      <button class="btn-action" style="max-width: 260px; margin: 0 auto;" onclick="promptInstall()">📲 تنزيل التطبيق</button>
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.6rem; font-weight: 600;">أو من خيارات المتصفح اضغط "إضافة إلى الشاشة الرئيسية" لتثبيت التطبيق.</p>
+    </div>
+
+    <!-- Main Converter Section -->
+    <div class="card-box">
+      <label class="uploader" id="imageUploader" for="imageFile">
+        <span class="uploader-icon">🖼️</span>
+        <strong id="uploadText">اختر الصورة (PNG, JPG, WEBP, GIF, BMP, SVG) أو اسحبها هنا</strong>
+        <span>سيتم معالجة الصورة محلياً على جهازك بحفاظ كامل على الخصوصية</span>
+        <input type="file" id="imageFile" accept="image/*" class="hidden">
+      </label>
+
+      <!-- Settings Block -->
+      <div id="settingsBlock" class="control-group hidden">
+        <div class="form-row">
+          <!-- 1. Format Selection -->
+          <div class="form-group">
+            <label for="formatSelect">🎯 1. صيغة التحويل المطلوبة:</label>
+            <select id="formatSelect" class="form-control">
+              <option value="image/jpeg">JPG / JPEG</option>
+              <option value="image/png">PNG (خلفية شفافة)</option>
+              <option value="image/webp">WEBP (حجم خفيف ويب)</option>
+              <option value="image/bmp">BMP</option>
+            </select>
+          </div>
+
+          <!-- 2. Size Preset Selection -->
+          <div class="form-group">
+            <label for="sizePreset">📐 2. اختر أبعاد الصورة (الحجم):</label>
+            <select id="sizePreset" class="form-control" onchange="handlePresetChange(this.value)">
+              <option value="normal">Normal (الحجم الأصلي للصورة)</option>
+              <option value="hd">Full HD (1920 × 1080)</option>
+              <option value="square">مربع / إنستغرام (1080 × 1080)</option>
+              <option value="4k">أبعاد 4K (3840 × 2160)</option>
+              <option value="custom">مخصص (إدخال أبعاد بكسل)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Custom Sizes Inputs -->
+        <div id="customSizeRow" class="form-row hidden">
+          <div class="form-group">
+            <label for="customWidth">العرض (Pixel):</label>
+            <input type="number" id="customWidth" class="form-control" placeholder="مثال: 800">
+          </div>
+          <div class="form-group">
+            <label for="customHeight">الارتفاع (Pixel):</label>
+            <input type="number" id="customHeight" class="form-control" placeholder="مثال: 600">
+          </div>
+        </div>
+
+        <button class="btn-action" onclick="convertImageProcess()">⚡ تحويل الصورة الآن</button>
+      </div>
+
+      <div id="resultContainer"></div>
+    </div>
+
+    <!-- Share Link -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <button class="btn-action btn-secondary" style="max-width: 230px;" onclick="copySiteLink()">📋 نسخ رابط الموقع</button>
+    </div>
+
+    <!-- Features & Info -->
+    <div class="card-box info-section">
+      <h2>✨ مميزات أداة SnapPhotoConvert</h2>
+      <ul>
+        <li>تحويل سلس وسريع لجميع صيغ الصور المختلفة (JPG, PNG, WEBP, BMP).</li>
+        <li>التحكم بالأبعاد والأحجام بدقة مع الحفاظ على الأبعاد الأصلية (Normal).</li>
+        <li>أمان مطلق 100%: المعالجة تتم داخل المتصفح دون رفع الملفات.</li>
+        <li>تطبيق مجاني خفيف ويعمل على مختلف الأجهزة والهواتف الذكية.</li>
+      </ul>
+
+      <h2>💡 طريقة الاستخدام</h2>
+      <ol>
+        <li>اختر ملف الصورة المراد تحويلها من جهازك.</li>
+        <li>حدد الصيغة النهائية المطلوبة (مثل PNG أو WEBP).</li>
+        <li>اختر الأبعاد المناسبة (أصلي Normal أو مقاس مخصص).</li>
+        <li>انقر "تحويل الصورة الآن" وقم بتحميل الصورة فوراً.</li>
+      </ol>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p style="margin-top: 10px;">
+      <a href="photoconvert/about5.html">عن الموقع</a> | 
+      <a href="photoconvert/privacy5.html">سياسة الخصوصية</a> | 
+      <a href="photoconvert/terms5.html">الشروط والأحكام</a> | 
+      <a href="photoconvert/contact5.html">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    let deferredPrompt;
+    let loadedImage = null;
+    let originalFileName = "image";
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    function promptInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(() => deferredPrompt = null);
+      } else {
+        alert("يمكنك إضافة التطبيق مباشرة إلى الشاشة الرئيسية من خيارات المتصفح.");
+      }
+    }
+
+    const imageFile = document.getElementById("imageFile");
+    const settingsBlock = document.getElementById("settingsBlock");
+    const uploadText = document.getElementById("uploadText");
+    const resultContainer = document.getElementById("resultContainer");
+
+    imageFile.addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      originalFileName = file.name.substring(0, file.name.lastIndexOf('.')) || "converted-image";
+      const reader = new FileReader();
+
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          loadedImage = img;
+          uploadText.innerText = `تم اختيار الصورة: ${file.name} (${img.width}x${img.height}px)`;
+          settingsBlock.classList.remove("hidden");
+          resultContainer.innerHTML = "";
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function handlePresetChange(val) {
+      const customRow = document.getElementById("customSizeRow");
+      if (val === "custom") {
+        customRow.classList.remove("hidden");
+      } else {
+        customRow.classList.add("hidden");
+      }
+    }
+
+    function convertImageProcess() {
+      if (!loadedImage) return;
+
+      const formatSelect = document.getElementById("formatSelect").value;
+      const sizePreset = document.getElementById("sizePreset").value;
+
+      let targetWidth = loadedImage.width;
+      let targetHeight = loadedImage.height;
+
+      if (sizePreset === "hd") {
+        targetWidth = 1920; targetHeight = 1080;
+      } else if (sizePreset === "square") {
+        targetWidth = 1080; targetHeight = 1080;
+      } else if (sizePreset === "4k") {
+        targetWidth = 3840; targetHeight = 2160;
+      } else if (sizePreset === "custom") {
+        const cw = parseInt(document.getElementById("customWidth").value);
+        const ch = parseInt(document.getElementById("customHeight").value);
+        if (cw > 0) targetWidth = cw;
+        if (ch > 0) targetHeight = ch;
+      }
+
+      const canvas = document.createElement("canvas");
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+      const ctx = canvas.getContext("2d");
+
+      // Fill white background for JPEG/BMP if translucent
+      if (formatSelect === "image/jpeg" || formatSelect === "image/bmp") {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, targetWidth, targetHeight);
+      }
+
+      ctx.drawImage(loadedImage, 0, 0, targetWidth, targetHeight);
+
+      const extMap = {
+        "image/jpeg": "jpg",
+        "image/png": "png",
+        "image/webp": "webp",
+        "image/bmp": "bmp"
+      };
+
+      const convertedUrl = canvas.toDataURL(formatSelect, 0.92);
+      const ext = extMap[formatSelect] || "jpg";
+
+      resultContainer.innerHTML = `
+        <div class="result-card">
+          <p style="font-weight:bold; color:green;">✅ تم تحويل الصورة بنجاح!</p>
+          <p style="font-size:0.9rem; color:var(--text-muted);">الأبعاد: ${targetWidth} × ${targetHeight} بكسل</p>
+          <img src="${convertedUrl}" class="preview-img" alt="الصورة المحولة">
+          <a href="${convertedUrl}" download="${originalFileName}.${ext}" style="text-decoration:none;">
+            <button class="btn-action">⬇️ تحميل الصورة المحولة (${ext.toUpperCase()})</button>
+          </a>
+        </div>
+      `;
+    }
+
+    function copySiteLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert("✅ تم نسخ رابط الموقع بنجاح!");
+      }).catch(() => {
+        alert("❌ تعذر النسخ التلقائي.");
+      });
+    }
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./photoconvert/sw.js')
+          .then(reg => console.log('Photo ServiceWorker Registered:', reg))
+          .catch(err => console.error('Photo ServiceWorker Failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>
