@@ -653,14 +653,13 @@
       });
     }
 
-    // Register Service Worker
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("mediaconvert/sw.js")
-          .then(() => console.log("SW Registered"))
-          .catch(err => console.error(err));
-      });
-    }
-  </script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./mediaconvert/sw.js')
+        .then(reg => console.log('Media ServiceWorker Registered:', reg))
+        .catch(err => console.error('Media ServiceWorker Failed:', err));
+    });
+  }
+</script>
 </body>
 </html>
