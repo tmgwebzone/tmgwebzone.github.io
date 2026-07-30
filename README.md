@@ -10,7 +10,7 @@
 صفحات استكشافية ومعلوماتية مخصصة لمناطق معينة:
 
 * 🏛️ **بعلبك (Baalbek):** [استكشف بعلبك](https://tmgwebzone.github.io/baalbek.html)
-* 📍 **برجا (Barja):** [استكشف برجا](https://tmgwebzone.github.io/barja.html)
+* 📍 **برجا (Barja):** [استكشف برجا](https://tmgwebzone.github.io/Barja.html)
 
 ---
 
@@ -27,10 +27,10 @@
 
 | الرابط | الوصف |
 | :--- | :--- |
-| 📬 [Contact Us](https://tmgwebzone.github.io/readme/contact.html) | للتواصل المباشر والاستفسارات |
-| 🔒 [Privacy Policy](https://tmgwebzone.github.io/readme/privacy.html) | سياسة الخصوصية |
-| 📜 [Terms of Service](https://tmgwebzone.github.io/readme/terms.html) | شروط الاستخدام |
-| ℹ️ [About Us](https://tmgwebzone.github.io//readme/about.html) | نبذة عن الموقع |
+| 📬 [Contact Us](https://tmgwebzone.github.io/readme/contact6.html) | للتواصل المباشر والاستفسارات |
+| 🔒 [Privacy Policy](https://tmgwebzone.github.io/readme/privacy6.html) | سياسة الخصوصية |
+| 📜 [Terms of Service](https://tmgwebzone.github.io/readme/terms6.html) | شروط الاستخدام |
+| ℹ️ [About Us](https://tmgwebzone.github.io//readme/about6.html) | نبذة عن الموقع |
 
 ---
 
