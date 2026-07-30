@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عن الموقع - TMG WEB ZONE</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 20px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 40px auto; background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { color: #38bdf8; border-bottom: 2px solid #334155; padding-bottom: 10px; }
+        p { color: #cbd5e1; font-size: 1.1rem; }
+        .btn-home { display: inline-block; margin-top: 20px; padding: 10px 20px; background: #38bdf8; color: #0f172a; text-decoration: none; border-radius: 6px; font-weight: bold; }
+        .btn-home:hover { background: #0284c7; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ℹ️ عن TMG WEB ZONE</h1>
+        <p>مرحباً بك في منصة <strong>TMG WEB ZONE</strong>! موقعنا متخصص في تقديم أدوات مساعدة أونلاين مجانية، سريعة وآمنة، تهدف إلى تسهيل المهام اليومية للمستخدمين بدون أي تعقيدات أو الحاجة لتثبيت برامج.</p>
+        <p>إلى جانب الأدوات المساعدة، نخصص أجزاءً من موقعنا لتقديم صفحات توثيقية ومعلوماتية متميزة حول مختلف المناطق والأماكن السياحية والثقافية.</p>
+        <h3>رؤيتنا:</h3>
+        <p>أن نصبح وجهة عربية موثوقة وبسيطة تقدم أدوات ويب ذكية وخدمات رقمية متاحة للجميع مجاناً.</p>
+        <a href="https://tmgwebzone.github.io" class="btn-home">الرئيسية</a>
+    </div>
+</body>
+</html>
