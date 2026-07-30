@@ -41,27 +41,26 @@
   }
   </script>
 
-<!-- PWA & Web App Settings -->
-<link rel="manifest" href="./mediaconvert/manifest.json">
-<meta name="theme-color" content="#2563eb">
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./mediaconvert/manifest.json">
+  <meta name="theme-color" content="#2563eb">
 
-<!-- Favicons & Icons -->
-<link rel="icon" type="image/png" sizes="96x96" href="./mediaconvert/icon-96.png">
-<link rel="shortcut icon" href="./mediaconvert/icon-96.png">
-<link rel="apple-touch-icon" sizes="192x192" href="./mediaconvert/icon-192.png">
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./mediaconvert/icon-96.png">
+  <link rel="shortcut icon" href="./mediaconvert/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./mediaconvert/icon-192.png">
   
   <!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
   
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-45MPV1T1VS');
+    gtag('config', 'G-45MPV1T1VS');
   </script>
 
   <!-- Fonts -->
@@ -97,7 +96,6 @@
       overflow-x: hidden;
     }
 
-    /* Keyframe Animations */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -123,7 +121,6 @@
       50% { height: 35px; }
     }
 
-    /* Header */
     header {
       background: linear-gradient(135deg, #0f172a, #1e3a8a, #2563eb);
       background-size: 200% 200%;
@@ -157,7 +154,6 @@
       font-weight: 600;
     }
 
-    /* Layout Containers */
     main {
       max-width: 950px;
       margin: -25px auto 2rem;
@@ -182,7 +178,6 @@
       transform: translateY(-2px);
     }
 
-    /* Mode Navigation */
     nav {
       display: flex;
       justify-content: center;
@@ -212,7 +207,6 @@
       box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
     }
 
-    /* Uploader Area */
     .uploader {
       border: 2px dashed var(--primary);
       border-radius: var(--border-radius);
@@ -254,7 +248,6 @@
       display: none !important;
     }
 
-    /* Processing Wave Visualizer */
     .audio-wave {
       display: flex;
       align-items: center;
@@ -277,7 +270,6 @@
     .audio-wave div:nth-child(4) { animation-delay: 0.6s; }
     .audio-wave div:nth-child(5) { animation-delay: 0.8s; }
 
-    /* Results and Audio Player Card */
     .result-card {
       background: #fff;
       border-radius: 16px;
@@ -295,7 +287,6 @@
       outline: none;
     }
 
-    /* Buttons */
     .btn-action {
       background: var(--primary);
       color: #fff;
@@ -327,7 +318,6 @@
       background: #475569;
     }
 
-    /* Loader Spinner */
     .loader-container {
       text-align: center;
       padding: 2rem;
@@ -343,7 +333,6 @@
       margin: 0 auto 1.2rem;
     }
 
-    /* Features & Info Section */
     .info-section h2 {
       font-size: 1.5rem;
       color: var(--primary);
@@ -365,7 +354,6 @@
       font-weight: 600;
     }
 
-    /* App Install Banner */
     .install-box {
       text-align: center;
       background: linear-gradient(135deg, #eff6ff, #dbeafe);
@@ -381,7 +369,31 @@
       font-weight: 600;
     }
 
-    /* Footer */
+    /* Cutter Controls CSS */
+    .cut-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.2rem 0;
+      text-align: right;
+    }
+
+    .cut-controls label {
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .cut-controls input[type="number"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-top: 0.4rem;
+      font-family: inherit;
+    }
+
     footer {
       text-align: center;
       margin-top: 60px;
@@ -404,11 +416,11 @@
       color: var(--primary);
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header h1 { font-size: 2rem; }
       .card-box { padding: 1.3rem; }
       .uploader { padding: 2.5rem 1rem; }
+      .cut-controls { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -454,7 +466,7 @@
       <section id="audioCutSection" class="hidden">
         <label class="uploader" id="audioUploader" for="audioFile">
           <span class="uploader-icon">🎧</span>
-          <strong>اختر ملف صوتي للتعديل أو المعالجة</strong>
+          <strong>اختر ملف صوتي للقص أو التعديل</strong>
           <span>يدعم MP3, WAV, AAC وغيرها</span>
           <input type="file" id="audioFile" accept="audio/*" class="hidden">
         </label>
@@ -472,16 +484,16 @@
       <h2>✨ مميزات أداة SnapAudioMedia</h2>
       <ul>
         <li>تحويل خاطف ومباشر لملفات MP4 إلى صيغة MP3 عالية النقاء.</li>
+        <li>قص وتعديل مقاطع الصوت بالثواني مباشرة داخل جهازك.</li>
         <li>معالجة محلية 100% على جهازك بحفاظ كامل على سرية وخصوصية بياناتك.</li>
         <li>عدم وجود حدود للحجم أو لعدد الملفات المحولة.</li>
-        <li>دعم كامل للعمل على أجهزة الأندرويد، الآيفون والحاسوب.</li>
       </ul>
 
       <h2>💡 طريقة الاستخدام</h2>
       <ol>
-        <li>حدد الوضع المطلوب (تحويل فيديو إلى MP3 أو تعديل الصوتيات).</li>
-        <li>انقر على مربع الرفع لاختيار ملف الفيديو من جهازك.</li>
-        <li>انتظر لحظات معدودة لمعالجة الملف، ثم انقر زر "تحميل MP3".</li>
+        <li>حدد الوضع المطلوب (تحويل فيديو إلى MP3 أو قص وقص الصوتيات).</li>
+        <li>انقر على مربع الرفع لاختيار الملف من جهازك.</li>
+        <li>حدد وقت البداية والنهاية عند القص، ثم انقر زر "قص وتحميل المقطع".</li>
       </ol>
 
       <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 1.5rem 0;">
@@ -492,7 +504,6 @@
     </div>
   </main>
 
-  
   <!-- Footer -->
   <footer>
     <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
@@ -508,7 +519,6 @@
   <script>
     let deferredPrompt;
 
-    // Register PWA Install Prompt
     window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       deferredPrompt = e;
@@ -523,7 +533,6 @@
       }
     }
 
-    // Switch between modes
     function switchMode(mode) {
       const isVideo2Mp3 = mode === 'video2mp3';
       document.getElementById("video2mp3Section").classList.toggle("hidden", !isVideo2Mp3);
@@ -533,7 +542,7 @@
       document.getElementById("btn-audioCut").classList.toggle("active", !isVideo2Mp3);
     }
 
-    // Native Video to MP3 Audio Extraction Logic
+    // Video to MP3 logic
     const videoInput = document.getElementById("videoFile");
     const videoResult = document.getElementById("videoResult");
 
@@ -554,7 +563,6 @@
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
         
-        // Render Audio to WAV/MP3 Blob via OfflineAudioContext
         const offlineCtx = new OfflineAudioContext(
           audioBuffer.numberOfChannels,
           audioBuffer.length,
@@ -585,7 +593,105 @@
       }
     });
 
-    // Helper: Convert AudioBuffer to WAV/MP3 Blob
+    // Audio Cutter Logic
+    let currentAudioBuffer = null;
+    let originalFileName = "";
+
+    const audioInput = document.getElementById("audioFile");
+    const audioCutResult = document.getElementById("audioCutResult");
+
+    audioInput.addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      originalFileName = file.name.split('.')[0];
+      audioCutResult.innerHTML = `
+        <div class="loader-container">
+          <div class="spinner"></div>
+          <p style="color:var(--primary); font-weight:bold;">جارٍ تحليل الملف الصوتي...</p>
+        </div>
+      `;
+
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        currentAudioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+        const totalDuration = Math.floor(currentAudioBuffer.duration);
+        const originalUrl = URL.createObjectURL(file);
+
+        audioCutResult.innerHTML = `
+          <div class="result-card">
+            <p style="font-weight:bold; color:var(--primary); margin-bottom:0.5rem;">🎧 معاينة الصوت الأصلي (المدة الكلية: ${totalDuration} ثانية)</p>
+            <audio id="audioPreview" controls src="${originalUrl}"></audio>
+            
+            <div class="cut-controls">
+              <div>
+                <label>بداية المقطع (بالثواني):</label>
+                <input type="number" id="startTime" min="0" max="${totalDuration}" value="0">
+              </div>
+              <div>
+                <label>نهاية المقطع (بالثواني):</label>
+                <input type="number" id="endTime" min="1" max="${totalDuration}" value="${totalDuration}">
+              </div>
+            </div>
+
+            <button class="btn-action" onclick="processAudioCut()">✂️ قص وتحميل المقطع المحظوظ</button>
+            <div id="trimmedResult" style="margin-top: 1rem;"></div>
+          </div>
+        `;
+      } catch (err) {
+        audioCutResult.innerHTML = `<p style="color:red; text-align:center; margin-top:1rem;">حدث خطأ أثناء قراءة ملف الصوت.</p>`;
+      }
+    });
+
+    // Process the Audio Trimming
+    async function processAudioCut() {
+      if (!currentAudioBuffer) return;
+
+      const startTime = parseFloat(document.getElementById("startTime").value) || 0;
+      const endTime = parseFloat(document.getElementById("endTime").value) || currentAudioBuffer.duration;
+      const trimmedResultDiv = document.getElementById("trimmedResult");
+
+      if (startTime >= endTime || startTime < 0 || endTime > currentAudioBuffer.duration) {
+        alert("يرجى التأكد من إدخال نطاق زمني صحيح للقص!");
+        return;
+      }
+
+      trimmedResultDiv.innerHTML = `<p style="color:var(--primary); font-weight:bold;">جارٍ قص المقطع الصوتي...</p>`;
+
+      const sampleRate = currentAudioBuffer.sampleRate;
+      const startSample = Math.floor(startTime * sampleRate);
+      const endSample = Math.floor(endTime * sampleRate);
+      const frameCount = endSample - startSample;
+
+      const offlineCtx = new OfflineAudioContext(
+        currentAudioBuffer.numberOfChannels,
+        frameCount,
+        sampleRate
+      );
+
+      const source = offlineCtx.createBufferSource();
+      source.buffer = currentAudioBuffer;
+      source.connect(offlineCtx.destination);
+      source.start(0, startTime, endTime - startTime);
+
+      const renderedBuffer = await offlineCtx.startRendering();
+      const trimmedBlob = bufferToWave(renderedBuffer, renderedBuffer.length);
+      const trimmedUrl = URL.createObjectURL(trimmedBlob);
+
+      trimmedResultDiv.innerHTML = `
+        <div style="background:#f8fafc; padding:1rem; border-radius:12px; border:1px solid #cbd5e1; margin-top:1rem;">
+          <p style="font-weight:bold; color:green; margin-bottom:0.5rem;">✅ تم قص المقطع الصوتي بنجاح!</p>
+          <audio controls src="${trimmedUrl}"></audio>
+          <a href="${trimmedUrl}" download="${originalFileName}_trimmed.mp3" style="text-decoration:none; display:block; margin-top:0.8rem;">
+            <button class="btn-action">⬇️ تحميل المقطع المقصوص (MP3)</button>
+          </a>
+        </div>
+      `;
+    }
+
+    // Convert AudioBuffer to WAV/MP3 Blob
     function bufferToWave(abuffer, len) {
       let numOfChan = abuffer.numberOfChannels,
           length = len * numOfChan * 2 + 44,
@@ -624,27 +730,6 @@
       return new Blob([view], { type: 'audio/mp3' });
     }
 
-    // Audio Cut/Preview Handler
-    const audioInput = document.getElementById("audioFile");
-    const audioCutResult = document.getElementById("audioCutResult");
-
-    audioInput.addEventListener("change", (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      const audioUrl = URL.createObjectURL(file);
-
-      audioCutResult.innerHTML = `
-        <div class="result-card">
-          <p style="font-weight:bold; color:var(--primary); margin-bottom:0.5rem;">🎧 تم تحميل الملف الصوتي جاهز للمعاينة</p>
-          <audio controls src="${audioUrl}"></audio>
-          <a href="${audioUrl}" download="${file.name}" style="text-decoration:none; display:block; margin-top:1rem;">
-            <button class="btn-action">⬇️ إعادة تحميل الملف</button>
-          </a>
-        </div>
-      `;
-    });
-
-    // Copy Site Link
     function copySiteLink() {
       navigator.clipboard.writeText(window.location.href).then(() => {
         alert("✅ تم نسخ رابط الموقع بنجاح!");
@@ -653,13 +738,13 @@
       });
     }
 
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./mediaconvert/sw.js')
-        .then(reg => console.log('Media ServiceWorker Registered:', reg))
-        .catch(err => console.error('Media ServiceWorker Failed:', err));
-    });
-  }
-</script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./mediaconvert/sw.js')
+          .then(reg => console.log('Media ServiceWorker Registered:', reg))
+          .catch(err => console.error('Media ServiceWorker Failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>
