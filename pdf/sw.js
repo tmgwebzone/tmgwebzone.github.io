@@ -3,8 +3,8 @@ const CACHE_NAME = 'pdf-app-v4';
 const ASSETS_TO_CACHE = [
   '../pdfconvert.html',
   './manifest.json',
-  './pdf/icon-192.png',
-  './pdf/icon-512.png'
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // 1. التثبيت والتخزين
