@@ -42,10 +42,10 @@
   </script>
 
   <!-- PWA & Favicon -->
-  <link rel="manifest" href="./mediaconvert/manifest.json">
-  <link rel="icon" href="./mediaconvert/mediaconvert1.jpg" type="image/jpg">
+  <link rel="manifest" href="mediaconvert/manifest.json">
+  <link rel="icon" href="mediaconvert/mediaconvert1.jpg" type="image/jpg">
   <meta name="theme-color" content="#2563eb">
-  <link rel="apple-touch-icon" href="./mediaconvert/icon-192.png">
+  <link rel="apple-touch-icon" href="mediaconvert/icon-192.png">
 
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-7999209256244874">
@@ -426,7 +426,7 @@
   </header>
   
   <section id="banner-section" style="text-align: center; padding: 20px 0;">
-    <img src="./mediaconvert/mediaconvert1.jpg" alt="تحويل الفيديو الى MP3" style="max-width: 100%; height: auto; border-radius: 12px; max-height: 250px; object-fit: cover;">
+    <img src="mediaconvert/mediaconvert1.jpg" alt="تحويل الفيديو الى MP3" style="max-width: 100%; height: auto; border-radius: 12px; max-height: 250px; object-fit: cover;">
   </section>
   
   <main>
@@ -678,7 +678,7 @@
     // Register Service Worker
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./mediaconvert/sw.js")
+        navigator.serviceWorker.register("mediaconvert/sw.js")
           .then(() => console.log("SW Registered"))
           .catch(err => console.error(err));
       });
