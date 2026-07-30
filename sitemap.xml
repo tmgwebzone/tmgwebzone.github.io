@@ -116,5 +116,21 @@
     <loc>https://tmgwebzone.github.io/mediaconvert/terms5.html</loc>
     <priority>0.30</priority>
   </url>
+  <url>
+  <loc>https://tmgwebzone.github.io/readme/about6.html</loc>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>https://tmgwebzone.github.io/readme/contact6.html</loc>
+  <priority>0.50</priority>
+</url>
+<url>
+  <loc>https://tmgwebzone.github.io/readme/privacy6.html</loc>
+  <priority>0.30</priority>
+</url>
+<url>
+  <loc>https://tmgwebzone.github.io/readme/terms6.html</loc>
+  <priority>0.30</priority>
+</url>
 
 </urlset>
