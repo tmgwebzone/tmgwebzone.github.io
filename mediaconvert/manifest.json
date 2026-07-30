@@ -1,21 +1,18 @@
 {
-  "short_name": "MySite",
-  "name": "My Web Application",
+  "short_name": "SnapAudio",
+  "name": "SnapAudioMedia – تحويل واستخراج الصوت",
   "icons": [
     {
-      "src": "./icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "./icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "mediaconvert1.jpg",
+      "type": "image/jpeg",
+      "sizes": "192x192 512x512"
     }
   ],
   "start_url": "../mediaconvert.html",
   "background_color": "#0f172a",
-  "theme_color": "#0f172a",
+  "theme_color": "#2563eb",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar"
 }
