@@ -1,39 +1,297 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TMG WEB ZONE</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <title>TMG WEB ZONE | المنصة الرسمية</title>
 
-  gtag('config', 'G-45MPV1T1VS');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-45MPV1T1VS');
+    </script>
 
     <!-- AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== 1. الألوان المتحركة والخلفية Dynamic Animated Background ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #2e1065, #0284c7, #0f172a);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ===== 2. الترويسة الفخمة Header ===== */
+        header {
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeInDown 1.2s ease-out;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shineText 4s linear infinite;
+            letter-spacing: 2px;
+            text-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
+        }
+
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-top: 10px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ===== 3. الحاوية والبطاقات الزجاجية Glassmorphism Cards ===== */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px 0;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #f8fafc;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #38bdf8;
+            margin: 10px auto 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px #38bdf8;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #38bdf8;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2) rotate(8deg);
+            color: #a855f7;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        /* ===== 4. الفوتر التفاعلي Footer ===== */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #38bdf8;
+            text-shadow: 0 0 8px #38bdf8;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* ===== 5. الأنيميشن العامة ===== */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to TMG WEB ZONE</h1>
-    <section>
-  <h2>Explore Our Pages</h2>
 
-  <p>
-    Discover information, tools, and resources available on TMG Web Zone.
-  </p>
+    <!-- Header Section -->
+    <header>
+        <h1>TMG WEB ZONE</h1>
+        <p class="subtitle">بوابتك الذكية للأدوات والاستكشاف الرقمي</p>
+    </header>
 
-  <ul>
-    <li><a href="baalbek.html">Baalbek</a></li>
-    <li><a href="Barja.html">Barja</a></li>
-    <li><a href="analysis.html">analysis</a></li> 
-    <li><a href="pdfconvert.html">PDF converter</a></li>
-    <li><a href="mediaconvert.html">Mp4 to Mp3 media converter</a></li>
-  </ul>
-</section>
+    <!-- Main Content Section -->
+    <main class="container">
+        <h2 class="section-title">استكشف أدواتنا وصفحاتنا</h2>
+
+        <div class="cards-grid">
+            <!-- Baalbek -->
+            <a href="baalbek.html" class="card">
+                <i class="fa-solid fa-landmark card-icon"></i>
+                <div class="card-title">Baalbek</div>
+                <div class="card-desc">استكشف تاريخ ومعالم بعلبك العريقة</div>
+            </a>
+
+            <!-- Barja -->
+            <a href="Barja.html" class="card">
+                <i class="fa-solid fa-location-dot card-icon"></i>
+                <div class="card-title">Barja</div>
+                <div class="card-desc">دليل ودراسات خاصة بقرية برجا</div>
+            </a>
+
+            <!-- Analysis -->
+            <a href="analysis.html" class="card">
+                <i class="fa-solid fa-chart-line card-icon"></i>
+                <div class="card-title">Analysis</div>
+                <div class="card-desc">تحليلات وإحصائيات متقدمة</div>
+            </a>
+
+            <!-- PDF Converter -->
+            <a href="pdfconvert.html" class="card">
+                <i class="fa-solid fa-file-pdf card-icon"></i>
+                <div class="card-title">PDF Converter</div>
+                <div class="card-desc">أداة تحويل وتعديل ملفات الـ PDF مجاناً</div>
+            </a>
+
+            <!-- Media Converter -->
+            <a href="mediaconvert.html" class="card">
+                <i class="fa-solid fa-music card-icon"></i>
+                <div class="card-title">Mp4 to Mp3</div>
+                <div class="card-desc">تحويل مقاطع الفيديو لملفات صوتية بنقرة واحدة</div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">عن الموقع</a>
+            <span>•</span>
+            <a href="contact.html">اتصل بنا</a>
+            <span>•</span>
+            <a href="privacy.html">سياسة الخصوصية</a>
+            <span>•</span>
+            <a href="terms.html">شروط الاستخدام</a>
+        </div>
+        <p class="copyright">جميع الحقوق محفوظة &copy; 2026 TMG WEB ZONE</p>
+    </footer>
+
 </body>
 </html>
