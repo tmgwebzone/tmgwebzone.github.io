@@ -132,5 +132,25 @@
   <loc>https://tmgwebzone.github.io/readme/terms6.html</loc>
   <priority>0.30</priority>
 </url>
+   <url>
+    <loc>https://tmgwebzone.github.io/photoconvert.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/photoconvert/about7.html</loc>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/photoconvert/contact7.html</loc>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/photoconvert/privacy.html</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/photoconvert/terms7.html</loc>
+    <priority>0.30</priority>
+  </url>
 
 </urlset>
