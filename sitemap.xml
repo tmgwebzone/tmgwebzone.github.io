@@ -217,5 +217,13 @@
   <url><loc>https://tmgwebzone.github.io/ominihub/themountains.html</loc><priority>0.80</priority></url>
   <url><loc>https://tmgwebzone.github.io/ominihub/trademarks.html</loc><priority>0.80</priority></url>
   <url><loc>https://tmgwebzone.github.io/ominihub/universities.html</loc><priority>0.80</priority></url>
-
+  <!-- إضافات جديدة لموسوعات OmniHub الفرعية -->
+  <url><loc>https://tmgwebzone.github.io/ominihub/companies.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/planes.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/rivers.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/weapon.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/brands.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/space.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/gems.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/metals.html</loc><priority>0.80</priority></url>
 </urlset>
