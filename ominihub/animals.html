@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موسوعة الحيوانات والكائنات الحية - OmniHub</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- تحسينات SEO المكثفة والمتعددة الكلمات المفتاحية -->
+  <meta name="description" content="موسوعة شاملة وتفاعلية للحيوانات والكائنات الحية، استكشف عالم الثدييات، الطيور، الزواحف، الكائنات البحرية، والمعلومات الحقائقية الشيقة عن عالم الحيوان." />
+  <meta name="keywords" content="حيوانات, عالم الحيوان, ثدييات, طيور, زواحف, كائنات بحرية, افتراس, حماية البيئة, أسد, نسر, دلفين, عالم الطبيعة, animals encyclopedia, wildlife" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / SEO Social -->
+  <meta property="og:title" content="موسوعة الحيوانات والكائنات الحية - OmniHub" />
+  <meta property="og:description" content="دليل تفاعلي متكامل لعالم الحيوان والحياة البرية والبحرية." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(187, 247, 208, 0.8);
+      --accent-color: #15803d;
+      --accent-hover: #166534;
+      --accent-light: #dcfce7;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(21, 128, 61, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #052e16 0%, #0f172a 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(34, 197, 94, 0.3);
+      --accent-color: #4ade80;
+      --accent-hover: #86efac;
+      --accent-light: rgba(74, 222, 128, 0.15);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --glass-bg: rgba(15, 23, 42, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 30px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      transition: background 0.4s ease, color 0.4s ease;
+      line-height: 1.7;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    a.back {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+
+    a.back:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+    }
+
+    .search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 35px auto;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 50px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .category-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .category-section:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+
+    .category-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.55rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .animal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .animal-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .animal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-color);
+    }
+
+    .animal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .animal-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .badge {
+      background: var(--accent-color);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .animal-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .mini-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .animal-grid { grid-template-columns: 1fr; }
+      body { padding: 15px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" title="تغيير المظهر">🌙</button>
+  <a href="../ominihub.html" class="back">← الصفحة الرئيسية</a>
+
+  <div class="hero">
+    <h1>🦁 موسوعة الحيوانات والكائنات الحية</h1>
+    <p class="intro">دليل تفاعلي يستعرض عجائب الطبيعة، تصنيفات الحيوانات من الثدييات والطيور إلى الكائنات البحرية، مع حقائق مذهلة حول التكيّف والبيئة.</p>
+    
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن حيوان، تصنيف، أو موطن (مثال: أسد، صقر، دلفين، غابة)..." onkeyup="filterAnimals()">
+    </div>
+  </div>
+
+  <!-- 1. الثدييات والحيوانات البرية -->
+  <div class="category-section searchable-section">
+    <h2>🐾 الثدييات والحيوانات البرية</h2>
+    
+    <div class="animal-grid">
+
+      <div class="animal-card searchable-item">
+        <img src="lion_thumb.jpg" alt="الأسد" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="animal-header">
+            <span class="animal-title">الأسد (ملك الغابة)</span>
+            <span class="badge">مفترس</span>
+          </div>
+          <p class="animal-desc">يعيش في القطعان في السافانا الإفريقية، ويعتمد على الصيد الجماعي للتغلب على الفريسة، ويرمز للقوة والشجاعة عبر التاريخ.</p>
+        </div>
+      </div>
+
+      <div class="animal-card searchable-item">
+        <img src="elephant_thumb.jpg" alt="الفيل الأفريقي" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="animal-header">
+            <span class="animal-title">الفيل الأفريقي</span>
+            <span class="badge">عاشب</span>
+          </div>
+          <p class="animal-desc">أكبر الكائنات البرية على وجه الأرض، يتميز بذاكرة قوية وخرطوم عالي الدقة يُستخدم للتغذية والتواصل.</p>
+        </div>
+      </div>
+
+      <div class="animal-card searchable-item">
+        <div>
+          <div class="animal-header">
+            <span class="animal-title">الفهد (السريع)</span>
+            <span class="badge">مفترس</span>
+          </div>
+          <p class="animal-desc">أسرع كائن بري في العالم، حيث يمكنه الوصول لسرعة تصل إلى 110 كم/ساعة خلال ثوانٍ معدودة أثناء المطاردة.</p>
+        </div>
+      </div>
+
+      <div class="animal-card searchable-item">
+        <div>
+          <div class="animal-header">
+            <span class="animal-title">الدب القطبي</span>
+            <span class="badge">مفترس مائي</span>
+          </div>
+          <p class="animal-desc">يتكيف مع درجات الحرارة شديدة البرودة في القطب الشمالي بفضل الفراء الكثيف وطبقة الشحم العازلة.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. الطيور والجوارح -->
+  <div class="category-section searchable-section">
+    <h2>🦅 عالم الطيور والجوارح</h2>
+    
+    <div class="animal-grid">
+
+      <div class="animal-card searchable-item">
+        <div class="animal-header">
+          <span class="animal-title">النسر الذهبي</span>
+          <span class="badge">جارح</span>
+        </div>
+        <p class="animal-desc">من أقوى الطيور الجارحة، يتمتع ببصر حاد جداً يمكّنه من رؤية الفرائس الصغار من مسافات شاهقة.</p>
+      </div>
+
+      <div class="animal-card searchable-item">
+        <div class="animal-header">
+          <span class="animal-title">البطريق الإمبراطوري</span>
+          <span class="badge">طيور لا تطير</span>
+        </div>
+        <p class="animal-desc">يعيش في القطب الجنوبي متحملاً أعتى الظروف الجوية، ويتميز بمهارة غوص استثنائية في الأعماق.</p>
+      </div>
+
+      <div class="animal-card searchable-item">
+        <div class="animal-header">
+          <span class="animal-title">البومة البيضاء</span>
+          <span class="badge">ليلي</span>
+        </div>
+        <p class="animal-desc">طائر ليلي يتميز بطيران صامت تماماً وحاسة سمع فائقة تسمح له باصطياد الفرائس تحت الثلج.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. حقائق وتصنيفات سريعة -->
+  <div class="category-section searchable-section">
+    <h2>📊 جدول مقارنة وتصنيف الحيوانات</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>اسم الحيوان</th>
+            <th>التصنيف العلمى</th>
+            <th>الموطن الرئيسي</th>
+            <th>متوسط العمر</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="searchable-item">
+            <td><b>الحوت الأزرق</b></td>
+            <td>ثدييات بحرية</td>
+            <td>المحيطات العالمية</td>
+            <td>70 - 90 سنة</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>الشمبانزي</b></td>
+            <td>رئيسيات</td>
+            <td>الغابات الاستوائية أفريقيا</td>
+            <td>40 - 50 سنة</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>تنين كومودو</b></td>
+            <td>زواحف</td>
+            <td>جزر إندونيسيا</td>
+            <td>30 سنة</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>الدلفين</b></td>
+            <td>ثدييات بحرية</td>
+            <td>البحار والمحيطات</td>
+            <td>40 سنة</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme) document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    function filterAnimals() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.searchable-item:not([style*="display: none"])');
+        if (visibleItems.length === 0 && input !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

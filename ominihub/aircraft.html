@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موسوعة الطائرات والملاحة الجوية - OmniHub</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- تحسينات SEO الشاملة والمتعددة الكلمات المفتاحية -->
+  <meta name="description" content="الدليل الشامل الكامل لكافة أنواع الطائرات المدنية والحربية والشحن. معطيات تقنية شاملة عن طائرات بوينغ، إيرباص، المقاتلات النفاثة، والسرعات والأنظمة الجوية." />
+  <meta name="keywords" content="طائرات, موسوعة الطائرات, بوينغ, إيرباص, Boeing 747, Airbus A380, طائرات مقاتلة, اف 35, F-22 Raptor, طائرات الشحن, الملاحة الجوية, سرعة الطائرة, محركات نفاثة, aviation encyclopedia, commercial aircraft, military jets" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / SEO Social -->
+  <meta property="og:title" content="موسوعة الطائرات والملاحة الجوية - OmniHub" />
+  <meta property="og:description" content="دليل معرفي وتقني شامل حول عالم الطيران، الطائرات المدنية، والمقاتلات الحربية." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    /* متغيرات الألوان: مريحة للعين ومعاصرة مع طابع الطيران */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f0f8ff 0%, #e6f0fa 100%);
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(203, 213, 225, 0.8);
+      --accent-color: #0284c7;
+      --accent-hover: #0369a1;
+      --accent-light: #e0f2fe;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(2, 132, 199, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #0b1329 0%, #172554 100%);
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(30, 41, 59, 0.8);
+      --card-border: rgba(51, 65, 85, 0.8);
+      --accent-color: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --accent-light: rgba(56, 189, 248, 0.15);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --glass-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 30px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      transition: background 0.4s ease, color 0.4s ease;
+      line-height: 1.7;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    a.back {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+    a.back:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+    }
+
+    /* Instant Search */
+    .search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 35px auto;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 50px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Category Section */
+    .category-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .category-section:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+
+    .category-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.55rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* Grid Layout */
+    .aircraft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .aircraft-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .aircraft-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-color);
+    }
+
+    .aircraft-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .aircraft-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .aircraft-badge {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .aircraft-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .mini-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    .specs {
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .aircraft-grid { grid-template-columns: 1fr; }
+      body { padding: 15px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" title="تغيير المظهر">🌙</button>
+  <a href="../ominihub.html" class="back">← الصفحة الرئيسية</a>
+
+  <div class="hero">
+    <h1>✈️ موسوعة الطائرات والملاحة الجوية</h1>
+    <p class="intro">دليل علمي وهندسي شامِل لجميع فئات الطائرات المدنية، التيكنولوجيا الحربية المقاتلة، وطائرات الشحن مع البيانات التقنية والمواصفات.</p>
+    
+    <!-- محرك البحث الفوري -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن طائرة، شركة تصنيع، أو سرعة (مثال: Boeing, Airbus, F-22, Concorde)..." onkeyup="filterAircraft()">
+    </div>
+  </div>
+
+  <!-- 1. الطائرات المدنية والتجارية -->
+  <div class="category-section searchable-section">
+    <h2>🛫 الطائرات المدنية والتجارية (Commercial Airliners)</h2>
+    
+    <div class="aircraft-grid">
+
+      <div class="aircraft-card searchable-item">
+        <img src="airbus_a380_thumb.jpg" alt="Airbus A380" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">إيرباص A380</span>
+            <span class="aircraft-badge">طائرة عملاقة</span>
+          </div>
+          <p class="aircraft-desc">أكبر طائرة ركاب في العالم ذات طابقين كاملين، تتسع لأكثر من 850 راكباً وتعمل بأربعة محركات نفاثة.</p>
+        </div>
+        <div class="specs">السرعة: 903 كم/س | المدى: 15,200 كم</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <img src="boeing_747_thumb.jpg" alt="Boeing 747" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">بوينغ 747 (ملكة السموات)</span>
+            <span class="aircraft-badge">عريضة البدن</span>
+          </div>
+          <p class="aircraft-desc">أول طائرة نفاثة عريضة البدن في التاريخ، أحدثت ثورة في عالم السفر الجوي لمسافات طويلة.</p>
+        </div>
+        <div class="specs">السرعة: 988 كم/س | المدى: 13,450 كم</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">بوينغ 787 دريملاينر</span>
+            <span class="aircraft-badge">تقنية حديثة</span>
+          </div>
+          <p class="aircraft-desc">طائرة نفاثة تتميز باستخدام ألياف الكربون الخفيفة وتوفير استهلاك الوقود بنسبة 20%.</p>
+        </div>
+        <div class="specs">السرعة: 903 كم/س | المدى: 14,140 كم</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">إيرباص A350 XWB</span>
+            <span class="aircraft-badge">بعيدة المدى</span>
+          </div>
+          <p class="aircraft-desc">طائرة حديقة فائقة الاتساع مصممة للرحلات طويلة المدى جداً مع راحة استثنائية وهدوء في الكابينة.</p>
+        </div>
+        <div class="specs">السرعة: 903 كم/س | المدى: 16,100 كم</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. المقاتلات الحربية والدفاع الجوي -->
+  <div class="category-section searchable-section">
+    <h2>🚀 الطائرات المقاتلة والحربية (Military Jets)</h2>
+    
+    <div class="aircraft-grid">
+
+      <div class="aircraft-card searchable-item">
+        <img src="f22_thumb.jpg" alt="F-22 Raptor" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">إف - 22 رابتور (F-22)</span>
+            <span class="aircraft-badge">شبحية - جيل خامس</span>
+          </div>
+          <p class="aircraft-desc">مقاتلة السيادة الجوية الأولى في العالم، تتميز بالتخفي الفائق والقدرة على المناورة العالية.</p>
+        </div>
+        <div class="specs">السرعة القصوى: 2,414 كم/س (ماخ 2.25)</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">إف - 35 لايتنينغ الثانية</span>
+            <span class="aircraft-badge">شبحية متطورة</span>
+          </div>
+          <p class="aircraft-desc">مقاتلة متعددة المهام متطورة تكاملية، تحتوي على أنظمة رادار وحساسات هي الأحدث عالمياً.</p>
+        </div>
+        <div class="specs">السرعة القصوى: 1,975 كم/س (ماخ 1.6)</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">سوخوي سو-57 (Su-57)</span>
+            <span class="aircraft-badge">روسية شبحية</span>
+          </div>
+          <p class="aircraft-desc">مقاتلة الروسية الحديثة من الجيل الخامس المخصصة لتدمير جميع أنواع الأهداف الجوية والبرية.</p>
+        </div>
+        <div class="specs">السرعة القصوى: 2,600 كم/س (ماخ 2.1)</div>
+      </div>
+
+      <div class="aircraft-card searchable-item">
+        <div>
+          <div class="aircraft-header">
+            <span class="aircraft-title">يوروفايتر تايفون</span>
+            <span class="aircraft-badge">أوروبية متعددة المهام</span>
+          </div>
+          <p class="aircraft-desc">مقاتلة نفاثة عالية الكفاءة شيدها تحالف دول أوروبية تتميز بالقدرة القتالية العالية.</p>
+        </div>
+        <div class="specs">السرعة القصوى: 2,495 كم/س (ماخ 2.0)</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. جدول مقارنة السرعات والمواصفات الفنية -->
+  <div class="category-section searchable-section">
+    <h2>📊 جدول المقارنة الفنية للطائرات المتميزة</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>طراز الطائرة</th>
+            <th>النوع / الفئة</th>
+            <th>بلد التصنيع</th>
+            <th>السرعة القصوى</th>
+            <th>أقصى حمولة / سعة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="searchable-item">
+            <td><b>SR-71 بلاكبيرد</b></td>
+            <td>طائرة استطلاع استراتيجية</td>
+            <td>الولايات المتحدة الأمريكية</td>
+            <td>3,540 كم/س (ماخ 3.3)</td>
+            <td>طاقم من فردين</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>كونكورد (Concorde)</b></td>
+            <td>طائرة ركاب أسرع من الصوت</td>
+            <td>فرنسا / بريطانيا</td>
+            <td>2,180 كم/س (ماخ 2.04)</td>
+            <td>100-120 راكب</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>أنطونوف أن-225</b></td>
+            <td>طائرة شحن استراتيجي عملاقة</td>
+            <td>أوكرانيا / الاتحاد السوفيتي</td>
+            <td>850 كم/س</td>
+            <td>250,000 كجم (250 طن)</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>C-17 غلوب ماستر</b></td>
+            <td>طائرة نقل عسكري شحن</td>
+            <td>الولايات المتحدة الأمريكية</td>
+            <td>830 كم/س</td>
+            <td>77,500 كجم</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    /* Light/Dark Theme Switcher */
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme) document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    /* Live Search Filter */
+    function filterAircraft() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      // Filter empty sections
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.searchable-item:not([style*="display: none"])');
+        if (visibleItems.length === 0 && input !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موسوعة الحدائق الوطنية والمحميات - OmniHub</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- SEO Optimizations -->
+  <meta name="description" content="دليل وموسوعة شاملة لأشهر الحدائق الوطنية والمحميات الطبيعية حول العالم، تنوعها البيولوجي، وتاريخ حمايتها." />
+  <meta name="keywords" content="حدائق وطنية, محميات طبيعية, يلواستون, سيرينغيتي, بنف, الطبيعة, الحياة البرية, national parks, nature reserves" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / SEO Social -->
+  <meta property="og:title" content="موسوعة الحدائق الوطنية والمحميات - OmniHub" />
+  <meta property="og:description" content="استكشف جمال وتنوع المحميات الطبيعية والحدائق الوطنية عبر العالم." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(22, 163, 74, 0.5);
+      --accent-color: #16a34a;
+      --accent-hover: #15803d;
+      --accent-light: #dcfce7;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(22, 163, 74, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #14532d 0%, #0f172a 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(74, 222, 128, 0.3);
+      --accent-color: #4ade80;
+      --accent-hover: #86efac;
+      --accent-light: rgba(74, 222, 128, 0.15);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --glass-bg: rgba(15, 23, 42, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 30px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      transition: background 0.4s ease, color 0.4s ease;
+      line-height: 1.7;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    a.back {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+
+    a.back:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+    }
+
+    .search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 35px auto;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 50px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .category-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .category-section:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+
+    .category-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.55rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .park-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .park-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .park-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-color);
+    }
+
+    .park-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .park-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .park-badge {
+      background: var(--accent-color);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .park-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .park-grid { grid-template-columns: 1fr; }
+      body { padding: 15px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" title="تغيير المظهر">🌙</button>
+  <a href="../ominihub.html" class="back">← الصفحة الرئيسية</a>
+
+  <div class="hero">
+    <h1>🌲 موسوعة الحدائق الوطنية والمحميات الطبيعية</h1>
+    <p class="intro">دليل استكشاف الكنوز الطبيعية الشاسعة حول العالم، والغابات، والبراكين، والحياة البرية المحمية.</p>
+
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن حديقة، دولة، أو ملمح (مثال: يلوستون، سيرينغيتي، بنف، أمريكا، أفريقيا)..." onkeyup="filterParks()">
+    </div>
+  </div>
+
+  <!-- 1. أشهر الحدائق الوطنية عالمياً -->
+  <div class="category-section searchable-section">
+    <h2>🏔️ أروع الحدائق الوطنية العالمية</h2>
+
+    <div class="park-grid">
+
+      <div class="park-card searchable-item">
+        <div>
+          <div class="park-header">
+            <span class="park-title">🌋 يلوستون (Yellowstone)</span>
+            <span class="park-badge">الولايات المتحدة</span>
+          </div>
+          <p class="park-desc">أول حديقة وطنية في العالم (تأسست 1872)، وتشتهر بالنافورات الساخنة والبراكين النشطة والحيوانات البرية كالدببة والبيزون.</p>
+        </div>
+      </div>
+
+      <div class="park-card searchable-item">
+        <div>
+          <div class="park-header">
+            <span class="park-title">🦁 سيرينغيتي (Serengeti)</span>
+            <span class="park-badge">تنزانيا</span>
+          </div>
+          <p class="park-desc">موطن أضخم هجرة سنوية للحيوانات البرية في العالم، وتتميز بالسافانا الممتدة وتنوع المفترسات والحيوانات العشبية.</p>
+        </div>
+      </div>
+
+      <div class="park-card searchable-item">
+        <div>
+          <div class="park-header">
+            <span class="park-title">🏔️ بنف (Banff National Park)</span>
+            <span class="park-badge">كندا</span>
+          </div>
+          <p class="park-desc">أقدم حديقة وطنية في كندا، وتتميز بجبال الروكي الشاهقة والبحيرات الجليدية ذات اللون الفيروزي الساحر مثل بحيرة لويز.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. عجائب طبيعية ومحميات فريدة -->
+  <div class="category-section searchable-section">
+    <h2>🌊 محميات وعجائب طبيعية مميزة</h2>
+
+    <div class="park-grid">
+
+      <div class="park-card searchable-item">
+        <div class="park-header">
+          <span class="park-title">🌊 الحجز المرجاني الكبير</span>
+          <span class="park-badge">أستراليا</span>
+        </div>
+        <p class="park-desc">أضخم نظام للشعاب المرجانية في العالم، ويمتد لأكثر من 2,300 كيلومتر ويحتوي آلاف الكائنات البحرية الملونة.</p>
+      </div>
+
+      <div class="park-card searchable-item">
+        <div class="park-header">
+          <span class="park-title">🌲 يوسيميتي (Yosemite)</span>
+          <span class="park-badge">الولايات المتحدة</span>
+        </div>
+        <p class="park-desc">مشهورة بشلالاتها العظيمة وأشجار السكويا العملاقة الصامدة ومنحوتات الجرانيت الشهيرة مثل "إل كابيتان".</p>
+      </div>
+
+      <div class="park-card searchable-item">
+        <div class="park-header">
+          <span class="park-title">💧 شلالات إيغواسو (Iguazu)</span>
+          <span class="park-badge">الأرجنتين / البرازيل</span>
+        </div>
+        <p class="park-desc">محمية استوائية تحيط بأحد أكبر وأنظمة الشلالات في العالم، وتضم غابات مطيرة وتنوعاً هائلاً من الطيور والحيوانات.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. جدول معلومات الحدائق الوطنية -->
+  <div class="category-section searchable-section">
+    <h2>📊 جدول مقارنة أبرز الحدائق الوطنية</h2>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>اسم الحديقة / المحمية</th>
+            <th>الدولة</th>
+            <th>سنة التأسيس</th>
+            <th>أبرز المعالم والتنوع</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="searchable-item">
+            <td><b>يلوستون</b></td>
+            <td>أمريكا</td>
+            <td>1872 م</td>
+            <td>عين الصباح الفوارة، ثيران البيزون</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>سيرينغيتي</b></td>
+            <td>تنزانيا</td>
+            <td>1951 م</td>
+            <td>الهجرة الكبرى للنو والحيوانات البرية</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>كروغر (Kruger)</b></td>
+            <td>جنوب أفريقيا</td>
+            <td>1898 م</td>
+            <td>الحيوانات الخمسة الكبرى (Big Five)</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>فلاتنيتسه (Plitvice)</b></td>
+            <td>كرواتيا</td>
+            <td>1949 م</td>
+            <td>16 بحيرة متدرجة وشلالات مائية</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme) document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    function filterParks() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.searchable-item:not([style*="display: none"])');
+        if (visibleItems.length === 0 && input !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

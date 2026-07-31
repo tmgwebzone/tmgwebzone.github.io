@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دليل وموسوعة المطارات العالمية - OmniHub</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- تحسينات SEO المكثفة والمتعددة الكلمات المفتاحية -->
+  <meta name="description" content="الدليل الأضخم والموسع لكافة مطارات العالم الرئيسية، كود IATA وICAO، أكبر وأزحم المطارات، خدمات المسافرين، وتصنيفات أفضل الموانئ الجوية العالمية." />
+  <meta name="keywords" content="مطارات, دليل المطارات, مطار دبي, مطار حمد, مطار هانيدا, مطار هيثرو, أكواد المطارات, رمز IATA, رمز ICAO, أكبر مطارات العالم, أفضل مطار في العالم, airports directory, IATA codes, international airports" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / SEO Social -->
+  <meta property="og:title" content="دليل وموسوعة المطارات العالمية - OmniHub" />
+  <meta property="og:description" content="استكشف دليل المطارات الدولية، الرموز، وأكبر الموانئ الجوية حركة حول العالم." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    /* متغيرات الألوان: مريحة للعين ومعاصرة */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(203, 213, 225, 0.8);
+      --accent-color: #0369a1;
+      --accent-hover: #075985;
+      --accent-light: #e0f2fe;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(3, 105, 161, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #0b1329 0%, #1e293b 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(30, 41, 59, 0.8);
+      --card-border: rgba(51, 65, 85, 0.8);
+      --accent-color: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --accent-light: rgba(56, 189, 248, 0.15);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --glass-bg: rgba(30, 41, 59, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 30px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      transition: background 0.4s ease, color 0.4s ease;
+      line-height: 1.7;
+    }
+
+    /* Theme Toggle */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    a.back {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+    a.back:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+    }
+
+    /* Search Bar */
+    .search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 35px auto;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 50px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Section Cards */
+    .category-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .category-section:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+
+    .category-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.55rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    /* Grid Layout */
+    .airport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .airport-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .airport-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-color);
+    }
+
+    .airport-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .airport-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .iata-code {
+      background: var(--accent-color);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .airport-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .mini-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    /* Keyframes */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .airport-grid { grid-template-columns: 1fr; }
+      body { padding: 15px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" title="تغيير المظهر">🌙</button>
+  <a href="../ominihub.html" class="back">← الصفحة الرئيسية</a>
+
+  <div class="hero">
+    <h1>🛫 الموسوعة العالمية للمطارات والموانئ الجوية</h1>
+    <p class="intro">دليل متكامل شامل لأبرز مطارات العالم، رموز IATA/ICAO الدولية، أكثر المطارات ازدحاماً بالسكان والركاب، وأفضل الموانئ الجوية لخدمات المسافرين.</p>
+    
+    <!-- محرك البحث الفوري -->
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن مطار، رمز IATA، دولة، أو مدينة (مثال: DXB, HND, دبي, لندن)..." onkeyup="filterAirports()">
+    </div>
+  </div>
+
+  <!-- 1. أزحم وأكبر المطارات العالمية -->
+  <div class="category-section searchable-section">
+    <h2>🌟 أكبر وأزحم المطارات الدولية حركياً</h2>
+    
+    <div class="airport-grid">
+
+      <div class="airport-card searchable-item">
+        <img src="dxb_thumb.jpg" alt="مطار دبي الدولي" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار دبي الدولي</span>
+            <span class="iata-code">DXB</span>
+          </div>
+          <p class="airport-desc">الإمارات العربية المتحدة (دبي). يُصنف كأكثر مطار ازدحاماً بالمسافرين الدوليين في العالم ومركز عمليات طيران الإمارات.</p>
+        </div>
+        <span class="tag">المركز الأول للمسافرين الدوليين</span>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <img src="hartsfield_thumb.jpg" alt="مطار أتلانتا" class="mini-img" onerror="this.style.display='none'" />
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار أتلانتا هارتسفيلد</span>
+            <span class="iata-code">ATL</span>
+          </div>
+          <p class="airport-desc">الولايات المتحدة الأمريكية (أتلانتا). المطار الأكثر ازدحاماً من حيث إجمالي حركة الركاب والمغادرين عالمياً.</p>
+        </div>
+        <span class="tag">أعلى إجمالي ركاب</span>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار طوكيو هانيدا</span>
+            <span class="iata-code">HND</span>
+          </div>
+          <p class="airport-desc">اليابان (طوكيو). يشتهر بالدقة والانتظام المتناهي في المواعيد وهو النواة الرئيسية للطيران المحلي والدولي باليابان.</p>
+        </div>
+        <span class="tag">الأعلى كفاءة وانضباطاً</span>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار حمد الدولي</span>
+            <span class="iata-code">DOH</span>
+          </div>
+          <p class="airport-desc">دولة قطر (الدوحة). يُصنف دائماً كأحد أفضل وأفخم المطارات في العالم بفضل التصاميم الاستثنائية والخدمات.</p>
+        </div>
+        <span class="tag">أفضل مطار في العالم</span>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار لندن هيثرو</span>
+            <span class="iata-code">LHR</span>
+          </div>
+          <p class="airport-desc">المملكة المتحدة (لندن). أكبر مطارات أوروبا وأكثرها حركة، والمبنى الرئيسي للخطوط الجوية البريطانية.</p>
+        </div>
+        <span class="tag">بوابة أوروبا الأولى</span>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div>
+          <div class="airport-header">
+            <span class="airport-title">مطار سنغافورة تشانغي</span>
+            <span class="iata-code">SIN</span>
+          </div>
+          <p class="airport-desc">سنغافورة. يضم حديقة شلالات داخلية ومنشآت ترفيهية تجعله أفضل تجربة ترانزيت للمسافرين عالمياً.</p>
+        </div>
+        <span class="tag">أفضل تجربة ترانزيت</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. مطارات العالم العربي الكبرى -->
+  <div class="category-section searchable-section">
+    <h2>🕌 المطارات الرئيسية في الوطن العربي</h2>
+    
+    <div class="airport-grid">
+
+      <div class="airport-card searchable-item">
+        <div class="airport-header">
+          <span class="airport-title">مطار الملك عبد العزيز الدولي</span>
+          <span class="iata-code">JED</span>
+        </div>
+        <p class="airport-desc">المملكة العربية السعودية (جدة). البوابة الجوية الرئيسية لضيوف الرحمن والحجاج والمقصد الأساسي للغرب السعودي.</p>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div class="airport-header">
+          <span class="airport-title">مطار القاهرة الدولي</span>
+          <span class="iata-code">CAI</span>
+        </div>
+        <p class="airport-desc">جمهورية مصر العربية (القاهرة). المطار الأكبر حركياً في أفريقيا والمقر الرئيسي لشركة مصر للطيران.</p>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div class="airport-header">
+          <span class="airport-title">مطار الملكة علياء الدولي</span>
+          <span class="iata-code">AMM</span>
+        </div>
+        <p class="airport-desc">المملكة الأردنية الهاشمية (عمان). مركز عمليات الملكية الأردنية والمطار الأحدث تصميماً بالمنطقة.</p>
+      </div>
+
+      <div class="airport-card searchable-item">
+        <div class="airport-header">
+          <span class="airport-title">مطار محمد الخامس الدولي</span>
+          <span class="iata-code">CMN</span>
+        </div>
+        <p class="airport-desc">المملكة المغربية (الدار البيضاء). المركز الجوي الأول للمغرب ويربط إفريقيا بأوروبا وأمريكا الشمالية.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. جدول رموز أكواد IATA و ICAO الدولية -->
+  <div class="category-section searchable-section">
+    <h2>📋 جدول أكواد المطارات الدولية (IATA & ICAO)</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>اسم المطار الدولي</th>
+            <th>المدينة / الدولة</th>
+            <th>رمز IATA (3 أحرف)</th>
+            <th>رمز ICAO (4 أحرف)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="searchable-item">
+            <td><b>مطار شال دو غول</b></td>
+            <td>باريس، فرنسا</td>
+            <td><span class="tag">CDG</span></td>
+            <td>LFPG</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>مطار جون إف كينيدي</b></td>
+            <td>نيويورك، أمريكا</td>
+            <td><span class="tag">JFK</span></td>
+            <td>KJFK</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>مطار فرانكفورت</b></td>
+            <td>فرانكفورت، ألمانيا</td>
+            <td><span class="tag">FRA</span></td>
+            <td>EDDF</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>مطار إسطنبول الدولي</b></td>
+            <td>إسطنبول، تركيا</td>
+            <td><span class="tag">IST</span></td>
+            <td>LTFM</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>مطار إنتشون الدولي</b></td>
+            <td>سول، كوريا الجنوبية</td>
+            <td><span class="tag">ICN</span></td>
+            <td>RKSI</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>مطار بيروت رفيق الحريري</b></td>
+            <td>بيروت، لبنان</td>
+            <td><span class="tag">BEY</span></td>
+            <td>OLBA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    /* Theme Toggle */
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme) document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    /* Live Instant Search Engine */
+    function filterAirports() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      // Filter empty sections
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.searchable-item:not([style*="display: none"])');
+        if (visibleItems.length === 0 && input !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

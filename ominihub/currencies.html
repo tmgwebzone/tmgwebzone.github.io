@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موسوعة العملات والأسواق المالية - OmniHub</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- SEO Optimizations -->
+  <meta name="description" content="دليل وموسوعة شاملة لأهم العملات العالمية، العملات الرقمية المشفرة، والرموز المالية مع بيانات واسم كل عملة ودولتها." />
+  <meta name="keywords" content="عملات, دولار, يورو, بيتكوين, عملات رقمية, أسواق مالية, اقتصاد, فوركس, currencies, crypto, forex" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / SEO Social -->
+  <meta property="og:title" content="موسوعة العملات والأسواق المالية - OmniHub" />
+  <meta property="og:description" content="استكشف أنواع العملات الورقية والرقمية، رموزها العالمية، واستخداماتها في الاقتصاد." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(134, 239, 172, 0.8);
+      --accent-color: #16a34a;
+      --accent-hover: #15803d;
+      --accent-light: #dcfce7;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 25px -5px rgba(22, 163, 74, 0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    body.dark {
+      --bg-gradient: linear-gradient(135deg, #14532d 0%, #0f172a 100%);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --card-bg: rgba(15, 23, 42, 0.85);
+      --card-border: rgba(74, 222, 128, 0.3);
+      --accent-color: #4ade80;
+      --accent-hover: #86efac;
+      --accent-light: rgba(74, 222, 128, 0.15);
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      --glass-bg: rgba(15, 23, 42, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      padding: 30px 20px;
+      max-width: 1150px;
+      margin: 0 auto;
+      transition: background 0.4s ease, color 0.4s ease;
+      line-height: 1.7;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      color: var(--text-main);
+      cursor: pointer;
+      font-size: 22px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    a.back {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 25px;
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      transition: all 0.3s ease;
+    }
+
+    a.back:hover {
+      background: var(--accent-color);
+      color: #ffffff;
+      transform: translateX(5px);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 25px 20px;
+      margin-bottom: 25px;
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      color: var(--accent-color);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 25px auto;
+    }
+
+    .search-wrapper {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 35px auto;
+      animation: fadeInUp 0.9s ease-out;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 50px;
+      font-size: 1.05rem;
+      border-radius: 30px;
+      border: 2px solid var(--card-border);
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      color: var(--text-main);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-color);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    .category-section {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .category-section:hover {
+      box-shadow: var(--shadow-lg);
+      border-color: var(--accent-color);
+    }
+
+    .category-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.55rem;
+      color: var(--accent-color);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+
+    .curr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .curr-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .curr-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sm);
+      border-color: var(--accent-color);
+    }
+
+    .curr-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .curr-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .symbol-badge {
+      background: var(--accent-color);
+      color: #ffffff;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: bold;
+    }
+
+    .curr-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--card-border);
+      text-align: right;
+    }
+
+    th {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(0, 0, 0, 0.015);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      .curr-grid { grid-template-columns: 1fr; }
+      body { padding: 15px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" title="تغيير المظهر">🌙</button>
+  <a href="../ominihub.html" class="back">← الصفحة الرئيسية</a>
+
+  <div class="hero">
+    <h1>💵 موسوعة العملات والأسواق المالية</h1>
+    <p class="intro">دليل متكامل يستعرض أهم العملات الدولية الرئيسية، العملات الرقمية المشفرة، والرموز المالية العالمية.</p>
+    
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن عملة، رمز (مثال: USD, EUR, BTC, ريال)..." onkeyup="filterCurrencies()">
+    </div>
+  </div>
+
+  <!-- 1. العملات الرئيسية العالمية -->
+  <div class="category-section searchable-section">
+    <h2>💳 العملات الورقية العالمية الرئيسية</h2>
+    
+    <div class="curr-grid">
+
+      <div class="curr-card searchable-item">
+        <div>
+          <div class="curr-header">
+            <span class="curr-title">الدولار الأمريكي</span>
+            <span class="symbol-badge">USD ($)</span>
+          </div>
+          <p class="curr-desc">العملة الاحتياطية الأولى عالمياً، وتُستخدم في غالبية المعاملات التجارية والنفطية الدولية.</p>
+        </div>
+      </div>
+
+      <div class="curr-card searchable-item">
+        <div>
+          <div class="curr-header">
+            <span class="curr-title">اليورو</span>
+            <span class="symbol-badge">EUR (€)</span>
+          </div>
+          <p class="curr-desc">العملة الرسمية لكتلة منطقة اليورو في الاتحاد الأوروبي، وثاني أكبر عملة متداولة عالمياً.</p>
+        </div>
+      </div>
+
+      <div class="curr-card searchable-item">
+        <div>
+          <div class="curr-header">
+            <span class="curr-title">الين الياباني</span>
+            <span class="symbol-badge">JPY (¥)</span>
+          </div>
+          <p class="curr-desc">العملة الرسمية لليابان، وتُعد ملاذاً آمناً رئيسياً في أسواق التداول المالي العالمي.</p>
+        </div>
+      </div>
+
+      <div class="curr-card searchable-item">
+        <div>
+          <div class="curr-header">
+            <span class="curr-title">الجنيه الإسترليني</span>
+            <span class="symbol-badge">GBP (£)</span>
+          </div>
+          <p class="curr-desc">عملة المملكة المتحدة، وهي من أقدم العملات المتداولة والتي لا تزال قيد الاستخدام حتى اليوم.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. العملات الرقمية المشفرة -->
+  <div class="category-section searchable-section">
+    <h2>🪙 العملات الرقمية واللامركزية (Crypto)</h2>
+    
+    <div class="curr-grid">
+
+      <div class="curr-card searchable-item">
+        <div class="curr-header">
+          <span class="curr-title">بيتكوين</span>
+          <span class="symbol-badge">BTC (₿)</span>
+        </div>
+        <p class="curr-desc">أول وأشهر عملة رقمية مشفرة لامركزية في العالم، تعتمد على تكنولوجيا البلوكشين (Blockchain).</p>
+      </div>
+
+      <div class="curr-card searchable-item">
+        <div class="curr-header">
+          <span class="curr-title">إيثريوم</span>
+          <span class="symbol-badge">ETH (Ξ)</span>
+        </div>
+        <p class="curr-desc">منصة لامركزية مفتوحة المصدر تعتمد على العقود الذكية وتُعد ثاني أكبر عملة مشفرة بقيمة سوقية.</p>
+      </div>
+
+      <div class="curr-card searchable-item">
+        <div class="curr-header">
+          <span class="curr-title">تيسير (USDT)</span>
+          <span class="symbol-badge">USDT ₮</span>
+        </div>
+        <p class="curr-desc">أشهر عملة رقمية مستقرة (Stablecoin) مربوطة بقيمة الدولار الأمريكي للتداول السريع.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. جدول معلومات مقارنة العملات -->
+  <div class="category-section searchable-section">
+    <h2>📊 جدول رمزي لعملات دولية وعربية</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>اسم العملة</th>
+            <th>رمز ISO</th>
+            <th>الدولة / المنطقة</th>
+            <th>الرمز التعبيري</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="searchable-item">
+            <td><b>الريال السعودي</b></td>
+            <td>SAR</td>
+            <td>المملكة العربية السعودية</td>
+            <td>ر.س / SAR</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>الدرهم الإماراتي</b></td>
+            <td>AED</td>
+            <td>الإمارات العربية المتحدة</td>
+            <td>د.إ / AED</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>الفرنك السويسري</b></td>
+            <td>CHF</td>
+            <td>سويسرا</td>
+            <td>CHF</td>
+          </tr>
+          <tr class="searchable-item">
+            <td><b>اليوان الصيني</b></td>
+            <td>CNY</td>
+            <td>الصين</td>
+            <td>¥ / RMB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme) document.body.classList.toggle("dark", savedTheme === "dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    function filterCurrencies() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const items = document.querySelectorAll('.searchable-item');
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+
+      const sections = document.querySelectorAll('.searchable-section');
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.searchable-item:not([style*="display: none"])');
+        if (visibleItems.length === 0 && input !== "") {
+          section.style.display = "none";
+        } else {
+          section.style.display = "";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
