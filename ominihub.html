@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OmniHub | الموسوعة المعرفية الشاملة والفاخرة</title>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+  
+  <!-- SEO & Optimization -->
+  <meta name="description" content="OmniHub - موسوعة نصية فاخرة تضم أربعين قسماً شاملاً: الأعلام، العملات، اللغات، الحيوانات، النباتات، المعادن، الكواكب، الاختراعات، السيارات، والدول." />
+  <meta name="keywords" content="موسوعة, دول, أعلام, عملات, لغات, حيوانات, نباتات, معادن, أحجار كريمة, كواكب, اختراعات, علماء, سيارات, طائرات, تاريخ, جغرافيا, مصطلحات, اختصارات" />
+  <meta name="author" content="TMGWEB" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Analytics & Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --card-bg: #f8f9fa;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --card-bg: #1e1e1e;
+      --border: #2d3748;
+      --accent: #60a5fa;
+      --shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.6;
+    }
+
+    /* Toggle Button */
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--card-bg);
+      color: var(--text);
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #theme-toggle:hover { transform: scale(1.1); }
+
+    /* Header */
+    header {
+      padding: 60px 20px 30px;
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      color: #64748b;
+      font-size: 1.1rem;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .search-box {
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 16px 24px;
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      font-size: 1rem;
+      outline: none;
+      box-shadow: var(--shadow);
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus { border-color: var(--accent); }
+
+    /* Hub Grid Layout */
+    main {
+      max-width: 1300px;
+      margin: 20px auto;
+      padding: 0 20px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .hub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      text-decoration: none;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .hub-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+    }
+
+    .hub-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .hub-card h2 { font-size: 1.25rem; margin-bottom: 6px; }
+    .hub-card p { font-size: 0.85rem; color: #64748b; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid var(--border);
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+
+    footer nav { margin-bottom: 10px; }
+    footer nav a {
+      color: inherit;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.2s;
+    }
+    footer nav a:hover { color: var(--accent); }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+
+  <header>
+    <h1>OmniHub</h1>
+    <p>الموسوعة النصية الفاخرة والأكثر شمولاً - اختر القسم للبدء بالإبحار والمعرفة.</p>
+    <div class="search-box">
+      <input type="text" id="hub-search" placeholder="ابحث في أقسام الموسوعة (مثال: حيوانات، سيارات، كواكب...)" onkeyup="filterHub()" />
+    </div>
+  </header>
+
+  <main>
+    <div class="hub-grid" id="hub-cards">
+
+      <!-- الأقسام من 1 إلى 40 مرتبة بشكل شجري -->
+      <a href="ominihub/flags.html" class="hub-card">
+        <div class="icon">🚩</div>
+        <h2>1. الأعلام</h2>
+        <p>أعلام العالم، التاريخية، والمنظمات</p>
+      </a>
+
+      <a href="ominihub/currencies.html" class="hub-card">
+        <div class="icon">🪙</div>
+        <h2>2. العملات</h2>
+        <p>كل العملات، الرموز والتاريخ</p>
+      </a>
+
+      <a href="ominihub/languages.html" class="hub-card">
+        <div class="icon">🗣️</div>
+        <h2>3. اللغات</h2>
+        <p>جميع اللغات، الأبجديات والمتحدثين</p>
+      </a>
+
+      <a href="ominihub/animals.html" class="hub-card">
+        <div class="icon">🐅</div>
+        <h2>4. الحيوانات</h2>
+        <p>ثدييات، طيور، زواحف، أسماك وحشرات</p>
+      </a>
+
+      <a href="ominihub/plants.html" class="hub-card">
+        <div class="icon">🌿</div>
+        <h2>5. النباتات</h2>
+        <p>أشجار، ورود ونباتات طبية</p>
+      </a>
+
+      <a href="ominihub/metals.html" class="hub-card">
+        <div class="icon">⛏️</div>
+        <h2>6. المعادن</h2>
+        <p>الذهب، الفضة، النحاس والليثيوم</p>
+      </a>
+
+      <a href="ominihub/gems.html" class="hub-card">
+        <div class="icon">💎</div>
+        <h2>7. الأحجار الكريمة</h2>
+        <p>أنواعها، خصائصها، ودرجات ندرتها</p>
+      </a>
+
+      <a href="ominihub/space.html" class="hub-card">
+        <div class="icon">🚀</div>
+        <h2>8. الكواكب والأجرام</h2>
+        <p>المجموعة الشمسية والظواهر الكونيه</p>
+      </a>
+
+      <a href="ominihub/inventions.html" class="hub-card">
+        <div class="icon">💡</div>
+        <h2>9. الاختراعات</h2>
+        <p>أعظم الابتكارات البشرية عبر التاريخ</p>
+      </a>
+
+      <a href="ominihub/scientists.html" class="hub-card">
+        <div class="icon">🔬</div>
+        <h2>10. العلماء</h2>
+        <p>سير علماء الفيزياء والكيمياء والطب</p>
+      </a>
+
+      <a href="ominihub/inventors.html" class="hub-card">
+        <div class="icon">⚙️</div>
+        <h2>11. المخترعون</h2>
+        <p>عقول غيرت مجرى تاريخ البشرية</p>
+      </a>
+
+      <a href="ominihub/companies.html" class="hub-card">
+        <div class="icon">🏢</div>
+        <h2>12. الشركات العالمية</h2>
+        <p>تاريخ المؤسسات والعملاقة التكنولوجية</p>
+
+      <a href="ominihub/brands.html" class="hub-card">
+        <div class="icon">🏷️</div>
+        <h2>13. العلامات التجارية</h2>
+        <p>أشهر الماركات والهويات البصرية</p>
+      </a>
+
+      <a href="ominihub/cars.html" class="hub-card">
+        <div class="icon">🚗</div>
+        <h2>14. السيارات</h2>
+        <p>كل شركة وكل موديل وتفاصيله</p>
+      </a>
+
+      <a href="ominihub/planes.html" class="hub-card">
+        <div class="icon">✈️</div>
+        <h2>15. الطائرات</h2>
+        <p>مدنية، حربية، وتاريخ الطيران</p>
+      </a>
+
+      <a href="ominihub/ships.html" class="hub-card">
+        <div class="icon">🚢</div>
+        <h2>16. السفن</h2>
+        <p>أشهر المراكب، الغواصات والسفن</p>
+      </a>
+
+      <a href="ominihub/weapons.html" class="hub-card">
+        <div class="icon">⚔️</div>
+        <h2>17. الأسلحة التاريخية</h2>
+        <p>منظور تاريخي وتعليمي شامل</p>
+      </a>
+
+      <a href="ominihub/buildings.html" class="hub-card">
+        <div class="icon">🏛️</div>
+        <h2>18. الأبنية الشهيرة</h2>
+        <p>العجائب والمعالم المعمارية</p>
+      </a>
+
+      <a href="ominihub/bridges.html" class="hub-card">
+        <div class="icon">🌉</div>
+        <h2>19. الجسور</h2>
+        <p>أطول وأشُهر الجسور الهندسية</p>
+      </a>
+
+      <a href="ominihub/mountains.html" class="hub-card">
+        <div class="icon">🏔️</div>
+        <h2>20. الجبال</h2>
+        <p>أعلى القمم السبع والتشكيلات</p>
+      </a>
+
+      <a href="ominihub/rivers.html" class="hub-card">
+        <div class="icon">🌊</div>
+        <h2>21. الأنهار</h2>
+        <p>أطول المجاري المائية والروافد</p>
+      </a>
+
+      <a href="ominihub/deserts.html" class="hub-card">
+        <div class="icon">🏜️</div>
+        <h2>22. الصحارى</h2>
+        <p>أكبر الصحارى الرملية والجليدية</p>
+      </a>
+
+      <a href="ominihub/islands.html" class="hub-card">
+        <div class="icon">🏝️</div>
+        <h2>23. الجزر</h2>
+        <p>أكبر وأندر الجزر حول العالم</p>
+      </a>
+
+      <a href="ominihub/lakes.html" class="hub-card">
+        <div class="icon">🏞️</div>
+        <h2>24. البحيرات</h2>
+        <p>أعمق وأكبر مساحات المياه العذبة</p>
+      </a>
+
+      <a href="ominihub/countries.html" class="hub-card">
+        <div class="icon">🌍</div>
+        <h2>25. الدول</h2>
+        <p>دليل كامل لكل دولة وصفحتها الخاصة</p>
+      </a>
+
+      <a href="ominihub/cities.html" class="hub-card">
+        <div class="icon">🏙️</div>
+        <h2>26. المدن</h2>
+        <p>أشهر الحواضر والمراكز التراثية</p>
+      </a>
+
+      <a href="ominihub/capitals.html" class="hub-card">
+        <div class="icon">👑</div>
+        <h2>27. العواصم</h2>
+        <p>عواصم كل دول العالم ومعالمها</p>
+      </a>
+
+      <a href="ominihub/airports.html" class="hub-card">
+        <div class="icon">🛫</div>
+        <h2>28. المطارات</h2>
+        <p>أكبر مطارات العالم والرموز الدولية</p>
+      </a>
+
+      <a href="ominihub/universities.html" class="hub-card">
+        <div class="icon">🎓</div>
+        <h2>29. الجامعات</h2>
+        <p>أقدم وأرقى الصروح الأكاديمية</p>
+      </a>
+
+      <a href="ominihub/museums.html" class="hub-card">
+        <div class="icon">🎨</div>
+        <h2>30. المتاحف</h2>
+        <p>مستودعات الحضارة والتراث الانساني</p>
+      </a>
+
+      <a href="ominihub/parks.html" class="hub-card">
+        <div class="icon">🏞️</div>
+        <h2>31. الحدائق الوطنية</h2>
+        <p>محميات المحيط الحيوي والطبيعة</p>
+      </a>
+
+      <a href="ominihub/civilizations.html" class="hub-card">
+        <div class="icon">🗿</div>
+        <h2>32. الحضارات</h2>
+        <p>الحضارات القديمة والتأسيس</p>
+      </a>
+
+      <a href="ominihub/empires.html" class="hub-card">
+        <div class="icon">🏰</div>
+        <h2>33. الإمبراطوريات</h2>
+        <p>أعظم الدول والقوى بالتاريخ</p>
+      </a>
+
+      <a href="ominihub/history_events.html" class="hub-card">
+        <div class="icon">📜</div>
+        <h2>34. الأحداث التاريخية</h2>
+        <p>المحطات المفصلية في التاريخ</p>
+      </a>
+
+      <a href="ominihub/holidays.html" class="hub-card">
+        <div class="icon">🎉</div>
+        <h2>35. الأعياد العالمية</h2>
+        <p>المناسبات والاحتفالات حول العالم</p>
+      </a>
+
+      <a href="ominihub/awards.html" class="hub-card">
+        <div class="icon">🏆</div>
+        <h2>36. الجوائز العالمية</h2>
+        <p>نوبل، أوسكار، فيلدز وبوليتزر</p>
+      </a>
+
+      <a href="ominihub/books.html" class="hub-card">
+        <div class="icon">📖</div>
+        <h2>37. الكتب</h2>
+        <p>أعظم أمهات الكتب والمؤلفات</p>
+      </a>
+
+      <a href="ominihub/professions.html" class="hub-card">
+        <div class="icon">💼</div>
+        <h2>38. المهن</h2>
+        <p>دليل التخصصات والوظائف الحديثة</p>
+      </a>
+
+      <a href="ominihub/abbreviations.html" class="hub-card">
+        <div class="icon">🔤</div>
+        <h2>39. الاختصارات</h2>
+        <p>HTTP, HTML, CSS, RAM, SSD, GPS...</p>
+      </a>
+
+      <a href="ominihub/dictionary.html" class="hub-card">
+        <div class="icon">📚</div>
+        <h2>40. المصطلحات</h2>
+        <p>قاموس ومعجم علمي ضخم جداً</p>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <nav>
+      <a href="ominihub/about8.html">من نحن</a> |
+      <a href="ominihub/contact8.html">اتصل بنا</a> |
+      <a href="ominihub/privacy8.html">سياسة الخصوصية</a> |
+      <a href="ominihub/terms8.html">شروط الاستخدام</a>
+    </nav>
+    <p><a href="https://tmgwebzone.github.io" style="color:inherit; text-decoration:none;">TMG WEB ZONE</a> © 2026</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme) {
+      document.body.classList.toggle("dark", savedTheme === "dark");
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark");
+    }
+
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark");
+      const dark = document.body.classList.contains("dark");
+      localStorage.setItem("theme", dark ? "dark" : "light");
+      toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    function filterHub() {
+      const q = document.getElementById("hub-search").value.toLowerCase();
+      document.querySelectorAll(".hub-card").forEach(c => {
+        c.style.display = c.textContent.toLowerCase().includes(q) ? "flex" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
