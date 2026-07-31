@@ -7,12 +7,12 @@
 ---
 
 ## 🗺️ صفحات المناطق
-صفحات استكشافية ومعلوماتية مخصصة لمناطق معينة:
+صفحات استكشافية ومعلوماتية مخصصة معينة:
 
 * 🏛️ **بعلبك (Baalbek):** [استكشف بعلبك](https://tmgwebzone.github.io/baalbek.html)
 * 📍 **برجا (Barja):** [استكشف برجا](https://tmgwebzone.github.io/Barja.html)
-
 ---
+ **Omini Hub:** [استكشف معلومات عامة](https://tmgwebzone.github.io/ominihub.html)
 
 ## 🛠️ أدوات المساعدة
 مجموعة أدوات أونلاين مصممة لتسهيل المهام اليومية:
