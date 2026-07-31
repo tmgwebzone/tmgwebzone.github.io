@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- الرابط الرئيسي -->
+  <!-- الرابط الرئيسي للموقع -->
   <url>
     <loc>https://tmgwebzone.github.io/</loc>
     <priority>1.00</priority>
@@ -116,23 +116,27 @@
     <loc>https://tmgwebzone.github.io/mediaconvert/terms5.html</loc>
     <priority>0.30</priority>
   </url>
+
+  <!-- موقع readme -->
   <url>
-  <loc>https://tmgwebzone.github.io/readme/about6.html</loc>
-  <priority>0.50</priority>
-</url>
-<url>
-  <loc>https://tmgwebzone.github.io/readme/contact6.html</loc>
-  <priority>0.50</priority>
-</url>
-<url>
-  <loc>https://tmgwebzone.github.io/readme/privacy6.html</loc>
-  <priority>0.30</priority>
-</url>
-<url>
-  <loc>https://tmgwebzone.github.io/readme/terms6.html</loc>
-  <priority>0.30</priority>
-</url>
-   <url>
+    <loc>https://tmgwebzone.github.io/readme/about6.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/readme/contact6.html</loc>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/readme/privacy6.html</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/readme/terms6.html</loc>
+    <priority>0.30</priority>
+  </url>
+
+  <!-- موقع photoconvert -->
+  <url>
     <loc>https://tmgwebzone.github.io/photoconvert.html</loc>
     <priority>0.80</priority>
   </url>
@@ -152,5 +156,66 @@
     <loc>https://tmgwebzone.github.io/photoconvert/terms7.html</loc>
     <priority>0.30</priority>
   </url>
+
+  <!-- منصة OmniHub والصفحات القانونية التابعة لها -->
+  <url>
+    <loc>https://tmgwebzone.github.io/ominihub.html</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/ominihub/privacy8.html</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/ominihub/terms8.html</loc>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/ominihub/about8.html</loc>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://tmgwebzone.github.io/ominihub/contact8.html</loc>
+    <priority>0.40</priority>
+  </url>
+
+  <!-- موسوعات ودلائل OmniHub الفرعية (الـ 36 موسوعة) -->
+  <url><loc>https://tmgwebzone.github.io/ominihub/abbrevations.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/aircraft.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/airports.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/animals.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/books.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/bridges.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/capitals.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/cars.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/cities.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/civilizations.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/countries.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/currencies.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/deserts.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/famousbuildings.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/flags.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/gemstones.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/globalcompanies.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/historicalevents.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/historicalweapons.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/internationalholidays.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/internationalawards.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/inventions.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/inventores.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/islands.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/languages.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/minerals.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/museums.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/nationalparks.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/planetsandcelestialbodies.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/plants.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/professions.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/scientists.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/ships.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/terminology.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/themountains.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/trademarks.html</loc><priority>0.80</priority></url>
+  <url><loc>https://tmgwebzone.github.io/ominihub/universities.html</loc><priority>0.80</priority></url>
 
 </urlset>
