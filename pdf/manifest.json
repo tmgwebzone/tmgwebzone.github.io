@@ -20,7 +20,7 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "../pdfconvert.html",
+  "start_url": "../pdfconverter.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb"
