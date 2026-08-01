@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>أدوات PDF المتقدمة – دمج، تقسيم، علامة مائية وحماية بكلمة سر | SnapPDFImg</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="أدوات PDF الاحترافية المتقدمة: دمج ملفات PDF، تقسيم الصفحات، إضافة علامة مائية، وتشفير ملفات PDF بكلمة سر مجاناً وبأمان داخل متصفحك.">
+  <meta name="keywords" content="دمج PDF, تقسيم PDF, قفل PDF بكلمة سر, تشفير PDF, اضافة علامة مائية PDF, SnapPDFImg, TMG WEB ZONE">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://tmgwebzone.github.io/pdf/pdfconverter-tools.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="أدوات PDF المتقدمة – SnapPDFImg">
+  <meta property="og:description" content="قم بدمج، تقسيم، إضافة علامة مائية وحماية ملفات الـ PDF بكلمة سر مجاناً وبأمان تام على جهازك.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tmgwebzone.github.io/pdf/pdfconverter-tools.html">
+  <meta property="og:image" content="https://tmgwebzone.github.io/pdf/pdf1.jpg">
+
+  <!-- Favicons & Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="icon" type="image/png" sizes="96x96" href="./icon-96.png">
+  <link rel="shortcut icon" href="./icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./icon-192.png">
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7999209256244874" crossorigin="anonymous"></script>
+
+  <!-- Fonts & Libraries -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- مكتبات التعامل المتقدم والتشفير لملفات PDF -->
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --secondary: #00adb5;
+      --success: #16a34a;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 2.5rem 1rem 2rem;
+      text-align: center;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+    }
+
+    header h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.4rem; }
+    header p { font-size: 1rem; opacity: 0.95; }
+
+    .nav-bar {
+      max-width: 1050px;
+      margin: 15px auto 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+    }
+
+    .back-link {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .back-link:hover { background: rgba(255, 255, 255, 0.35); }
+
+    main { max-width: 1050px; margin: -20px auto 2rem; padding: 0 1.5rem; position: relative; z-index: 10; }
+
+    .card-box {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 2rem;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Tabs */
+    .tools-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .tab-btn {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Uploader Area */
+    .uploader {
+      border: 2px dashed var(--primary);
+      border-radius: var(--border-radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      background: #f8fafc;
+      transition: var(--transition);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .uploader:hover { background: #eef2ff; border-color: var(--primary-hover); }
+    .uploader-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; display: block; }
+    .uploader strong { font-size: 1.05rem; color: var(--primary); display: block; }
+    .uploader span { font-size: 0.85rem; color: var(--text-muted); }
+    .hidden { display: none !important; }
+
+    /* Inputs & Buttons */
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 1rem;
+    }
+
+    .btn-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .btn-action:hover { background: var(--primary-hover); }
+
+    .file-list { margin: 1rem 0; background: #f1f5f9; padding: 1rem; border-radius: 10px; font-size: 0.9rem; }
+    .file-item { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; border-bottom: 1px solid #e2e8f0; }
+    .file-item:last-child { border-bottom: none; }
+
+    .loader-container { text-align: center; padding: 2rem; }
+    .spinner { width: 40px; height: 40px; border: 4px solid #e2e8f0; border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+
+    /* Info Section */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+    .info-card { background: #f8fafc; border-radius: 12px; padding: 1.2rem; border: 1px solid #e2e8f0; }
+    .info-card h3 { color: var(--primary); font-size: 1.05rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+    .info-card p { font-size: 0.88rem; color: #475569; }
+
+    footer { text-align: center; margin-top: 40px; padding: 25px 15px; border-top: 1px solid #e2e8f0; background: #fff; color: var(--text-muted); }
+    footer a { color: var(--secondary); margin: 0 8px; text-decoration: none; font-weight: 600; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-bar">
+      <a href="../pdfconverter.html" class="back-link"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+      <span style="font-size:0.9rem; opacity:0.8;">أدوات PDF المتخصصة</span>
+    </div>
+    <h1 style="margin-top:10px;"><i class="fa-solid fa-gears"></i> أدوات PDF المتقدمة</h1>
+    <p>دمج الملفات، تقسيم الصفحات، إضافة العلامة المائية، وقفل PDF بكلمة سر</p>
+  </header>
+
+  <main>
+    <div class="card-box">
+      <!-- Tabs -->
+      <div class="tools-tabs">
+        <button class="tab-btn active" onclick="switchToolTab('mergeTab', event)"><i class="fa-solid fa-object-group"></i> دمج PDF</button>
+        <button class="tab-btn" onclick="switchToolTab('splitTab', event)"><i class="fa-solid fa-scissors"></i> تقسيم PDF</button>
+        <button class="tab-btn" onclick="switchToolTab('watermarkTab', event)"><i class="fa-solid fa-stamp"></i> علامة مائية</button>
+        <button class="tab-btn" onclick="switchToolTab('protectTab', event)"><i class="fa-solid fa-lock"></i> حماية بكلمة سر</button>
+      </div>
+
+      <!-- 1. Merge PDF Tool -->
+      <section id="mergeTab">
+        <h3 style="color:var(--primary); margin-bottom:1rem;"><i class="fa-solid fa-object-group"></i> دمج عدة ملفات PDF في ملف واحد</h3>
+        <label class="uploader" for="mergeFiles">
+          <i class="fa-solid fa-cloud-arrow-up uploader-icon"></i>
+          <strong>اختر ملفات PDF المراد دمجها</strong>
+          <span>يمكنك تحديد أكثر من ملف واحد في نفس الوقت</span>
+          <input type="file" id="mergeFiles" accept="application/pdf" multiple class="hidden">
+        </label>
+        <div id="mergeFileList" class="file-list hidden"></div>
+        <button class="btn-action" onclick="processMerge()"><i class="fa-solid fa-file-export"></i> بدء الدمج وتحميل الملف</button>
+        <div id="mergeStatus" style="margin-top:15px;"></div>
+      </section>
+
+      <!-- 2. Split PDF Tool -->
+      <section id="splitTab" class="hidden">
+        <h3 style="color:var(--primary); margin-bottom:1rem;"><i class="fa-solid fa-scissors"></i> تقسيم مستند PDF واستخراج صفحات محددة</h3>
+        <label class="uploader" for="splitFile">
+          <i class="fa-solid fa-file-pdf uploader-icon"></i>
+          <strong>اختر ملف PDF المراد تجزئته</strong>
+          <input type="file" id="splitFile" accept="application/pdf" class="hidden">
+        </label>
+        <div id="splitFileInfo" class="file-list hidden"></div>
+
+        <div class="form-group">
+          <label for="pageRange">حدد نطاق الصفحات (مثال: 1-3 أو 2):</label>
+          <input type="text" id="pageRange" class="form-control" placeholder="مثال: 1-3">
+        </div>
+        <button class="btn-action" onclick="processSplit()"><i class="fa-solid fa-file-arrow-down"></i> استخراج الصفحات وتحميلها</button>
+        <div id="splitStatus" style="margin-top:15px;"></div>
+      </section>
+
+      <!-- 3. Watermark Tool -->
+      <section id="watermarkTab" class="hidden">
+        <h3 style="color:var(--primary); margin-bottom:1rem;"><i class="fa-solid fa-stamp"></i> إضافة نص علامة مائية (Watermark)</h3>
+        <label class="uploader" for="watermarkFile">
+          <i class="fa-solid fa-file-pdf uploader-icon"></i>
+          <strong>اختر ملف PDF لإضافة العلامة المائية عليه</strong>
+          <input type="file" id="watermarkFile" accept="application/pdf" class="hidden">
+        </label>
+        <div id="watermarkFileInfo" class="file-list hidden"></div>
+
+        <div class="form-group">
+          <label for="watermarkText">نص العلامة المائية:</label>
+          <input type="text" id="watermarkText" class="form-control" placeholder="مثال: CONFIDENTIAL / سري">
+        </div>
+        <button class="btn-action" onclick="processWatermark()"><i class="fa-solid fa-shield-halved"></i> تطبيق العلامة المائية وتحميل الملف</button>
+        <div id="watermarkStatus" style="margin-top:15px;"></div>
+      </section>
+
+      <!-- 4. Protect PDF Tool -->
+      <section id="protectTab" class="hidden">
+        <h3 style="color:var(--primary); margin-bottom:1rem;"><i class="fa-solid fa-lock"></i> حماية وتشفير ملف PDF بكلمة سر</h3>
+        <label class="uploader" for="protectFile">
+          <i class="fa-solid fa-file-shield uploader-icon"></i>
+          <strong>اختر ملف الـ PDF المراد قفله بكلمة سر</strong>
+          <input type="file" id="protectFile" accept="application/pdf" class="hidden">
+        </label>
+        <div id="protectFileInfo" class="file-list hidden"></div>
+
+        <div class="form-group">
+          <label for="pdfPassword">كلمة سر الحماية:</label>
+          <input type="password" id="pdfPassword" class="form-control" placeholder="أدخل كلمة المرور التي تريد قفل الملف بها...">
+        </div>
+        <button class="btn-action" onclick="processProtect()"><i class="fa-solid fa-key"></i> قفل الملف وتنزيله بكلمة السر</button>
+        <div id="protectStatus" style="margin-top:15px;"></div>
+      </section>
+    </div>
+
+    <!-- SEO / Explanation Section -->
+    <div class="card-box">
+      <h2 style="color:var(--primary); margin-bottom:1.2rem;"><i class="fa-solid fa-circle-info"></i> دليل استخدام أدوات PDF المتقدمة</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3><i class="fa-solid fa-object-group"></i> دمج المستندات</h3>
+          <p>جمع ملفات PDF مختلفة وتنسيقها في مستند واحد عالي الجودة جاهز للتحميل.</p>
+        </div>
+        <div class="info-card">
+          <h3><i class="fa-solid fa-scissors"></i> استخراج الصفحات</h3>
+          <p>تجزئة الصفحات وفصلها بسهولة بناءً على الأرقام والنطاقات التي تختارها.</p>
+        </div>
+        <div class="info-card">
+          <h3><i class="fa-solid fa-lock"></i> حماية بكلمة سر</h3>
+          <p>قفل ملفات الـ PDF الحساسة بكلمة سر شخصية تمنع أي شخص من فتحها بدون إذن.</p>
+        </div>
+        <div class="info-card">
+          <h3><i class="fa-solid fa-shield-cat"></i> الأمان 100%</h3>
+          <p>تتم جميع العمليات داخل متصفح جهازك محلياً دون رفع أية أوراق أو بيانات لأطراف خارجية.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p style="margin-top: 10px;">
+      <a href="../about.html">عن الموقع</a> | 
+      <a href="../privacy.html">سياسة الخصوصية</a> | 
+      <a href="../terms.html">الشروط والأحكام</a> | 
+      <a href="../contact.html">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <!-- Script Logic -->
+  <script>
+    const { PDFDocument, rgb, StandardFonts } = PDFLib;
+
+    // Switch Tabs
+    function switchToolTab(tabId, evt) {
+      ['mergeTab', 'splitTab', 'watermarkTab', 'protectTab'].forEach(t => {
+        document.getElementById(t).classList.add('hidden');
+      });
+      document.getElementById(tabId).classList.remove('hidden');
+
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if(evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+    }
+
+    // 1. Merge PDF Logic
+    let mergeFilesArray = [];
+    document.getElementById('mergeFiles').addEventListener('change', (e) => {
+      mergeFilesArray = [...e.target.files];
+      const listDiv = document.getElementById('mergeFileList');
+      if (mergeFilesArray.length > 0) {
+        listDiv.classList.remove('hidden');
+        listDiv.innerHTML = '<strong>الملفات المحددة:</strong>' + mergeFilesArray.map(f => `<div class="file-item"><span>📄 ${f.name}</span> <span>${(f.size/1024/1024).toFixed(2)} MB</span></div>`).join('');
+      }
+    });
+
+    async function processMerge() {
+      const status = document.getElementById('mergeStatus');
+      if (!mergeFilesArray.length) {
+        status.innerHTML = `<p style="color:red;">يرجى اختيار ملفين PDF أو أكثر أولاً!</p>`;
+        return;
+      }
+      status.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ دمج الملفات...</p></div>`;
+
+      try {
+        const mergedPdf = await PDFDocument.create();
+        for (const file of mergeFilesArray) {
+          const arrayBuffer = await file.arrayBuffer();
+          const pdf = await PDFDocument.load(arrayBuffer);
+          const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+          copiedPages.forEach((page) => mergedPdf.addPage(page));
+        }
+
+        const mergedBytes = await mergedPdf.save();
+        const blob = new Blob([mergedBytes], { type: 'application/pdf' });
+        saveAs(blob, 'merged-document.pdf');
+        status.innerHTML = `<p style="color:green; font-weight:bold;">✅ تم دمج الملفات وتحميلها بنجاح!</p>`;
+      } catch (err) {
+        status.innerHTML = `<p style="color:red;">حدث خطأ أثناء دمج الملفات.</p>`;
+      }
+    }
+
+    // 2. Split PDF Logic
+    let splitFileObj = null;
+    document.getElementById('splitFile').addEventListener('change', async (e) => {
+      splitFileObj = e.target.files[0];
+      if (splitFileObj) {
+        const info = document.getElementById('splitFileInfo');
+        info.classList.remove('hidden');
+        const arrayBuffer = await splitFileObj.arrayBuffer();
+        const pdf = await PDFDocument.load(arrayBuffer);
+        info.innerHTML = `📄 <strong>الملف:</strong> ${splitFileObj.name} (إجمالي الصفحات: ${pdf.getPageCount()})`;
+      }
+    });
+
+    async function processSplit() {
+      const status = document.getElementById('splitStatus');
+      const pageRangeStr = document.getElementById('pageRange').value.trim();
+
+      if (!splitFileObj || !pageRangeStr) {
+        status.innerHTML = `<p style="color:red;">يرجى اختيار الملف وتحديد الصفحات أولاً!</p>`;
+        return;
+      }
+
+      status.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ استخراج الصفحات...</p></div>`;
+
+      try {
+        const arrayBuffer = await splitFileObj.arrayBuffer();
+        const srcDoc = await PDFDocument.load(arrayBuffer);
+        const newDoc = await PDFDocument.create();
+
+        const totalPages = srcDoc.getPageCount();
+        let pageIndexes = [];
+
+        if (pageRangeStr.includes('-')) {
+          const [start, end] = pageRangeStr.split('-').map(n => parseInt(n.trim()) - 1);
+          for (let i = start; i <= end && i < totalPages; i++) {
+            if (i >= 0) pageIndexes.push(i);
+          }
+        } else {
+          const singlePage = parseInt(pageRangeStr) - 1;
+          if (singlePage >= 0 && singlePage < totalPages) pageIndexes.push(singlePage);
+        }
+
+        if (pageIndexes.length === 0) {
+          status.innerHTML = `<p style="color:red;">نطاق الصفحات غير صحيح!</p>`;
+          return;
+        }
+
+        const copiedPages = await newDoc.copyPages(srcDoc, pageIndexes);
+        copiedPages.forEach(p => newDoc.addPage(p));
+
+        const pdfBytes = await newDoc.save();
+        saveAs(new Blob([pdfBytes], { type: 'application/pdf' }), 'split-document.pdf');
+        status.innerHTML = `<p style="color:green; font-weight:bold;">✅ تم تجزئة الملف واستخراجه بنجاح!</p>`;
+      } catch (err) {
+        status.innerHTML = `<p style="color:red;">حدث خطأ أثناء تقسيم الملف.</p>`;
+      }
+    }
+
+    // 3. Watermark Logic
+    let watermarkFileObj = null;
+    document.getElementById('watermarkFile').addEventListener('change', (e) => {
+      watermarkFileObj = e.target.files[0];
+      if (watermarkFileObj) {
+        const info = document.getElementById('watermarkFileInfo');
+        info.classList.remove('hidden');
+        info.innerHTML = `📄 <strong>الملف:</strong> ${watermarkFileObj.name}`;
+      }
+    });
+
+    async function processWatermark() {
+      const status = document.getElementById('watermarkStatus');
+      const text = document.getElementById('watermarkText').value.trim();
+
+      if (!watermarkFileObj || !text) {
+        status.innerHTML = `<p style="color:red;">يرجى تحديد الملف وكتابة نص العلامة المائية!</p>`;
+        return;
+      }
+
+      status.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ إضافة العلامة المائية...</p></div>`;
+
+      try {
+        const arrayBuffer = await watermarkFileObj.arrayBuffer();
+        const pdfDoc = await PDFDocument.load(arrayBuffer);
+        const font = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+        const pages = pdfDoc.getPages();
+
+        pages.forEach(page => {
+          const { width, height } = page.getSize();
+          page.drawText(text, {
+            x: width / 4,
+            y: height / 2,
+            size: 45,
+            font: font,
+            color: rgb(0.75, 0.75, 0.75),
+            opacity: 0.4,
+            rotate: PDFLib.degrees(30),
+          });
+        });
+
+        const pdfBytes = await pdfDoc.save();
+        saveAs(new Blob([pdfBytes], { type: 'application/pdf' }), 'watermarked-document.pdf');
+        status.innerHTML = `<p style="color:green; font-weight:bold;">✅ تم إضافة العلامة المائية بنجاح!</p>`;
+      } catch (err) {
+        status.innerHTML = `<p style="color:red;">حدث خطأ أثناء إضافة العلامة المائية.</p>`;
+      }
+    }
+
+    // 4. Protect PDF Logic
+    let protectFileObj = null;
+    document.getElementById('protectFile').addEventListener('change', (e) => {
+      protectFileObj = e.target.files[0];
+      if (protectFileObj) {
+        const info = document.getElementById('protectFileInfo');
+        info.classList.remove('hidden');
+        info.innerHTML = `📄 <strong>الملف المحدد:</strong> ${protectFileObj.name}`;
+      }
+    });
+
+    async function processProtect() {
+      const status = document.getElementById('protectStatus');
+      const password = document.getElementById('pdfPassword').value.trim();
+
+      if (!protectFileObj || !password) {
+        status.innerHTML = `<p style="color:red;">يرجى رفع ملف الـ PDF وتحديد كلمة السر أولاً!</p>`;
+        return;
+      }
+
+      status.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ تشفير الملف وحمايته بكلمة المرور...</p></div>`;
+
+      try {
+        const arrayBuffer = await protectFileObj.arrayBuffer();
+        const pdfDoc = await PDFDocument.load(arrayBuffer);
+
+        const pdfBytes = await pdfDoc.save({
+          userPassword: password,
+          ownerPassword: password + "_admin",
+          permissions: {
+            printing: 'none',
+            modifying: false,
+            copying: false,
+            annotating: false,
+            fillingForms: false,
+            contentAccessibility: false,
+            documentAssembly: false,
+          },
+        });
+
+        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+        saveAs(blob, 'protected-document.pdf');
+
+        status.innerHTML = `<p style="color:green; font-weight:bold;">🔒 تم قفل ملف الـ PDF بكلمة السر بنجاح!</p>`;
+      } catch (err) {
+        status.innerHTML = `<p style="color:red;">حدث خطأ أثناء تشفير الملف. يُرجى المحاولة مرة أخرى.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
