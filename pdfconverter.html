@@ -18,8 +18,8 @@
   <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
 
   <!-- تحسين محركات البحث SEO -->
-  <meta name="description" content="منصة SnapPDFImg المتكاملة لتحويل ملفات PDF إلى صور أو العكس، دمج وتقسيم الـ PDF، تحويل المستندات، إضافة التوقيع والعلامة المائية مجاناً وبأمان تام داخل المتصفح.">
-  <meta name="keywords" content="تحويل PDF إلى صور, دمج PDF, تقسيم PDF, ضغط PDF, تحويل صور إلى PDF, SnapPDFImg, TMG WEB ZONE">
+  <meta name="description" content="منصة SnapPDFImg المتكاملة لتحويل ملفات PDF إلى صور أو العكس، دمج وتقسيم الـ PDF، تحويل المستندات، وإضافة العلامة المائية مجاناً وبأمان تام داخل المتصفح.">
+  <meta name="keywords" content="تحويل PDF إلى صور, دمج PDF, تقسيم PDF, علامة مائية PDF, تحويل صور إلى PDF, SnapPDFImg, TMG WEB ZONE">
   <meta name="author" content="TMGWEB">
   <meta name="robots" content="index, follow" />
 
@@ -167,6 +167,7 @@
       gap: 8px;
       width: 100%;
       margin-top: 10px;
+      text-decoration: none;
     }
 
     .btn-action:hover { background: var(--primary-hover); }
@@ -214,11 +215,11 @@
     .loader-container { text-align: center; padding: 2rem; grid-column: 1 / -1; }
     .spinner { width: 40px; height: 40px; border: 4px solid #e2e8f0; border-top: 4px solid var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
 
-    /* Informational & SEO Text */
+    /* Informational & Advanced Tools Grid */
     .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .info-card { background: #f8fafc; border-radius: 12px; padding: 1.2rem; border: 1px solid #e2e8f0; }
-    .info-card h3 { color: var(--primary); font-size: 1.1rem; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
-    .info-card p { font-size: 0.9rem; color: #475569; }
+    .info-card { background: #f8fafc; border-radius: 12px; padding: 1.5rem; border: 1px solid #e2e8f0; display: flex; flex-direction: column; justify-content: space-between; }
+    .info-card h3 { color: var(--primary); font-size: 1.15rem; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 10px; }
+    .info-card p { font-size: 0.92rem; color: #475569; margin-bottom: 1rem; line-height: 1.6; }
 
     footer { text-align: center; margin-top: 40px; padding: 25px 15px; border-top: 1px solid #e2e8f0; background: #fff; color: var(--text-muted); }
     footer a { color: var(--secondary); margin: 0 8px; text-decoration: none; font-weight: 600; }
@@ -237,10 +238,10 @@
     <!-- Tool Switcher Navigation -->
     <div class="card-box">
       <div class="tools-tabs">
-        <button class="tab-btn active" onclick="switchTab('img2pdf')"><i class="fa-solid fa-image"></i> صور ⬅️ PDF</button>
-        <button class="tab-btn" onclick="switchTab('pdf2img')"><i class="fa-solid fa-file-image"></i> PDF ⬅️ صور</button>
-        <button class="tab-btn" onclick="switchTab('text2pdf')"><i class="fa-solid fa-pen-to-square"></i> إنشاء PDF نصوص</button>
-        <button class="tab-btn" onclick="switchTab('moreTools')"><i class="fa-solid fa-screwdriver-wrench"></i> الأدوات المتقدمة</button>
+        <button class="tab-btn active" onclick="switchTab('img2pdf', event)"><i class="fa-solid fa-image"></i> صور ⬅️ PDF</button>
+        <button class="tab-btn" onclick="switchTab('pdf2img', event)"><i class="fa-solid fa-file-image"></i> PDF ⬅️ صور</button>
+        <button class="tab-btn" onclick="switchTab('text2pdf', event)"><i class="fa-solid fa-pen-to-square"></i> إنشاء PDF نصوص</button>
+        <button class="tab-btn" onclick="switchTab('moreTools', event)"><i class="fa-solid fa-screwdriver-wrench"></i> الأدوات المتقدمة</button>
       </div>
 
       <!-- Tab 1: Image to PDF -->
@@ -280,19 +281,41 @@
 
       <!-- Tab 4: Advanced Tools Directory -->
       <section id="moreToolsTab" class="hidden">
-        <h3 style="margin-bottom:1rem; color:var(--primary);"><i class="fa-solid fa-gears"></i> خيارات الأدوات المتاحة</h3>
+        <h3 style="margin-bottom:1.2rem; color:var(--primary);"><i class="fa-solid fa-gears"></i> خيارات الأدوات المتاحة</h3>
+        
         <div class="info-grid">
-          <a href="./pdf/pdfconverter-tools.html" style="text-decoration:none;">
-  <button class="btn-action"><i class="fa-solid fa-arrow-left"></i> الانتقال لصفحة الأدوات المتقدمة</button>
-</a>
           <div class="info-card">
-            <h3><i class="fa-solid fa-object-group"></i> دمج وتجزئة PDF</h3>
-            <p>دمج ملفات متعددة في ملف واحد أو تقسيم المستندات الكبيرة إلى صفحات منفصلة.</p>
+            <div>
+              <h3><i class="fa-solid fa-object-group"></i> دمج ملفات PDF</h3>
+              <p>تجميع عدة مستندات PDF مختلفة وتنسيقها معاً في ملف واحد مرتّب وعالي الجودة.</p>
+            </div>
+            <a href="./pdf/pdfconverter-tools.html" class="btn-action">
+              <i class="fa-solid fa-arrow-left"></i> للانتقال لأداة الدمج
+            </a>
           </div>
+
           <div class="info-card">
-            <h3><i class="fa-solid fa-stamp"></i> التوقيع والعلامة المائية</h3>
-            <p>إضافة توقيعك الشخصي أو نص حماية (Watermark) كعلامة مائية لحفظ حقوقك.</p>
+            <div>
+              <h3><i class="fa-solid fa-scissors"></i> تقسيم وتجزئة PDF</h3>
+              <p>فصل واستخراج صفحات محددة من الملفات الكبيرة بسهولة وسرعة.</p>
+            </div>
+            <a href="./pdf/pdfconverter-tools.html" class="btn-action">
+              <i class="fa-solid fa-arrow-left"></i> للانتقال لأداة التقسيم
+            </a>
           </div>
+
+          <div class="info-card">
+            <div>
+              <h3><i class="fa-solid fa-stamp"></i> إضافة علامة مائية</h3>
+              <p>إدراج نص مخصص لحماية حقوقك الفكرية ومنع نسخ وثائقك الهامة.</p>
+            </div>
+            <a href="./pdf/pdfconverter-tools.html" class="btn-action">
+              <i class="fa-solid fa-arrow-left"></i> للانتقال لأداة العلامة المائية
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <!-- Detailed Explanation Section for SEO & Visitors -->
     <div class="card-box">
@@ -318,7 +341,7 @@
       <hr style="border:0; border-top:1px solid #e2e8f0; margin:1.5rem 0;">
 
       <p style="color:var(--text-muted); font-size:0.95rem; text-align:justify;">
-        سواء كنت تطمح لدمج المستندات الخاصة، تقسيم الصفحات، استخراج الصور أو إضافة توقيعك وعلامتك المائية لحماية الحقوق، تقدم لك أداة <strong>SnapPDFImg</strong> من منصة TMG WEB ZONE الحل الأسرع والأكثر أماناً ومجانية بالكامل للاستخدام من مختلف أجهزة الكمبيوتر والمواتف الذكية.
+        سواء كنت تطمح لدمج المستندات الخاصة، تقسيم الصفحات، استخراج الصور أو إضافة توقيعك وعلامتك المائية لحماية الحقوق، تقدم لك أداة <strong>SnapPDFImg</strong> من منصة TMG WEB ZONE الحل الأسرع والأكثر أماناً ومجانية بالكامل للاستخدام من مختلف أجهزة الكمبيوتر والهواتف الذكية.
       </p>
     </div>
   </main>
@@ -340,7 +363,7 @@
     let extractedImages = [];
 
     // Tab Navigation Logic
-    function switchTab(tabId) {
+    function switchTab(tabId, evt) {
       const tabs = ['img2pdf', 'pdf2img', 'text2pdf', 'moreTools'];
       tabs.forEach(t => {
         document.getElementById(t + 'Tab').classList.add('hidden');
@@ -349,7 +372,9 @@
 
       const btns = document.querySelectorAll('.tab-btn');
       btns.forEach(b => b.classList.remove('active'));
-      event.currentTarget.classList.add('active');
+      if(evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+      }
     }
 
     // Initialize PDF.js
