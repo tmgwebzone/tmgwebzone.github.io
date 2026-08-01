@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>أدوات PDF المتقدمة – دمج، تقسيم، علامة مائية وحماية بكلمة سر | SnapPDFImg</title>
+  <title>أدوات PDF المتقدمة – دمج، تقسيم، وعلامة مائية | SnapPDFImg</title>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
@@ -18,8 +18,8 @@
   <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="أدوات PDF الاحترافية المتقدمة: دمج ملفات PDF، تقسيم الصفحات، إضافة علامة مائية، وتشفير ملفات PDF بكلمة سر مجاناً وبأمان داخل متصفحك.">
-  <meta name="keywords" content="دمج PDF, تقسيم PDF, قفل PDF بكلمة سر, تشفير PDF, اضافة علامة مائية PDF, SnapPDFImg, TMG WEB ZONE">
+  <meta name="description" content="أدوات PDF الاحترافية المتقدمة: دمج ملفات PDF، تقسيم الصفحات، وإضافة علامة مائية مجاناً وبأمان داخل متصفحك.">
+  <meta name="keywords" content="دمج PDF, تقسيم PDF, اضافة علامة مائية PDF, SnapPDFImg, TMG WEB ZONE">
   <meta name="author" content="TMGWEB">
   <meta name="robots" content="index, follow" />
 
@@ -27,7 +27,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="أدوات PDF المتقدمة – SnapPDFImg">
-  <meta property="og:description" content="قم بدمج، تقسيم، إضافة علامة مائية وحماية ملفات الـ PDF بكلمة سر مجاناً وبأمان تام على جهازك.">
+  <meta property="og:description" content="قم بدمج، تقسيم، وإضافة علامة مائية لملفات الـ PDF مجاناً وبأمان تام على جهازك.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tmgwebzone.github.io/pdf/pdfconverter-tools.html">
   <meta property="og:image" content="https://tmgwebzone.github.io/pdf/pdf1.jpg">
@@ -48,9 +48,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- مكتبات التعامل المتقدم والتشفير لملفات PDF -->
+  <!-- مكتبات التعامل المتقدم مع ملفات PDF -->
   <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
   <style>
@@ -226,7 +225,7 @@
       <span style="font-size:0.9rem; opacity:0.8;">أدوات PDF المتخصصة</span>
     </div>
     <h1 style="margin-top:10px;"><i class="fa-solid fa-gears"></i> أدوات PDF المتقدمة</h1>
-    <p>دمج الملفات، تقسيم الصفحات، إضافة العلامة المائية، وقفل PDF بكلمة سر</p>
+    <p>دمج الملفات، تقسيم الصفحات، وإضافة العلامة المائية بكل سهولة</p>
   </header>
 
   <main>
@@ -236,7 +235,6 @@
         <button class="tab-btn active" onclick="switchToolTab('mergeTab', event)"><i class="fa-solid fa-object-group"></i> دمج PDF</button>
         <button class="tab-btn" onclick="switchToolTab('splitTab', event)"><i class="fa-solid fa-scissors"></i> تقسيم PDF</button>
         <button class="tab-btn" onclick="switchToolTab('watermarkTab', event)"><i class="fa-solid fa-stamp"></i> علامة مائية</button>
-        <button class="tab-btn" onclick="switchToolTab('protectTab', event)"><i class="fa-solid fa-lock"></i> حماية بكلمة سر</button>
       </div>
 
       <!-- 1. Merge PDF Tool -->
@@ -288,24 +286,6 @@
         <button class="btn-action" onclick="processWatermark()"><i class="fa-solid fa-shield-halved"></i> تطبيق العلامة المائية وتحميل الملف</button>
         <div id="watermarkStatus" style="margin-top:15px;"></div>
       </section>
-
-      <!-- 4. Protect PDF Tool -->
-      <section id="protectTab" class="hidden">
-        <h3 style="color:var(--primary); margin-bottom:1rem;"><i class="fa-solid fa-lock"></i> حماية وتشفير ملف PDF بكلمة سر</h3>
-        <label class="uploader" for="protectFile">
-          <i class="fa-solid fa-file-shield uploader-icon"></i>
-          <strong>اختر ملف الـ PDF المراد قفله بكلمة سر</strong>
-          <input type="file" id="protectFile" accept="application/pdf" class="hidden">
-        </label>
-        <div id="protectFileInfo" class="file-list hidden"></div>
-
-        <div class="form-group">
-          <label for="pdfPassword">كلمة سر الحماية:</label>
-          <input type="password" id="pdfPassword" class="form-control" placeholder="أدخل كلمة المرور التي تريد قفل الملف بها...">
-        </div>
-        <button class="btn-action" onclick="processProtect()"><i class="fa-solid fa-key"></i> قفل الملف وتنزيله بكلمة السر</button>
-        <div id="protectStatus" style="margin-top:15px;"></div>
-      </section>
     </div>
 
     <!-- SEO / Explanation Section -->
@@ -321,8 +301,8 @@
           <p>تجزئة الصفحات وفصلها بسهولة بناءً على الأرقام والنطاقات التي تختارها.</p>
         </div>
         <div class="info-card">
-          <h3><i class="fa-solid fa-lock"></i> حماية بكلمة سر</h3>
-          <p>قفل ملفات الـ PDF الحساسة بكلمة سر شخصية تمنع أي شخص من فتحها بدون إذن.</p>
+          <h3><i class="fa-solid fa-stamp"></i> علامة مائية</h3>
+          <p>إضافة نصوص مخصصة فوق صفحات المستند لحفظ الحقوق أو حماية المحتوى.</p>
         </div>
         <div class="info-card">
           <h3><i class="fa-solid fa-shield-cat"></i> الأمان 100%</h3>
@@ -349,7 +329,7 @@
 
     // Switch Tabs
     function switchToolTab(tabId, evt) {
-      ['mergeTab', 'splitTab', 'watermarkTab', 'protectTab'].forEach(t => {
+      ['mergeTab', 'splitTab', 'watermarkTab'].forEach(t => {
         document.getElementById(t).classList.add('hidden');
       });
       document.getElementById(tabId).classList.remove('hidden');
@@ -500,55 +480,6 @@
         status.innerHTML = `<p style="color:green; font-weight:bold;">✅ تم إضافة العلامة المائية بنجاح!</p>`;
       } catch (err) {
         status.innerHTML = `<p style="color:red;">حدث خطأ أثناء إضافة العلامة المائية.</p>`;
-      }
-    }
-
-    // 4. Protect PDF Logic
-    let protectFileObj = null;
-    document.getElementById('protectFile').addEventListener('change', (e) => {
-      protectFileObj = e.target.files[0];
-      if (protectFileObj) {
-        const info = document.getElementById('protectFileInfo');
-        info.classList.remove('hidden');
-        info.innerHTML = `📄 <strong>الملف المحدد:</strong> ${protectFileObj.name}`;
-      }
-    });
-
-    async function processProtect() {
-      const status = document.getElementById('protectStatus');
-      const password = document.getElementById('pdfPassword').value.trim();
-
-      if (!protectFileObj || !password) {
-        status.innerHTML = `<p style="color:red;">يرجى رفع ملف الـ PDF وتحديد كلمة السر أولاً!</p>`;
-        return;
-      }
-
-      status.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ تشفير الملف وحمايته بكلمة المرور...</p></div>`;
-
-      try {
-        const arrayBuffer = await protectFileObj.arrayBuffer();
-        const pdfDoc = await PDFDocument.load(arrayBuffer);
-
-        const pdfBytes = await pdfDoc.save({
-          userPassword: password,
-          ownerPassword: password + "_admin",
-          permissions: {
-            printing: 'none',
-            modifying: false,
-            copying: false,
-            annotating: false,
-            fillingForms: false,
-            contentAccessibility: false,
-            documentAssembly: false,
-          },
-        });
-
-        const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-        saveAs(blob, 'protected-document.pdf');
-
-        status.innerHTML = `<p style="color:green; font-weight:bold;">🔒 تم قفل ملف الـ PDF بكلمة السر بنجاح!</p>`;
-      } catch (err) {
-        status.innerHTML = `<p style="color:red;">حدث خطأ أثناء تشفير الملف. يُرجى المحاولة مرة أخرى.</p>`;
       }
     }
   </script>
