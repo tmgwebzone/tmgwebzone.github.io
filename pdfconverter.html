@@ -50,6 +50,9 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- مكتبات الضغط والتنزيل السريع -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
   <!-- CSS Styles -->
   <style>
@@ -57,6 +60,8 @@
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
       --secondary: #00adb5;
+      --success: #16a34a;
+      --success-hover: #15803d;
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
@@ -166,6 +171,28 @@
 
     .btn-action:hover { background: var(--primary-hover); }
 
+    .btn-download-all {
+      background: var(--success);
+      color: #fff;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 1.5rem auto 0;
+      width: 100%;
+      max-width: 320px;
+      box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+    }
+
+    .btn-download-all:hover { background: var(--success-hover); transform: translateY(-2px); }
+
     .result-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -235,6 +262,12 @@
           <span>يتم استخراج كل صفحة كصورة عالية الدقة PNG مجاناً</span>
           <input type="file" id="pdfFile" accept="application/pdf" class="hidden">
         </label>
+        <!-- زر تحميل الكل -->
+        <div id="downloadAllArea" class="hidden">
+          <button class="btn-download-all" onclick="downloadAllImagesZip()">
+            <i class="fa-solid fa-file-zipper"></i> تحميل جميع الصور (ZIP)
+          </button>
+        </div>
         <div id="images" class="result-grid"></div>
       </section>
 
@@ -277,7 +310,7 @@
 
         <div class="info-card">
           <h3><i class="fa-solid fa-file-export"></i> 2. تحويل الـ PDF لصور</h3>
-          <p>يمكنك رفع أي مستند PDF وسيقوم المحرك باستخراج كافة الصفحات وتحويلها إلى صور عالية الجودة وبأبعادها الأصلية مع حفظ خلفية الصفحة البيضاء والواضحة.</p>
+          <p>يمكنك رفع أي مستند PDF وسيقوم المحرك باستخراج كافة الصفحات وتحويلها إلى صور عالية الجودة وبأبعادها الأصلية، مع خيار تحميل كل صورة بمفردها أو تحميل كافة الصور دفعة واحدة في ملف ZIP مضغوط.</p>
         </div>
 
         <div class="info-card">
@@ -298,15 +331,18 @@
   <footer>
     <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
     <p style="margin-top: 10px;">
-      <a href="about3.html">عن الموقع</a> | 
-      <a href="privacy3.html">سياسة الخصوصية</a> | 
-      <a href="terms3.html">الشروط والأحكام</a> | 
-      <a href="contact3.html">اتصل بنا</a>
+      <a href="about.html">عن الموقع</a> | 
+      <a href="privacy.html">سياسة الخصوصية</a> | 
+      <a href="terms.html">الشروط والأحكام</a> | 
+      <a href="contact.html">اتصل بنا</a>
     </p>
   </footer>
 
   <!-- JavaScript Logic -->
   <script>
+    // Global variable to store extracted images for ZIP download
+    let extractedImages = [];
+
     // Tab Navigation Logic
     function switchTab(tabId) {
       const tabs = ['img2pdf', 'pdf2img', 'text2pdf', 'moreTools'];
@@ -323,7 +359,7 @@
     // Initialize PDF.js
     pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-    // 1. Fixed Image to PDF Conversion (High Quality & Correct Colors)
+    // 1. Image to PDF Conversion
     const imgInput = document.getElementById("imgFiles");
     const resultDiv = document.getElementById("pdfresult");
 
@@ -343,7 +379,6 @@
 
           await new Promise((resolve) => { img.onload = resolve; });
 
-          // Fill Canvas with White Background to avoid gray/transparent issues
           const canvas = document.createElement("canvas");
           canvas.width = img.width;
           canvas.height = img.height;
@@ -377,13 +412,17 @@
       }
     });
 
-    // 2. PDF to Image Logic
+    // 2. PDF to Image Logic (With ZIP All Images Option)
     const pdfInput = document.getElementById("pdfFile");
     const imagesDiv = document.getElementById("images");
+    const downloadAllArea = document.getElementById("downloadAllArea");
 
     pdfInput.addEventListener("change", async (e) => {
       const file = e.target.files[0];
       if (!file) return;
+      
+      extractedImages = []; // Clear previous images
+      downloadAllArea.classList.add("hidden");
       imagesDiv.innerHTML = `<div class="loader-container"><div class="spinner"></div><p>جارٍ تحويل صفحات الـ PDF إلى صور...</p></div>`;
 
       try {
@@ -400,12 +439,17 @@
           canvas.height = viewport.height;
           const ctx = canvas.getContext("2d");
 
-          // Ensure white background
           ctx.fillStyle = "#FFFFFF";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
           await page.render({ canvasContext: ctx, viewport }).promise;
           const imgURL = canvas.toDataURL("image/png");
+
+          // Save to array for ZIP download
+          extractedImages.push({
+            name: `page-${pageNum}.png`,
+            data: imgURL.split(',')[1] // Get base64 string
+          });
 
           const card = document.createElement("div");
           card.className = "result-card";
@@ -416,10 +460,30 @@
             </a>`;
           imagesDiv.appendChild(card);
         }
+
+        // Show "Download All" button if there are multiple images/pages
+        if (extractedImages.length > 0) {
+          downloadAllArea.classList.remove("hidden");
+        }
+
       } catch (err) {
         imagesDiv.innerHTML = `<p style="color:red; grid-column:1/-1;">حدث خطأ أثناء استخراج الصور من الملف.</p>`;
       }
     });
+
+    // Function to download all images as a ZIP file
+    function downloadAllImagesZip() {
+      if (!extractedImages.length) return;
+
+      const zip = new JSZip();
+      extractedImages.forEach(img => {
+        zip.file(img.name, img.data, { base64: true });
+      });
+
+      zip.generateAsync({ type: "blob" }).then((content) => {
+        saveAs(content, "pdf-images.zip");
+      });
+    }
 
     // 3. Generate PDF from Text Area
     function generatePDFFromText() {
