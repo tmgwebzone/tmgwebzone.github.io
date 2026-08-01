@@ -56,6 +56,10 @@
     <loc>https://tmgwebzone.github.io/pdfconverter.html</loc>
     <priority>0.80</priority>
   </url>
+    <url>
+    <loc>https://tmgwebzone.github.io/pdf/pdfconverter-tools.html</loc>
+    <priority>0.80</priority>
+  </url>
   <url>
     <loc>https://tmgwebzone.github.io/pdf/about3.html</loc>
     <priority>0.40</priority>
