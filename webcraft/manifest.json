@@ -1,0 +1,30 @@
+{
+  "short_name": "WebCraft",
+  "name": "ويب كرافت - منصة أدوات SEO وتطوير الويب الشاملة",
+  "icons": [
+    {
+      "src": "../tmgtools/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "../tmgtools/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../tmgtools/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "../tmgtools/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "../webcraft.html",
+  "background_color": "#121212",
+  "theme_color": "#2563eb",
+  "display": "standalone"
+}
