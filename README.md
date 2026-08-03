@@ -13,6 +13,8 @@
 * 📍 **برجا (Barja):** [استكشف برجا](https://tmgwebzone.github.io/Barja.html)
 ---
  **Omini Hub:** [استكشف معلومات عامة](https://tmgwebzone.github.io/ominihub.html)
+  **Tmg Tools:** [ااستكشف الأدوات tmgtools](https://tmgwebzone.github.io/tmgtools.html)
+
 
 ## 🛠️ أدوات المساعدة
 مجموعة أدوات أونلاين مصممة لتسهيل المهام اليومية:
