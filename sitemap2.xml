@@ -230,4 +230,37 @@
   <url><loc>https://tmgwebzone.github.io/ominihub/space.html</loc><priority>0.80</priority></url>
   <url><loc>https://tmgwebzone.github.io/ominihub/gems.html</loc><priority>0.80</priority></url>
   <url><loc>https://tmgwebzone.github.io/ominihub/metals.html</loc><priority>0.80</priority></url>
-</urlset>
+   
+ <url>
+   <loc>https://tmgwebzone.github.io/calccraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/colorcraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/devcraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/fontcraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/gamercraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/imgcraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/moneycraft.html</loc>
+   <priority>0.80</priority> 
+ </url>
+ <url>
+   <loc>https://tmgwebzone.github.io/webcraft.html</loc>
+   <priority>0.80</priority>
+ </url>
+ </urlset>
