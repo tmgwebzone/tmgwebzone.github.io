@@ -1,0 +1,30 @@
+{
+  "short_name": "DevCraft",
+  "name": "DevCraft - TMG Web Zone Tools for Developers",
+  "icons": [
+    {
+      "src": "../tmgtools/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "../tmgtools/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "../tmgtools/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "../tmgtools/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "../devcraft.html",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "display": "standalone"
+}
