@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcCraft - منصة الحاسبات الشاملة والذكية | TMG WEB ZONE</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة CalcCraft الحسابية الشاملة: حساب العمر، مؤشر كتلة الجسم BMI، نسبة الدهون، حاسبة القروض والفوائد، النسب المئوية، الخصومات، تحويل العملات والوحدات، حساب فرق الوقت وساعات العمل، وحاسبة استهلاك الكهرباء.">
+  <meta name="keywords" content="حاسبة العمر, حساب BMI, نسبة الدهون, حاسبة القروض, حساب الفوائد, حاسبة الخصم, تحويل عملات, تحويل وحدات, حساب ساعات العمل, استهلاك الكهرباء, CalcTools">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./calccraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-border: #334155;
+      --text: #f8fafc;
+      --text-sub: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #090d16;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --text: #0f172a;
+      --text-sub: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #f1f5f9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; min-height: 100vh; padding: 20px 10px; }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-banner { text-align: center; margin-bottom: 25px; }
+    .header-banner img { max-width: 100%; height: auto; border-radius: 12px; max-height: 180px; object-fit: cover; border: 1px solid var(--surface-border); }
+
+    .main-container { max-width: 1200px; margin: 0 auto; }
+    .title-area { text-align: center; margin-bottom: 30px; }
+    .title-area h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 8px; }
+    .title-area p { color: var(--text-sub); }
+
+    /* Layout grid for sidebar & main workspace */
+    .workspace { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
+    @media (max-width: 850px) { .workspace { grid-template-columns: 1fr; } }
+
+    .tools-nav {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      padding: 12px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: right;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .tool-btn:hover, .tool-btn.active { background: var(--primary); color: #fff; }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 25px;
+      display: none;
+    }
+    .tool-card.active { display: block; }
+    .tool-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+
+    .editor-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
+    input[type="number"], input[type="date"], input[type="time"], select {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    label { font-size: 0.9rem; color: var(--text-sub); margin-bottom: -5px; display: block; }
+
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    .btn-action {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .btn-action:hover { background: var(--primary-hover); }
+
+    .output-box {
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 15px;
+      word-break: break-word;
+      white-space: pre-wrap;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <button id="theme-toggle">☀️</button>
+
+  <div class="main-container">
+    <div class="header-banner">
+      <img src="./tmgtools/tmgtools.jpg" alt="CalcCraft TMG Web Zone Tools">
+    </div>
+
+    <div class="title-area">
+      <h1>CalcCraft Tools</h1>
+      <p>منصة الحسابات الرقمية، المالية، والصحية المتكاملة</p>
+    </div>
+
+    <div class="workspace">
+      <!-- القائمة الجانبية للأدوات -->
+      <nav class="tools-nav">
+        <button class="tool-btn active" onclick="switchTool('age')">📅 حساب العمر</button>
+        <button class="tool-btn" onclick="switchTool('bmi')">⚖️ مؤشر كتلة الجسم (BMI)</button>
+        <button class="tool-btn" onclick="switchTool('fat')">📊 نسبة الدهون</button>
+        <button class="tool-btn" onclick="switchTool('loans')">🏦 حاسبة القروض</button>
+        <button class="tool-btn" onclick="switchTool('interest')">📈 حساب الفوائد</button>
+        <button class="tool-btn" onclick="switchTool('percentage')">٪ النسبة المئوية</button>
+        <button class="tool-btn" onclick="switchTool('discount')">🏷️ حاسبة الخصومات</button>
+        <button class="tool-btn" onclick="switchTool('units')">📏 تحويل الوحدات</button>
+        <button class="tool-btn" onclick="switchTool('currency')">🔀 تحويل العملات</button>
+        <button class="tool-btn" onclick="switchTool('time')">⏱️ حاسبة الوقت</button>
+        <button class="tool-btn" onclick="switchTool('workhours')">⏰ ساعات العمل</button>
+        <button class="tool-btn" onclick="switchTool('electricity')">⚡ استهلاك الكهرباء</button>
+      </nav>
+
+      <!-- بيئة العمل الرئيسية -->
+      <main class="tool-content">
+        
+        <!-- AGE TOOL -->
+        <div id="tool-age" class="tool-card active">
+          <h2>حساب العمر الدقيق</h2>
+          <div class="editor-group">
+            <label>اختر تاريخ ميلادك:</label>
+            <input type="date" id="birth-date">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcAge()">احسب العمر</button>
+          </div>
+          <div class="output-box" id="age-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- BMI TOOL -->
+        <div id="tool-bmi" class="tool-card">
+          <h2>مؤشر كتلة الجسم (BMI)</h2>
+          <div class="editor-group">
+            <label>الوزن (كجم):</label>
+            <input type="number" id="bmi-weight" placeholder="مثال: 75">
+            <label>الطول (سم):</label>
+            <input type="number" id="bmi-height" placeholder="مثال: 175">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcBMI()">احسب مؤشر الكتلة</button>
+          </div>
+          <div class="output-box" id="bmi-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- FAT TOOL -->
+        <div id="tool-fat" class="tool-card">
+          <h2>حساب نسبة الدهون التقديرية</h2>
+          <div class="editor-group">
+            <label>الجنس:</label>
+            <select id="fat-gender">
+              <option value="male">ذكر</option>
+              <option value="female">أنثى</option>
+            </select>
+            <label>الوزن (كجم):</label>
+            <input type="number" id="fat-weight" placeholder="الوزن بالكجم">
+            <label>الطول (سم):</label>
+            <input type="number" id="fat-height" placeholder="الطول بالسم">
+            <label>العمر:</label>
+            <input type="number" id="fat-age" placeholder="العمر بالسنوات">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcFat()">احسب نسبة الدهون</button>
+          </div>
+          <div class="output-box" id="fat-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- LOANS TOOL -->
+        <div id="tool-loans" class="tool-card">
+          <h2>حاسبة القروض والأقساط الشهرية</h2>
+          <div class="editor-group">
+            <label>مبلغ القرض الإجمالي:</label>
+            <input type="number" id="loan-amount" placeholder="مثال: 50000">
+            <label>نسبة الفائدة السنوية (%):</label>
+            <input type="number" id="loan-rate" step="0.1" placeholder="مثال: 5">
+            <label>مدة القرض (بالسنوات):</label>
+            <input type="number" id="loan-years" placeholder="مثال: 5">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcLoan()">احسب القسط</button>
+          </div>
+          <div class="output-box" id="loan-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- INTEREST TOOL -->
+        <div id="tool-interest" class="tool-card">
+          <h2>حاسبة الفوائد المركبة والبسيطة</h2>
+          <div class="editor-group">
+            <label>المبلغ الأصلي:</label>
+            <input type="number" id="int-principal" placeholder="المبلغ">
+            <label>معدل الفائدة (% سنوياً):</label>
+            <input type="number" id="int-rate" step="0.1" placeholder="المعدل">
+            <label>المدة (بالسنوات):</label>
+            <input type="number" id="int-years" placeholder="عدد السنوات">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcInterest()">احسب الأرباح/الفوائد</button>
+          </div>
+          <div class="output-box" id="int-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- PERCENTAGE TOOL -->
+        <div id="tool-percentage" class="tool-card">
+          <h2>حساب النسب المئوية</h2>
+          <div class="editor-group">
+            <label>كم يساوي نسبة:</label>
+            <input type="number" id="perc-num" placeholder="النسبة % (مثال 15)">
+            <label>من المبلغ الإجمالي:</label>
+            <input type="number" id="perc-total" placeholder="المبلغ الكلي (مثال 200)">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcPercentage()">احسب النسبة</button>
+          </div>
+          <div class="output-box" id="perc-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- DISCOUNT TOOL -->
+        <div id="tool-discount" class="tool-card">
+          <h2>حاسبة الخصومات والتخفيضات</h2>
+          <div class="editor-group">
+            <label>السعر الأصلي:</label>
+            <input type="number" id="disc-price" placeholder="السعر قبل الخصم">
+            <label>نسبة الخصم (%):</label>
+            <input type="number" id="disc-percent" placeholder="نسبة الخصم">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcDiscount()">احسب السعر بعد الخصم</button>
+          </div>
+          <div class="output-box" id="disc-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- UNITS TOOL -->
+        <div id="tool-units" class="tool-card">
+          <h2>تحويل الوحدات (الطول / الوزن)</h2>
+          <div class="editor-group">
+            <label>القيمة:</label>
+            <input type="number" id="unit-val" placeholder="القيمة">
+            <label>نوع التحويل:</label>
+            <select id="unit-type">
+              <option value="km-mi">كيلومتر إلى ميل</option>
+              <option value="mi-km">ميل إلى كيلومتر</option>
+              <option value="kg-lb">كيلوجرام إلى باوند</option>
+              <option value="lb-kg">باوند إلى كيلوجرام</option>
+            </select>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcUnits()">تحويل</button>
+          </div>
+          <div class="output-box" id="unit-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- CURRENCY TOOL -->
+        <div id="tool-currency" class="tool-card">
+          <h2>تحويل العملات (تقريبي)</h2>
+          <div class="editor-group">
+            <label>المبلغ:</label>
+            <input type="number" id="curr-amount" placeholder="المبلغ بالدولار $">
+            <label>تحويل إلى:</label>
+            <select id="curr-target">
+              <option value="EUR">يورو (€)</option>
+              <option value="SAR">ريال سعودي (SAR)</option>
+              <option value="AED">درهم إماراتي (AED)</option>
+              <option value="EGP">جنيه مصري (EGP)</option>
+            </select>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcCurrency()">تحويل العملة</button>
+          </div>
+          <div class="output-box" id="curr-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- TIME TOOL -->
+        <div id="tool-time" class="tool-card">
+          <h2>حاسبة فرق الوقت والتواريخ</h2>
+          <div class="editor-group">
+            <label>الوقت الأول:</label>
+            <input type="time" id="time-1">
+            <label>الوقت الثاني:</label>
+            <input type="time" id="time-2">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcTime()">احسب الفارق</button>
+          </div>
+          <div class="output-box" id="time-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- WORK HOURS TOOL -->
+        <div id="tool-workhours" class="tool-card">
+          <h2>حساب ساعات العمل والأجر</h2>
+          <div class="editor-group">
+            <label>عدد ساعات العمل يومياً:</label>
+            <input type="number" id="work-hours" placeholder="ساعات العمل اليومية">
+            <label>أجر الساعة الواحدة:</label>
+            <input type="number" id="work-rate" placeholder="الأجر بالساعة">
+            <label>عدد أيام العمل بالشهر:</label>
+            <input type="number" id="work-days" placeholder="أيام العمل شهرياً">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcWork()">احسب الراتب المتوقع</button>
+          </div>
+          <div class="output-box" id="work-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- ELECTRICITY TOOL -->
+        <div id="tool-electricity" class="tool-card">
+          <h2>حاسبة استهلاك الكهرباء وتكلفتها</h2>
+          <div class="editor-group">
+            <label>قدرة الجهاز بالواط (Watt):</label>
+            <input type="number" id="elec-watts" placeholder="مثال: 1500 واط">
+            <label>ساعات التشغيل يومياً:</label>
+            <input type="number" id="elec-hours" placeholder="مثال: 8 ساعات">
+            <label>سعر الكيلوواط/ساعة:</label>
+            <input type="number" id="elec-cost" step="0.01" placeholder="تعرفة الكهرباء">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="calcElectricity()">احسب الاستهلاك والتكلفة</button>
+          </div>
+          <div class="output-box" id="elec-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- native banner -->
+  <script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+  <div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme logic
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme){
+        document.body.classList.toggle("dark", savedTheme === "dark");
+        document.body.classList.toggle("light", savedTheme === "light");
+    } else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+        document.body.classList.add("dark");
+    }
+
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        document.body.classList.toggle("light");
+        const dark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    // Navigation Logic
+    function switchTool(toolId) {
+      document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tool-' + toolId).classList.add('active');
+    }
+
+    // Age Calculator
+    function calcAge() {
+      const val = document.getElementById('birth-date').value;
+      if(!val) return document.getElementById('age-output').textContent = "يرجى تحديد تاريخ الميلاد.";
+      const birth = new Date(val);
+      const diff = new Date() - birth;
+      const ageDate = new Date(diff);
+      const years = Math.abs(ageDate.getUTCFullYear() - 1970);
+      document.getElementById('age-output').textContent = `📅 عمرك الحالي: ${years} سنة.`;
+    }
+
+    // BMI Calculator
+    function calcBMI() {
+      const w = parseFloat(document.getElementById('bmi-weight').value);
+      const h = parseFloat(document.getElementById('bmi-height').value) / 100;
+      if(!w || !h) return document.getElementById('bmi-output').textContent = "يرجى إدخال الوزن والطول بشكل صحيح.";
+      const bmi = (w / (h * h)).toFixed(1);
+      let status = "";
+      if(bmi < 18.5) status = "نقص في الوزن";
+      else if(bmi < 25) status = "وزن طبيعي وصحي";
+      else if(bmi < 30) status = "زيادة في الوزن";
+      else status = "سمنة";
+      document.getElementById('bmi-output').textContent = `⚖️ مؤشر كتلة الجسم: ${bmi}\nالحالة: (${status})`;
+    }
+
+    // Fat Percentage Calculator
+    function calcFat() {
+      const w = parseFloat(document.getElementById('fat-weight').value);
+      const h = parseFloat(document.getElementById('fat-height').value) / 100;
+      const age = parseFloat(document.getElementById('fat-age').value);
+      const gender = document.getElementById('fat-gender').value;
+
+      if(!w || !h || !age) return document.getElementById('fat-output').textContent = "يرجى ملء جميع الحقول المطلوبة.";
+      const bmi = w / (h * h);
+      let bodyFat = (1.20 * bmi) + (0.23 * age) - (gender === 'male' ? 16.2 : 5.4);
+      document.getElementById('fat-output').textContent = `📊 نسبة الدهون التقديرية: ${bodyFat.toFixed(1)}%`;
+    }
+
+    // Loans Calculator
+    function calcLoan() {
+      const p = parseFloat(document.getElementById('loan-amount').value);
+      const r = (parseFloat(document.getElementById('loan-rate').value) / 100) / 12;
+      const n = parseFloat(document.getElementById('loan-years').value) * 12;
+
+      if(!p || !r || !n) return document.getElementById('loan-output').textContent = "يرجى إدخال جميع تفاصيل القرض.";
+      const monthly = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+      const total = monthly * n;
+      document.getElementById('loan-output').textContent = `💳 القسط الشهري: ${monthly.toFixed(2)}\nإجمالي المبلغ المدفوع: ${total.toFixed(2)}`;
+    }
+
+    // Interest Calculator
+    function calcInterest() {
+      const p = parseFloat(document.getElementById('int-principal').value);
+      const r = parseFloat(document.getElementById('int-rate').value) / 100;
+      const t = parseFloat(document.getElementById('int-years').value);
+
+      if(!p || !r || !t) return document.getElementById('int-output').textContent = "يرجى ملء كافة حقول الفائدة.";
+      const simple = p * r * t;
+      const compound = p * Math.pow((1 + r), t) - p;
+      document.getElementById('int-output').textContent = `📈 الفائدة البسيطة: ${simple.toFixed(2)}\n📈 الفائدة المركبة: ${compound.toFixed(2)}`;
+    }
+
+    // Percentage Calculator
+    function calcPercentage() {
+      const n = parseFloat(document.getElementById('perc-num').value);
+      const t = parseFloat(document.getElementById('perc-total').value);
+
+      if(!n || !t) return document.getElementById('perc-output').textContent = "يرجى أدخال الأرقام المطلوبة.";
+      const res = (n / 100) * t;
+      document.getElementById('perc-output').textContent = `٪ النتيجة: ${n}% من ${t} تساوي ${res}`;
+    }
+
+    // Discount Calculator
+    function calcDiscount() {
+      const price = parseFloat(document.getElementById('disc-price').value);
+      const disc = parseFloat(document.getElementById('disc-percent').value);
+
+      if(!price || !disc) return document.getElementById('disc-output').textContent = "يرجى تحديد السعر ونسبة الخصم.";
+      const save = (disc / 100) * price;
+      const finalPrice = price - save;
+      document.getElementById('disc-output').textContent = `🏷️ المبلغ المخصوم: ${save.toFixed(2)}\nالسعر النهائـي: ${finalPrice.toFixed(2)}`;
+    }
+
+    // Units Converter
+    function calcUnits() {
+      const val = parseFloat(document.getElementById('unit-val').value);
+      const type = document.getElementById('unit-type').value;
+
+      if(isNaN(val)) return document.getElementById('unit-output').textContent = "أدخل قيمة للتحويل.";
+      let res = 0;
+      if(type === 'km-mi') res = `${val} كم = ${(val * 0.621371).toFixed(2)} ميل`;
+      else if(type === 'mi-km') res = `${val} ميل = ${(val / 0.621371).toFixed(2)} كم`;
+      else if(type === 'kg-lb') res = `${val} كجم = ${(val * 2.20462).toFixed(2)} باوند`;
+      else if(type === 'lb-kg') res = `${val} باوند = ${(val / 2.20462).toFixed(2)} كجم`;
+      
+      document.getElementById('unit-output').textContent = `📏 النتيجة: ${res}`;
+    }
+
+    // Currency Converter
+    function calcCurrency() {
+      const amount = parseFloat(document.getElementById('curr-amount').value);
+      const target = document.getElementById('curr-target').value;
+
+      if(!amount) return document.getElementById('curr-output').textContent = "أدخل المبلغ بالدولار.";
+      const rates = { EUR: 0.92, SAR: 3.75, AED: 3.67, EGP: 48.50 };
+      const converted = amount * rates[target];
+      document.getElementById('curr-output').textContent = `🔀 ${amount}$ دولار = ${converted.toFixed(2)} ${target}`;
+    }
+
+    // Time Calculator
+    function calcTime() {
+      const t1 = document.getElementById('time-1').value;
+      const t2 = document.getElementById('time-2').value;
+
+      if(!t1 || !t2) return document.getElementById('time-output').textContent = "حدد كلا الوقتين.";
+      const d1 = new Date(`1970-01-01T${t1}:00`);
+      const d2 = new Date(`1970-01-01T${t2}:00`);
+      let diffMs = d2 - d1;
+      if(diffMs < 0) diffMs += 24 * 60 * 60 * 1000;
+      const hrs = Math.floor(diffMs / 3600000);
+      const mins = Math.floor((diffMs % 3600000) / 60000);
+      document.getElementById('time-output').textContent = `⏱️ الفارق الزمني: ${hrs} ساعة و ${mins} دقيقة.`;
+    }
+
+    // Work Hours Calculator
+    function calcWork() {
+      const hrs = parseFloat(document.getElementById('work-hours').value);
+      const rate = parseFloat(document.getElementById('work-rate').value);
+      const days = parseFloat(document.getElementById('work-days').value);
+
+      if(!hrs || !rate || !days) return document.getElementById('work-output').textContent = "ادخل تفاصيل ساعات الأجر والعمل.";
+      const totalHours = hrs * days;
+      const salary = totalHours * rate;
+      document.getElementById('work-output').textContent = `⏰ إجمالي ساعات العمل: ${totalHours} ساعة/شهر\n💵 الراتب التقديري: ${salary.toFixed(2)}`;
+    }
+
+    // Electricity Calculator
+    function calcElectricity() {
+      const w = parseFloat(document.getElementById('elec-watts').value);
+      const h = parseFloat(document.getElementById('elec-hours').value);
+      const cost = parseFloat(document.getElementById('elec-cost').value);
+
+      if(!w || !h) return document.getElementById('elec-output').textContent = "ادخل قدرة الجهاز بالساعة وساعات التشغيل.";
+      const kwhDaily = (w * h) / 1000;
+      const kwhMonthly = kwhDaily * 30;
+      let text = `⚡ الاستهلاك اليومي: ${kwhDaily.toFixed(2)} كيلوواط/ساعة\n⚡ الاستهلاك الشهري: ${kwhMonthly.toFixed(2)} كيلوواط/ساعة`;
+      if(cost) {
+        text += `\n💵 التكلفة الشهرية: ${(kwhMonthly * cost).toFixed(2)}`;
+      }
+      document.getElementById('elec-output').textContent = text;
+    }
+
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../calccraft/sw.js');
+      });
+    }
+  </script>
+
+  <!-- social bar -->
+  <script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

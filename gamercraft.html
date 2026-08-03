@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جيمر كرافت - منصة أدوات اللاعبين المحترفين</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة جيمر كرافت للألعاب: مولد أسماء وكلانات، صانع Crosshair، إعدادات حساسية الألعاب، حاسبة FPS، مدرب Aim Trainer، وتحديات الألعاب.">
+  <meta name="keywords" content="العاب, حساسية ببجي, حساسية فري فاير, crosshair, aim trainer, fps calculator, اسماك كلانات, gamer tools">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./gamercraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png"> <!--ثابت-->
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --primary: #2563eb;
+      --surface: #f1f5f9;
+      --border: #cbd5e1;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --surface: #1e1e1e;
+      --border: #333333;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      box-sizing: border-box;
+    }
+
+    button.btn-act {
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Aim Trainer Canvas */
+    #aim-box {
+      width: 100%;
+      height: 300px;
+      background: #000;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: crosshair;
+    }
+
+    .target {
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+      border: 2px solid white;
+    }
+
+    /* Crosshair Preview */
+    #crosshair-preview {
+      width: 150px;
+      height: 150px;
+      background: #000;
+      margin: 10px auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ch-dot { background: red; border-radius: 50%; }
+  </style>
+</head>
+<body>
+
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>🎮 GamerCraft - ترسانة الأدوات الاحترافية للاعبين</h1>
+  <img src="tmgtools/tmgtools.jpg" alt="صورة الألعاب" class="hero-img">
+</header>
+
+<div class="container">
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab('names')">🏷️ الأسماء والكلانات</button>
+    <button class="tab-btn" onclick="openTab('sens')">🎯 إعدادات الحساسية</button>
+    <button class="tab-btn" onclick="openTab('crosshair')">➕ صانع Crosshair</button>
+    <button class="tab-btn" onclick="openTab('fps')">💻 حاسبة FPS</button>
+    <button class="tab-btn" onclick="openTab('fonts')">🔤 خطوط Gaming</button>
+    <button class="tab-btn" onclick="openTab('profile')">🪪 Profile Card</button>
+    <button class="tab-btn" onclick="openTab('aim')">🔫 Aim Trainer</button>
+    <button class="tab-btn" onclick="openTab('challenge')">🎲 تحديات عشوائية</button>
+  </div>
+
+  <!-- 1. مولد الأسماء والكلانات -->
+  <div id="names" class="tab-content active">
+    <div class="card">
+      <h3>مولد أسماء الألعاب والكلانات (Names & Clan Names)</h3>
+      <button class="btn-act" onclick="generateNames()">توليد أسماء جديدة ⚡</button>
+      <div id="names-output" style="margin-top: 15px; font-weight: bold;"></div>
+    </div>
+  </div>
+
+  <!-- 2. إعدادات الحساسية -->
+  <div id="sens" class="tab-content">
+    <div class="card">
+      <h3>إعدادات الحساسية القوية (Sensitivity Settings)</h3>
+      <label>اختر اللعبة:</label>
+      <select id="sens-game">
+        <option value="pubg">PUBG Mobile</option>
+        <option value="ff">Free Fire</option>
+        <option value="cod">COD Mobile</option>
+        <option value="valo">Valorant (PC)</option>
+      </select>
+      <label>نوع الجهاز:</label>
+      <select id="sens-device">
+        <option value="mobile-low">هاتف ضعيف / متوسط (60Hz)</option>
+        <option value="mobile-high">هاتف قوي / آيفون (90Hz-120Hz)</option>
+        <option value="tablet">آيباد / التابلت</option>
+        <option value="pc">كمبيوتر (Mouse & Keyboard)</option>
+      </select>
+      <button class="btn-act" onclick="getSens()">جلب أفضل إعدادات حساسية 🎯</button>
+      <div id="sens-result" style="margin-top:15px; background:var(--bg); padding:15px; border-radius:8px;"></div>
+    </div>
+  </div>
+
+  <!-- 3. صانع Crosshair -->
+  <div id="crosshair" class="tab-content">
+    <div class="card" style="text-align: center;">
+      <h3>صانع وتخصيص Crosshair</h3>
+      <div id="crosshair-preview">
+        <div id="ch-element" class="ch-dot" style="width:10px; height:10px; background:#00ff00;"></div>
+      </div>
+      <label>الحجم:</label>
+      <input type="range" id="ch-size" min="2" max="30" value="10" oninput="updateCrosshair()">
+      <label>اللون:</label>
+      <input type="color" id="ch-color" value="#00ff00" onchange="updateCrosshair()">
+      <p id="ch-code" style="font-family: monospace;">الكود: Size: 10px | Color: #00ff00</p>
+    </div>
+  </div>
+
+  <!-- 4. حاسبة FPS -->
+  <div id="fps" class="tab-content">
+    <div class="card">
+      <h3>حاسبة أداء الألعاب والمتطلبات (FPS Calculator)</h3>
+      <label>كرت الشاشة (GPU):</label>
+      <select id="fps-gpu">
+        <option value="low">مدمج / GTX 1050</option>
+        <option value="mid">GTX 1660 / RTX 3050</option>
+        <option value="high">RTX 3070 / RTX 4070</option>
+      </select>
+      <label>المعالج (CPU):</label>
+      <select id="fps-cpu">
+        <option value="low">i3 / Ryzen 3</option>
+        <option value="mid">i5 / Ryzen 5</option>
+        <option value="high">i7 / i9 / Ryzen 7</option>
+      </select>
+      <button class="btn-act" onclick="calcFPS()">حساب الـ FPS المتوقع 🚀</button>
+      <h4 id="fps-result">النتيجة: -</h4>
+    </div>
+  </div>
+
+  <!-- 5. خطوط الألعاب -->
+  <div id="fonts" class="tab-content">
+    <div class="card">
+      <h3>زخرفة وخطوط الألعاب (Gaming Fonts)</h3>
+      <input type="text" id="font-input" placeholder="اكتب اسمك هنا..." onkeyup="convertFonts()">
+      <div id="font-results" style="margin-top:15px; line-height:2;"></div>
+    </div>
+  </div>
+
+  <!-- 6. Profile Cards -->
+  <div id="profile" class="tab-content">
+    <div class="card">
+      <h3>بطاقة اللاعب الاحترافية (Gamer Profile Card)</h3>
+      <input type="text" id="prof-name" placeholder="اسم اللاعب">
+      <input type="text" id="prof-game" placeholder="اللعبة المفضلة">
+      <input type="text" id="prof-rank" placeholder="الرتبة / Rank">
+      <button class="btn-act" onclick="generateCard()">إنشاء البطاقة 🪪</button>
+
+      <div id="card-preview" style="display:none; margin-top:15px; background:linear-gradient(45deg, #1e3c72, #2a5298); color:white; padding:20px; border-radius:12px;">
+        <h2 id="card-out-name"></h2>
+        <p>🎮 اللعبة: <span id="card-out-game"></span></p>
+        <p>🏆 الرتبة: <span id="card-out-rank"></span></p>
+        <small>Verified Gamer | GamerCraft Card</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Aim Trainer -->
+  <div id="aim" class="tab-content">
+    <div class="card" style="text-align:center;">
+      <h3>مدرب التصويب (Aim Trainer)</h3>
+      <p>احرص على الضغط على الهدف الأحمر بأسرع ما يمكن! النقاط: <span id="score">0</span></p>
+      <button class="btn-act" style="width:auto; padding:10px 30px;" onclick="startAim()">ابدأ اللعب 🎯</button>
+      <div id="aim-box" style="margin-top:15px;"></div>
+    </div>
+  </div>
+
+  <!-- 8. تحديات عشوائية -->
+  <div id="challenge" class="tab-content">
+    <div class="card" style="text-align:center;">
+      <h3>تحديات الألعاب العشوائية (Random Challenges)</h3>
+      <button class="btn-act" onclick="getChallenge()">اعطني تحدي صعبة! 🎲</button>
+      <h3 id="challenge-out" style="margin-top:20px; color:var(--primary);"></h3>
+    </div>
+  </div>
+</div>
+
+<!--native banner-->
+<script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+<div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+<!-- Footer -->
+<footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+  <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+  <p>
+    <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+    <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+    <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+    <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+  </p>
+</footer>
+
+<script>
+// Theme Toggle
+const toggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme){
+    document.body.classList.toggle("dark", savedTheme === "dark");
+}else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+    document.body.classList.add("dark");
+}
+
+toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    const dark = document.body.classList.contains("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    toggle.textContent = dark ? "☀️" : "🌙";
+};
+
+// Tab Controller
+function openTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// Names Generator
+function generateNames() {
+  const userNames = ["⚡ShadowViper⚡", "꧁༺SHIELD༻꧂", "☠️DARK_KILLER☠️", "★Phoenix★", "Ѧli𝔢n_Slayer"];
+  const clanNames = ["❖VORTEX TEAM❖", "⚡TITANS CLIN⚡", "⚔️BLOOD_REAPERS⚔️", "👑ROYAL_WARRIORS👑"];
+  
+  const randN = userNames[Math.floor(Math.random()*userNames.length)];
+  const randC = clanNames[Math.floor(Math.random()*clanNames.length)];
+  
+  document.getElementById("names-output").innerHTML = `
+    <p>اسم اللاعب المقترح: <span style="color:var(--primary);">${randN}</span></p>
+    <p>اسم الكلان المقترح: <span style="color:var(--primary);">${randC}</span></p>
+  `;
+}
+
+// Sensitivity Settings
+function getSens() {
+  const game = document.getElementById("sens-game").value;
+  const dev = document.getElementById("sens-device").value;
+  let text = "";
+
+  if(game === "pubg") {
+    text = dev.includes("high") || dev.includes("tablet") 
+      ? "عامة: 120% | 3rd Person No Scope: 140% | Red Dot: 65% | Scope 3x: 30% | Gyroscope: Always ON (300% - 400%)"
+      : "عامة: 95% | 3rd Person No Scope: 100% | Red Dot: 50% | Scope 3x: 22% | Gyroscope: 150%";
+  } else if(game === "ff") {
+    text = dev.includes("high") 
+      ? "General: 100 | Red Dot: 95 | 2x Scope: 90 | 4x Scope: 85 | AWM Scope: 50"
+      : "General: 90 | Red Dot: 85 | 2x Scope: 75 | 4x Scope: 70 | AWM Scope: 45";
+  } else {
+    text = "DPI: 800 | Sensitivity: 0.35 - 0.45 | Scoped Sens: 1.0 (توصية اللعب الاحترافي)";
+  }
+
+  document.getElementById("sens-result").innerHTML = `<strong>الإعدادات الموصى بها:</strong><br>${text}`;
+}
+
+// Crosshair Customizer
+function updateCrosshair() {
+  const sz = document.getElementById("ch-size").value;
+  const clr = document.getElementById("ch-color").value;
+  const el = document.getElementById("ch-element");
+
+  el.style.width = sz + "px";
+  el.style.height = sz + "px";
+  el.style.background = clr;
+
+  document.getElementById("ch-code").innerText = `الكود: Size: ${sz}px | Color: ${clr}`;
+}
+
+// FPS Calculator
+function calcFPS() {
+  const gpu = document.getElementById("fps-gpu").value;
+  const cpu = document.getElementById("fps-cpu").value;
+  let fps = "60 FPS (إعدادات متوسطة)";
+
+  if(gpu === "high" && cpu === "high") fps = "240+ FPS (أداء خارق Ultra HD)";
+  else if(gpu === "mid" && cpu === "mid") fps = "120 - 144 FPS (أداء ممتاز تنافسي)";
+  
+  document.getElementById("fps-result").innerText = `النتيجة المقدرة: ${fps}`;
+}
+
+// Gaming Fonts Generator
+function convertFonts() {
+  const str = document.getElementById("font-input").value;
+  if(!str) return;
+
+  const f1 = str.split('').join(' ');
+  const f2 = `꧁༺${str}༻꧂`;
+  const f3 = `★${str}★`;
+  const f4 = `⚡[${str}]⚡`;
+
+  document.getElementById("font-results").innerHTML = `
+    <div>${f1}</div>
+    <div>${f2}</div>
+    <div>${f3}</div>
+    <div>${f4}</div>
+  `;
+}
+
+// Profile Card Generator
+function generateCard() {
+  const name = document.getElementById("prof-name").value || "Gamer";
+  const game = document.getElementById("prof-game").value || "PUBG";
+  const rank = document.getElementById("prof-rank").value || "Conqueror";
+
+  document.getElementById("card-out-name").innerText = name;
+  document.getElementById("card-out-game").innerText = game;
+  document.getElementById("card-out-rank").innerText = rank;
+  document.getElementById("card-preview").style.display = "block";
+}
+
+// Aim Trainer
+let score = 0;
+function startAim() {
+  score = 0;
+  document.getElementById("score").innerText = score;
+  spawnTarget();
+}
+
+function spawnTarget() {
+  const box = document.getElementById("aim-box");
+  box.innerHTML = "";
+  const target = document.createElement("div");
+  target.className = "target";
+  
+  const maxX = box.clientWidth - 40;
+  const maxY = box.clientHeight - 40;
+  
+  target.style.left = Math.random() * maxX + "px";
+  target.style.top = Math.random() * maxY + "px";
+  
+  target.onclick = () => {
+    score++;
+    document.getElementById("score").innerText = score;
+    spawnTarget();
+  };
+  
+  box.appendChild(target);
+}
+
+// Random Challenge Generator
+function getChallenge() {
+  const challenges = [
+    "الفوز بالقيم باستخدام مسدسات فقط!",
+    "اللعب بدون دروع أو خوذة طوال القيم.",
+    "الإنزال في أزحم منطقة في الخريطة دون سلاح أول دقيقتين.",
+    "إنهاء القيم بدون استخدام أي إسعافات أولية.",
+    "الفوز بالقيم باستخدام القناصات فقط (Snipers Only)."
+  ];
+  const rand = challenges[Math.floor(Math.random() * challenges.length)];
+  document.getElementById("challenge-out").innerText = rand;
+}
+
+// PWA Service Worker Registration
+window.onload = () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./gamercraft/sw.js').catch(err => console.log(err));
+  }
+};
+</script>
+
+<!--social bar-->
+<script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

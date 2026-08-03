@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevCraft - مجموعة أدوات المطورين الشاملة | TMG WEB ZONE</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة DevCraft الشاملة للمطورين والمبرمجين: تنسيق وضغط الأكواد (JSON, XML, HTML, CSS, JS, SQL)، اختبار Regex، فك وتشفير Base64 و JWT، توليد UUID واختبار الـ APIs.">
+  <meta name="keywords" content="JSON Formatter, XML Formatter, HTML Formatter, CSS Formatter, JS Formatter, Minify, Beautify, Regex Tester, UUID Generator, Base64, JWT Decoder, SQL Formatter, API Tester, DevTools">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./devcraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-border: #334155;
+      --text: #f8fafc;
+      --text-sub: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #090d16;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --text: #0f172a;
+      --text-sub: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #f1f5f9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; min-height: 100vh; padding: 20px 10px; }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-banner { text-align: center; margin-bottom: 25px; }
+    .header-banner img { max-width: 100%; height: auto; border-radius: 12px; max-height: 180px; object-fit: cover; border: 1px solid var(--surface-border); }
+
+    .main-container { max-width: 1200px; margin: 0 auto; }
+    .title-area { text-align: center; margin-bottom: 30px; }
+    .title-area h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 8px; }
+    .title-area p { color: var(--text-sub); }
+
+    /* Layout grid for sidebar & main workspace */
+    .workspace { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
+    @media (max-width: 850px) { .workspace { grid-template-columns: 1fr; } }
+
+    .tools-nav {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      padding: 12px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: right;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .tool-btn:hover, .tool-btn.active { background: var(--primary); color: #fff; }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 25px;
+      display: none;
+    }
+    .tool-card.active { display: block; }
+    .tool-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+
+    .editor-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
+    textarea, input[type="text"], select {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      padding: 12px;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.95rem;
+      resize: vertical;
+    }
+    textarea { min-height: 180px; }
+
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    .btn-action {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .btn-action:hover { background: var(--primary-hover); }
+    .btn-sec { background: var(--surface-border); color: var(--text); }
+
+    .output-box {
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 15px;
+      word-break: break-all;
+      white-space: pre-wrap;
+      font-family: monospace;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <button id="theme-toggle">☀️</button>
+
+  <div class="main-container">
+    <div class="header-banner">
+      <img src="./tmgtools/tmgtools.jpg" alt="DevCraft TMG Web Zone Tools">
+    </div>
+
+    <div class="title-area">
+      <h1>DevCraft Tools</h1>
+      <p>منصة الأدوات البرمجية الشاملة والمطورة خصيصاً للمبرمجين ومصممي الويب</p>
+    </div>
+
+    <div class="workspace">
+      <!-- القائمة الجانبية للأدوات -->
+      <nav class="tools-nav">
+        <button class="tool-btn active" onclick="switchTool('json')">JSON Formatter</button>
+        <button class="tool-btn" onclick="switchTool('xml')">XML Formatter</button>
+        <button class="tool-btn" onclick="switchTool('html')">HTML Formatter</button>
+        <button class="tool-btn" onclick="switchTool('css')">CSS Formatter</button>
+        <button class="tool-btn" onclick="switchTool('js')">JS Formatter</button>
+        <button class="tool-btn" onclick="switchTool('sql')">SQL Formatter</button>
+        <button class="tool-btn" onclick="switchTool('regex')">Regex Tester</button>
+        <button class="tool-btn" onclick="switchTool('uuid')">UUID Generator</button>
+        <button class="tool-btn" onclick="switchTool('base64')">Base64 Encoder/Decoder</button>
+        <button class="tool-btn" onclick="switchTool('jwt')">JWT Decoder</button>
+        <button class="tool-btn" onclick="switchTool('api')">API Tester</button>
+      </nav>
+
+      <!-- بيئة العمل الرئيسية -->
+      <main class="tool-content">
+        
+        <!-- JSON TOOL -->
+        <div id="tool-json" class="tool-card active">
+          <h2>JSON Formatter / Minify / Beautify</h2>
+          <div class="editor-group">
+            <textarea id="json-input" placeholder="أدخل كود JSON هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatJSON(true)">Beautify (تنسيق)</button>
+            <button class="btn-action btn-sec" onclick="formatJSON(false)">Minify (ضغط)</button>
+          </div>
+          <div class="output-box" id="json-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- XML TOOL -->
+        <div id="tool-xml" class="tool-card">
+          <h2>XML Formatter / Minify / Beautify</h2>
+          <div class="editor-group">
+            <textarea id="xml-input" placeholder="أدخل كود XML هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatXML(true)">Beautify</button>
+            <button class="btn-action btn-sec" onclick="formatXML(false)">Minify</button>
+          </div>
+          <div class="output-box" id="xml-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- HTML TOOL -->
+        <div id="tool-html" class="tool-card">
+          <h2>HTML Formatter / Minify / Beautify</h2>
+          <div class="editor-group">
+            <textarea id="html-input" placeholder="أدخل كود HTML هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatHTML(true)">Beautify</button>
+            <button class="btn-action btn-sec" onclick="formatHTML(false)">Minify</button>
+          </div>
+          <div class="output-box" id="html-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- CSS TOOL -->
+        <div id="tool-css" class="tool-card">
+          <h2>CSS Formatter / Minify / Beautify</h2>
+          <div class="editor-group">
+            <textarea id="css-input" placeholder="أدخل كود CSS هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatCSS(true)">Beautify</button>
+            <button class="btn-action btn-sec" onclick="formatCSS(false)">Minify</button>
+          </div>
+          <div class="output-box" id="css-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- JS TOOL -->
+        <div id="tool-js" class="tool-card">
+          <h2>JS Formatter / Minify</h2>
+          <div class="editor-group">
+            <textarea id="js-input" placeholder="أدخل كود JavaScript هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatJS(false)">Minify</button>
+          </div>
+          <div class="output-box" id="js-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- SQL TOOL -->
+        <div id="tool-sql" class="tool-card">
+          <h2>SQL Formatter</h2>
+          <div class="editor-group">
+            <textarea id="sql-input" placeholder="أدخل استعلام SQL هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="formatSQL()">تنسيق الاستعلام</button>
+          </div>
+          <div class="output-box" id="sql-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- REGEX TOOL -->
+        <div id="tool-regex" class="tool-card">
+          <h2>Regex Tester</h2>
+          <div class="editor-group">
+            <input type="text" id="regex-pattern" placeholder="Regex Pattern (e.g. [a-z]+)">
+            <textarea id="regex-text" placeholder="النص المراد اختباره..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="testRegex()">اختبار التعبير</button>
+          </div>
+          <div class="output-box" id="regex-output">النتائج ستظهر هنا...</div>
+        </div>
+
+        <!-- UUID TOOL -->
+        <div id="tool-uuid" class="tool-card">
+          <h2>UUID Generator (v4)</h2>
+          <div class="controls">
+            <button class="btn-action" onclick="generateUUID()">توليد UUID جديد</button>
+          </div>
+          <div class="output-box" id="uuid-output">اضغط زر التوليد...</div>
+        </div>
+
+        <!-- BASE64 TOOL -->
+        <div id="tool-base64" class="tool-card">
+          <h2>Base64 Encoder / Decoder</h2>
+          <div class="editor-group">
+            <textarea id="base64-input" placeholder="أدخل النص هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="processBase64(true)">تشفير (Encode)</button>
+            <button class="btn-action btn-sec" onclick="processBase64(false)">فك التشفير (Decode)</button>
+          </div>
+          <div class="output-box" id="base64-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- JWT TOOL -->
+        <div id="tool-jwt" class="tool-card">
+          <h2>JWT Decoder</h2>
+          <div class="editor-group">
+            <textarea id="jwt-input" placeholder="أدخل رمز JWT هنا..."></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="decodeJWT()">فك الشفرة</button>
+          </div>
+          <div class="output-box" id="jwt-output">البيانات مفكوكة الشفرة ستظهر هنا...</div>
+        </div>
+
+        <!-- API TESTER TOOL -->
+        <div id="tool-api" class="tool-card">
+          <h2>API Tester</h2>
+          <div class="editor-group">
+            <select id="api-method" style="margin-bottom: 10px;">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+              <option value="PUT">PUT</option>
+              <option value="DELETE">DELETE</option>
+            </select>
+            <input type="text" id="api-url" placeholder="https://api.example.com/data">
+            <textarea id="api-body" placeholder="Request Body (JSON) - اختياري"></textarea>
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="testAPI()">إرسال الطلب</button>
+          </div>
+          <div class="output-box" id="api-output">استجابة الـ API ستظهر هنا...</div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- native banner -->
+  <script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+  <div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme logic
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme){
+        document.body.classList.toggle("dark", savedTheme === "dark");
+        document.body.classList.toggle("light", savedTheme === "light");
+    } else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+        document.body.classList.add("dark");
+    }
+
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        document.body.classList.toggle("light");
+        const dark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    // Navigation Logic
+    function switchTool(toolId) {
+      document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tool-' + toolId).classList.add('active');
+    }
+
+    // JSON Functions
+    function formatJSON(beautify) {
+      try {
+        const val = JSON.parse(document.getElementById('json-input').value);
+        document.getElementById('json-output').textContent = beautify ? JSON.stringify(val, null, 2) : JSON.stringify(val);
+      } catch (e) { document.getElementById('json-output').textContent = "خطأ في صيغة JSON: " + e.message; }
+    }
+
+    // XML Functions
+    function formatXML(beautify) {
+      let xml = document.getElementById('xml-input').value;
+      if(beautify) {
+        let reg = /(>)(<)(\/*)/g;
+        let pad = 0;
+        xml = xml.replace(reg, '$1\r\n$2$3');
+        let formatted = '';
+        xml.split('\r\n').forEach(node => {
+          let indent = 0;
+          if (node.match(/.+<\/\w[^>]*>$/)) indent = 0;
+          else if (node.match(/^<\/\w/)) { if (pad !== 0) pad -= 1; }
+          else if (node.match(/^<\w[^>]*[^\/]>.*$/)) indent = 1;
+          formatted += '  '.repeat(pad) + node + '\r\n';
+          pad += indent;
+        });
+        document.getElementById('xml-output').textContent = formatted;
+      } else {
+        document.getElementById('xml-output').textContent = xml.replace(/>\s+</g, '><').trim();
+      }
+    }
+
+    // HTML / CSS / JS Minifier
+    function formatHTML(beautify) {
+      let val = document.getElementById('html-input').value;
+      document.getElementById('html-output').textContent = beautify ? val : val.replace(/\s+/g, ' ').replace(/> </g, '><').trim();
+    }
+    function formatCSS(beautify) {
+      let val = document.getElementById('css-input').value;
+      document.getElementById('css-output').textContent = beautify ? val : val.replace(/\s+/g, ' ').replace(/\{ /g, '{').replace(/ \}/g, '}').replace(/; /g, ';').trim();
+    }
+    function formatJS(beautify) {
+      let val = document.getElementById('js-input').value;
+      document.getElementById('js-output').textContent = val.replace(/\/\*[\s\S]*?\*\/|([^\\:]|^)\/\/.*$/gm, '').replace(/\s+/g, ' ').trim();
+    }
+
+    // SQL Formatter
+    function formatSQL() {
+      let sql = document.getElementById('sql-input').value;
+      const keywords = ["SELECT", "FROM", "WHERE", "GROUP BY", "ORDER BY", "HAVING", "LIMIT", "JOIN", "LEFT JOIN", "RIGHT JOIN", "INSERT INTO", "UPDATE", "DELETE"];
+      keywords.forEach(kw => {
+        let regex = new RegExp("\\b" + kw + "\\b", "gi");
+        sql = sql.replace(regex, "\n" + kw);
+      });
+      document.getElementById('sql-output').textContent = sql.trim();
+    }
+
+    // Regex Tester
+    function testRegex() {
+      try {
+        const pattern = new RegExp(document.getElementById('regex-pattern').value, 'g');
+        const text = document.getElementById('regex-text').value;
+        const matches = text.match(pattern);
+        document.getElementById('regex-output').textContent = matches ? `تم العثور على (${matches.length}) تطابق:\n` + JSON.stringify(matches, null, 2) : "لم يتم العثور على أي تطابق.";
+      } catch(e) { document.getElementById('regex-output').textContent = "خطأ في التعبير: " + e.message; }
+    }
+
+    // UUID Generator
+    function generateUUID() {
+      const uuid = 'xxxx-xxxx-4xxx-yxxx-xxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+      document.getElementById('uuid-output').textContent = uuid;
+    }
+
+    // Base64 Process
+    function processBase64(encode) {
+      try {
+        const val = document.getElementById('base64-input').value;
+        document.getElementById('base64-output').textContent = encode ? btoa(val) : atob(val);
+      } catch(e) { document.getElementById('base64-output').textContent = "خطأ في المعالجة: " + e.message; }
+    }
+
+    // JWT Decoder
+    function decodeJWT() {
+      try {
+        const token = document.getElementById('jwt-input').value;
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+        document.getElementById('jwt-output').textContent = JSON.stringify(JSON.parse(jsonPayload), null, 2);
+      } catch(e) { document.getElementById('jwt-output').textContent = "رمز JWT غير صالح!"; }
+    }
+
+    // API Tester
+    async function testAPI() {
+      const method = document.getElementById('api-method').value;
+      const url = document.getElementById('api-url').value;
+      const body = document.getElementById('api-body').value;
+      const output = document.getElementById('api-output');
+
+      output.textContent = "جاري إرسال الطلب...";
+      try {
+        const options = { method, headers: { 'Content-Type': 'application/json' } };
+        if(method !== 'GET' && body) options.body = body;
+        const res = await fetch(url, options);
+        const data = await res.json();
+        output.textContent = `Status: ${res.status}\nResponse:\n` + JSON.stringify(data, null, 2);
+      } catch(e) { output.textContent = "خطأ في الاتصال: " + e.message; }
+    }
+
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../devcraft/sw.js');
+      });
+    }
+  </script>
+
+  <!-- social bar -->
+  <script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إيميج كرافت - استوديو تعديل ومعالجة الصور الشامل</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة إيميج كرافت الشاملة لتعديل الصور: ضغط الصور، تغيير الحجم، القص، التمويه، إزالة الخلفية والعناصر، تحسين الجودة AI، تحويل الصيغ، صانع الكولاج والميمز، وعلامة مائية.">
+  <meta name="keywords" content="تعديل صور, ضغط صور, تحويل صيغ الصور, إزالة خلفية الصورة, صانع ميمز, كولاج, resize image, compress image">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./imgcraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png"> <!--ثابت-->
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --surface: #f8fafc;
+      --border: #cbd5e1;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --surface: #1e1e1e;
+      --border: #333333;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      box-sizing: border-box;
+    }
+
+    button.btn-act {
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button.btn-act:hover {
+      background: var(--primary-hover);
+    }
+
+    .preview-box {
+      max-width: 100%;
+      margin: 15px auto;
+      text-align: center;
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>🖼️ ImgCraft - استوديو أدوات ومعالجة الصور</h1>
+  <img src="tmgtools/tmgtools.jpg" alt="صورة تعديل الصور" class="hero-img">
+</header>
+
+<div class="container">
+  <!-- أزرار التنقل بين الأدوات -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab('compress')">📉 ضغط وتصغير</button>
+    <button class="tab-btn" onclick="openTab('resize')">📐 Resize & Crop</button>
+    <button class="tab-btn" onclick="openTab('effects')">التمويه والتوضيح (Blur & Sharpen)</button>
+    <button class="tab-btn" onclick="openTab('ai-bg')">🤖 إزالة خلفية وعناصر</button>
+    <button class="tab-btn" onclick="openTab('convert')">🔄 تحويل الصيغ</button>
+    <button class="tab-btn" onclick="openTab('collage')">🖼️ كولاج (Collage)</button>
+    <button class="tab-btn" onclick="openTab('meme')">😂 صانع الميمز</button>
+    <button class="tab-btn" onclick="openTab('watermark')">💧 علامة مائية & QR</button>
+  </div>
+
+  <!-- 1. ضغط الصورة -->
+  <div id="compress" class="tab-content active">
+    <div class="card">
+      <h3>ضغط وتحسين حجم الصور</h3>
+      <input type="file" id="comp-file" accept="image/*" onchange="loadCanvas(event, 'comp-canvas')">
+      <label>جودة الضغط:</label>
+      <input type="range" id="comp-quality" min="0.1" max="1" step="0.1" value="0.7">
+      <button class="btn-act" onclick="compressImage()">تطبيق الضغط وتحميل الصورة</button>
+      <div class="preview-box"><canvas id="comp-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 2. تغيير الحجم والقص -->
+  <div id="resize" class="tab-content">
+    <div class="card">
+      <h3>تغيير الأبعاد والقص (Resize & Crop)</h3>
+      <input type="file" accept="image/*" onchange="loadCanvas(event, 'resize-canvas')">
+      <div style="display:flex; gap:10px;">
+        <input type="number" id="res-w" placeholder="العرض (Width)">
+        <input type="number" id="res-h" placeholder="الارتفاع (Height)">
+      </div>
+      <button class="btn-act" onclick="resizeImage()">تغيير الحجم</button>
+      <div class="preview-box"><canvas id="resize-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 3. Blur & Sharpen -->
+  <div id="effects" class="tab-content">
+    <div class="card">
+      <h3>مؤثرات التمويه والتوضيح (Blur / Sharpen)</h3>
+      <input type="file" accept="image/*" onchange="loadCanvas(event, 'effect-canvas')">
+      <label>نسبة التمويه (Blur):</label>
+      <input type="range" id="blur-val" min="0" max="20" value="0" oninput="applyEffects()">
+      <label>التباين والتوضيح (Contrast/Sharpen):</label>
+      <input type="range" id="sharp-val" min="100" max="200" value="100" oninput="applyEffects()">
+      <div class="preview-box"><canvas id="effect-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 4. إزالة الخلفية والعناصر -->
+  <div id="ai-bg" class="tab-content">
+    <div class="card">
+      <h3>إزالة الخلفية والعناصر الذكية (AI Upscaler & Eraser)</h3>
+      <input type="file" accept="image/*" onchange="loadCanvas(event, 'ai-canvas')">
+      <button class="btn-act" onclick="removeBgSim()">إزالة الخلفية (تفريغ شفاف)</button>
+      <button class="btn-act" style="margin-top:5px;" onclick="upscaleSim()">مضاعفة الجودة (AI Upscaler x2)</button>
+      <div class="preview-box"><canvas id="ai-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 5. تحويل الصيغ -->
+  <div id="convert" class="tab-content">
+    <div class="card">
+      <h3>تحويل صيغ الصور (Format Converter)</h3>
+      <input type="file" id="conv-file" accept="image/*">
+      <label>اختر الصيغة المستهدفة:</label>
+      <select id="conv-format">
+        <option value="image/jpeg">JPG / JPEG</option>
+        <option value="image/png">PNG (شفاف)</option>
+        <option value="image/webp">WEBP (سريع وخفيف)</option>
+      </select>
+      <button class="btn-act" onclick="convertFormat()">تحويل وتنزيل</button>
+    </div>
+  </div>
+
+  <!-- 6. كولاج الصور -->
+  <div id="collage" class="tab-content">
+    <div class="card">
+      <h3>تجميع الصور (Collage Generator)</h3>
+      <label>اختر صورتين لدمجهما:</label>
+      <input type="file" id="col-file1" accept="image/*">
+      <input type="file" id="col-file2" accept="image/*">
+      <button class="btn-act" onclick="generateCollage()">دمج الصور</button>
+      <div class="preview-box"><canvas id="collage-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 7. صانع الميمز -->
+  <div id="meme" class="tab-content">
+    <div class="card">
+      <h3>صانع الميمز (Meme Generator)</h3>
+      <input type="file" accept="image/*" onchange="loadCanvas(event, 'meme-canvas')">
+      <input type="text" id="meme-top" placeholder="النص العلوي..." onkeyup="drawMeme()">
+      <input type="text" id="meme-bottom" placeholder="النص السفلي..." onkeyup="drawMeme()">
+      <div class="preview-box"><canvas id="meme-canvas"></canvas></div>
+    </div>
+  </div>
+
+  <!-- 8. العلامة المائية و QR -->
+  <div id="watermark" class="tab-content">
+    <div class="card">
+      <h3>إضافة علامة مائية و رمز QR</h3>
+      <input type="file" accept="image/*" onchange="loadCanvas(event, 'wm-canvas')">
+      <input type="text" id="wm-text" placeholder="نص العلامة المائية..." onkeyup="addWatermark()">
+      <hr>
+      <label>دمج كود QR داخل الصورة:</label>
+      <input type="text" id="qr-text" placeholder="رابط أو نص كود QR...">
+      <button class="btn-act" onclick="addQRToImage()">دمج الـ QR بالصورة</button>
+      <div class="preview-box"><canvas id="wm-canvas"></canvas></div>
+    </div>
+  </div>
+
+</div>
+
+<!--native banner-->
+<script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+<div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+<!-- Footer -->
+<footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+  <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+  <p>
+    <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+    <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+    <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+    <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+  </p>
+</footer>
+
+<script>
+// Theme Toggle
+const toggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme){
+    document.body.classList.toggle("dark", savedTheme === "dark");
+}else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+    document.body.classList.add("dark");
+}
+
+toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    const dark = document.body.classList.contains("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    toggle.textContent = dark ? "☀️" : "🌙";
+};
+
+// Navigation
+function openTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// Global Image Store
+let activeImg = new Image();
+
+function loadCanvas(e, canvasId) {
+  const canvas = document.getElementById(canvasId);
+  const ctx = canvas.getContext('2d');
+  const file = e.target.files[0];
+  if(!file) return;
+
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    activeImg = new Image();
+    activeImg.onload = () => {
+      canvas.width = activeImg.width;
+      canvas.height = activeImg.height;
+      ctx.drawImage(activeImg, 0, 0);
+    };
+    activeImg.src = event.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+// 1. Compress Image
+function compressImage() {
+  const canvas = document.getElementById('comp-canvas');
+  const q = parseFloat(document.getElementById('comp-quality').value);
+  const link = document.createElement('a');
+  link.download = 'compressed-image.jpg';
+  link.href = canvas.toDataURL('image/jpeg', q);
+  link.click();
+}
+
+// 2. Resize Image
+function resizeImage() {
+  const canvas = document.getElementById('resize-canvas');
+  const ctx = canvas.getContext('2d');
+  const w = parseInt(document.getElementById('res-w').value) || activeImg.width;
+  const h = parseInt(document.getElementById('res-h').value) || activeImg.height;
+
+  canvas.width = w;
+  canvas.height = h;
+  ctx.drawImage(activeImg, 0, 0, w, h);
+}
+
+// 3. Blur & Sharpen
+function applyEffects() {
+  const canvas = document.getElementById('effect-canvas');
+  const ctx = canvas.getContext('2d');
+  const blur = document.getElementById('blur-val').value;
+  const sharp = document.getElementById('sharp-val').value;
+
+  ctx.filter = `blur(${blur}px) contrast(${sharp}%)`;
+  ctx.drawImage(activeImg, 0, 0);
+}
+
+// 4. Background Removal & AI Upscale Simulation
+function removeBgSim() {
+  const canvas = document.getElementById('ai-canvas');
+  const ctx = canvas.getContext('2d');
+  const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imgData.data;
+
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) {
+      data[i + 3] = 0; // جعل الأجزاء البيضاء شائعة التواجد شفافة
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+function upscaleSim() {
+  const canvas = document.getElementById('ai-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = activeImg.width * 2;
+  canvas.height = activeImg.height * 2;
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(activeImg, 0, 0, canvas.width, canvas.height);
+}
+
+// 5. Convert Format
+function convertFormat() {
+  const fileInput = document.getElementById('conv-file');
+  if(!fileInput.files[0]) return alert("الرجاء اختيار صورة أولاً!");
+
+  const format = document.getElementById('conv-format').value;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const cvs = document.createElement('canvas');
+      cvs.width = img.width;
+      cvs.height = img.height;
+      const ctx = cvs.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      
+      const link = document.createElement('a');
+      link.download = `converted-image.${format.split('/')[1]}`;
+      link.href = cvs.toDataURL(format);
+      link.click();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(fileInput.files[0]);
+}
+
+// 6. Collage
+function generateCollage() {
+  const f1 = document.getElementById('col-file1').files[0];
+  const f2 = document.getElementById('col-file2').files[0];
+  if(!f1 || !f2) return alert("اختر صورتين للدمج!");
+
+  const canvas = document.getElementById('collage-canvas');
+  const ctx = canvas.getContext('2d');
+  
+  const img1 = new Image();
+  const img2 = new Image();
+
+  img1.onload = () => {
+    img2.onload = () => {
+      canvas.width = img1.width + img2.width;
+      canvas.height = Math.max(img1.height, img2.height);
+      ctx.drawImage(img1, 0, 0);
+      ctx.drawImage(img2, img1.width, 0);
+    };
+    img2.src = URL.createObjectURL(f2);
+  };
+  img1.src = URL.createObjectURL(f1);
+}
+
+// 7. Meme Generator
+function drawMeme() {
+  const canvas = document.getElementById('meme-canvas');
+  const ctx = canvas.getContext('2d');
+  const topText = document.getElementById('meme-top').value;
+  const bottomText = document.getElementById('meme-bottom').value;
+
+  ctx.drawImage(activeImg, 0, 0);
+  ctx.font = 'bold 36px Impact, sans-serif';
+  ctx.fillStyle = 'white';
+  ctx.strokeStyle = 'black';
+  ctx.lineWidth = 3;
+  ctx.textAlign = 'center';
+
+  if (topText) {
+    ctx.fillText(topText, canvas.width / 2, 50);
+    ctx.strokeText(topText, canvas.width / 2, 50);
+  }
+  if (bottomText) {
+    ctx.fillText(bottomText, canvas.width / 2, canvas.height - 20);
+    ctx.strokeText(bottomText, canvas.width / 2, canvas.height - 20);
+  }
+}
+
+// 8. Watermark & QR Integration
+function addWatermark() {
+  const canvas = document.getElementById('wm-canvas');
+  const ctx = canvas.getContext('2d');
+  const text = document.getElementById('wm-text').value;
+
+  ctx.drawImage(activeImg, 0, 0);
+  if(text) {
+    ctx.font = '24px sans-serif';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+    ctx.fillText(text, 20, canvas.height - 30);
+  }
+}
+
+function addQRToImage() {
+  const canvas = document.getElementById('wm-canvas');
+  const ctx = canvas.getContext('2d');
+  const text = document.getElementById('qr-text').value;
+  if(!text) return alert("أدخل النص أو الرابط لرمز الـ QR");
+
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(text)}`;
+  const qrImg = new Image();
+  qrImg.crossOrigin = "Anonymous";
+  qrImg.onload = () => {
+    ctx.drawImage(qrImg, canvas.width - 120, canvas.height - 120, 100, 100);
+  };
+  qrImg.src = qrUrl;
+}
+
+// PWA Service Worker Registration
+window.onload = () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./imgcraft/sw.js').catch(err => console.log(err));
+  }
+};
+</script>
+
+<!--social bar-->
+<script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ويب كرافت - منصة أدوات الويب و SEO الشاملة</title>
+
+  <!-- تحسين محركات البحث SEO -->
+  <meta name="description" content="منصة ويب كرافت الشاملة لأدوات SEO وتطوير الويب: إنشاء Sitemap و Robots.txt، مولد Meta Tags و Open Graph و Twitter Card، مولد Favicon و Manifest، Schema Generator، Canonical Checker، ونصائح تسريع الصفحات.">
+  <meta name="keywords" content="أدوات SEO, مولد سيت ماب, Robots.txt generator, Meta Tags, Open Graph, Twitter Cards, Schema generator, Canonical Checker, Page Speed, WebCraft">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./webcraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --surface: #f8fafc;
+      --border: #cbd5e1;
+      --card-bg: #ffffff;
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --card-bg: #1e1e1e;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    input, textarea, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    button.btn-act {
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button.btn-act:hover {
+      background: var(--primary-hover);
+    }
+
+    .output-box {
+      background: var(--surface);
+      border: 1px dashed var(--border);
+      padding: 15px;
+      border-radius: 8px;
+      word-break: break-all;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .tips-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .tips-list li {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>🌐 WebCraft - منصة أدوات SEO وتطوير الويب الشاملة</h1>
+  <img src="tmgtools/tmgtools.jpg" alt="صورة تحسين محركات البحث وتطوير الويب" class="hero-img">
+</header>
+
+<div class="container">
+  <!-- أزرار القائمة -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab('meta-gen')">🏷️ Meta & Social Tags</button>
+    <button class="tab-btn" onclick="openTab('seo-files')">🗺️ Sitemap & Robots</button>
+    <button class="tab-btn" onclick="openTab('pwa-fav')">📱 Manifest & Favicon</button>
+    <button class="tab-btn" onclick="openTab('schema-gen')">📐 Schema Markup</button>
+    <button class="tab-btn" onclick="openTab('canonical')">🔗 Canonical Checker</button>
+    <button class="tab-btn" onclick="openTab('speed-tips')">⚡ Page Speed Tips</button>
+  </div>
+
+  <!-- 1. Meta Tags, Open Graph & Twitter Cards -->
+  <div id="meta-gen" class="tab-content active">
+    <div class="card">
+      <h3>مولد Meta Tags و Open Graph و Twitter Cards</h3>
+      <input type="text" id="meta-title" placeholder="عنوان الصفحة (Title)">
+      <textarea id="meta-desc" rows="3" placeholder="وصف الصفحة (Description)"></textarea>
+      <input type="text" id="meta-url" placeholder="رابط الصفحة (Canonical URL): https://example.com">
+      <input type="text" id="meta-img" placeholder="رابط الصورة البارزة (Og:Image URL)">
+      <button class="btn-act" onclick="generateMetaTags()">توليد الأكواد</button>
+
+      <div class="output-box" id="meta-output"><!-- سيظهر الكود هنا --></div>
+    </div>
+  </div>
+
+  <!-- 2. Sitemap & Robots Generator -->
+  <div id="seo-files" class="tab-content">
+    <div class="card">
+      <h3>مولد ملف Robots.txt</h3>
+      <label>سماح لمحركات البحث بالزحف:</label>
+      <select id="robots-allow">
+        <option value="allow">السماح لجميع المحركات (Allow All)</option>
+        <option value="disallow">منع جميع المحركات (Disallow All)</option>
+      </select>
+      <input type="text" id="robots-sitemap" placeholder="رابط الـ Sitemap (مثال: https://site.com/sitemap.xml)">
+      <button class="btn-act" onclick="generateRobots()">توليد ملف Robots.txt</button>
+
+      <div class="output-box" id="robots-output"><!-- النتيجة --></div>
+    </div>
+
+    <div class="card">
+      <h3>مولد ملف Sitemap XML بسيط</h3>
+      <textarea id="sitemap-urls" rows="4" placeholder="أدخل الروابط (رابط واحد في كل سطر)..."></textarea>
+      <button class="btn-act" onclick="generateSitemap()">توليد XML Sitemap</button>
+
+      <div class="output-box" id="sitemap-output"><!-- النتيجة --></div>
+    </div>
+  </div>
+
+  <!-- 3. Web App Manifest & Favicon Helper -->
+  <div id="pwa-fav" class="tab-content">
+    <div class="card">
+      <h3>مولد ملف Web App Manifest.json</h3>
+      <input type="text" id="man-name" placeholder="اسم التطبيق الكامل (App Name)">
+      <input type="text" id="man-short" placeholder="الاسم المختصر (Short Name)">
+      <input type="color" id="man-theme" value="#2563eb" style="height:45px;">
+      <button class="btn-act" onclick="generateManifest()">توليد ملف manifest.json</button>
+
+      <div class="output-box" id="manifest-output"><!-- النتيجة --></div>
+    </div>
+
+    <div class="card">
+      <h3>أكواد Favicon & App Icons الجاهزة</h3>
+      <p>انسخ أكواد أيقونات الموقع المفضلة لإدراجها في ترويسة الموقع <code>&lt;head&gt;</code>:</p>
+      <div class="output-box">&lt;link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png"&gt;
+&lt;link rel="shortcut icon" href="./tmgtools/icon-96.png"&gt;
+&lt;link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png"&gt;</div>
+    </div>
+  </div>
+
+  <!-- 4. Schema Generator (JSON-LD) -->
+  <div id="schema-gen" class="tab-content">
+    <div class="card">
+      <h3>مولد البيانات المنظمة Schema (Article / WebSite)</h3>
+      <select id="schema-type" onchange="toggleSchemaFields()">
+        <option value="Website">موقع إلكتروني (WebSite)</option>
+        <option value="Article">مقال (Article)</option>
+      </select>
+      <input type="text" id="schema-name" placeholder="اسم الموقع / عنوان المقال">
+      <input type="text" id="schema-url" placeholder="الرابط (URL)">
+      <button class="btn-act" onclick="generateSchema()">توليد Schema (JSON-LD)</button>
+
+      <div class="output-box" id="schema-output"><!-- النتيجة --></div>
+    </div>
+  </div>
+
+  <!-- 5. Canonical Checker -->
+  <div id="canonical" class="tab-content">
+    <div class="card">
+      <h3>مفحص ومطابق الرابط المعياري (Canonical Tag Checker)</h3>
+      <input type="text" id="canon-input" placeholder="أدخل رابط الصفحة للتحقق من التنسيق...">
+      <button class="btn-act" onclick="checkCanonical()">فحص وإنشاء Canonical Tag</button>
+
+      <div class="output-box" id="canon-output"><!-- النتيجة --></div>
+    </div>
+  </div>
+
+  <!-- 6. Page Speed Tips -->
+  <div id="speed-tips" class="tab-content">
+    <div class="card">
+      <h3>⚡ نصائح وإرشادات تحسين سرعة الموقع (PageSpeed Optimization)</h3>
+      <ul class="tips-list">
+        <li>🚀 <b>ضغط الصور:</b> استخدم صيغ حديثة مثل WebP أو AVIF، وقم بتمرير الصور بحجم مناسب للشاشات.</li>
+        <li>📦 <b>تفعيل الكاش (Browser Caching):</b> اضبط ترويسات التخزين المؤقت للملفات الثابتة (CSS, JS, Images).</li>
+        <li>⚡ <b>تأجيل تحميل الـ JavaScript:</b> استخدم خاصية <code>defer</code> أو <code>async</code> لمنع حظر عرض الصفحة.</li>
+        <li>🌐 <b>شبكة توزيع المحتوى (CDN):</b> استخدم CDN لتقديم الملفات الثابتة بسرعة للزوار حسب مواقعهم الجغرافية.</li>
+        <li>🛠️ <b>تقليل الأكواد (Minification):</b> احرص على ضغط وتصغير ملفات HTML و CSS و JS.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!--native banner-->
+<script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+<div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+<!-- Footer -->
+<footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+  <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+  <p>
+    <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+    <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+    <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+    <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+  </p>
+</footer>
+
+<script>
+// Theme Toggle
+const toggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme){
+    document.body.classList.toggle("dark", savedTheme === "dark");
+}else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+    document.body.classList.add("dark");
+}
+
+toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    const dark = document.body.classList.contains("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    toggle.textContent = dark ? "☀️" : "🌙";
+};
+
+// Tab Navigation
+function openTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// 1. Meta Tags & Social Generator
+function generateMetaTags() {
+  const title = document.getElementById('meta-title').value || 'عنوان الصفحة';
+  const desc = document.getElementById('meta-desc').value || 'وصف الصفحة';
+  const url = document.getElementById('meta-url').value || 'https://example.com';
+  const img = document.getElementById('meta-img').value || 'https://example.com/image.jpg';
+
+  const code = `<!-- Primary Meta Tags -->
+<title>${title}</title>
+<meta name="title" content="${title}">
+<meta name="description" content="${desc}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="${url}">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${desc}">
+<meta property="og:image" content="${img}">
+
+<!-- Twitter Card -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="${url}">
+<meta property="twitter:title" content="${title}">
+<meta property="twitter:description" content="${desc}">
+<meta property="twitter:image" content="${img}">`;
+
+  document.getElementById('meta-output').innerText = code;
+}
+
+// 2. Robots & Sitemap Generator
+function generateRobots() {
+  const allow = document.getElementById('robots-allow').value;
+  const sitemap = document.getElementById('robots-sitemap').value;
+  let code = "User-agent: *\n";
+  code += allow === 'allow' ? "Allow: /\n" : "Disallow: /\n";
+  if (sitemap) code += `Sitemap: ${sitemap}\n`;
+  document.getElementById('robots-output').innerText = code;
+}
+
+function generateSitemap() {
+  const rawUrls = document.getElementById('sitemap-urls').value.trim().split('\n');
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  
+  rawUrls.forEach(u => {
+    if(u.trim()) {
+      xml += `  <url>\n    <loc>${u.trim()}</loc>\n    <priority>0.8</priority>\n  </url>\n`;
+    }
+  });
+  xml += `</urlset>`;
+  document.getElementById('sitemap-output').innerText = xml;
+}
+
+// 3. Manifest Generator
+function generateManifest() {
+  const name = document.getElementById('man-name').value || 'My Web App';
+  const short = document.getElementById('man-short').value || 'App';
+  const theme = document.getElementById('man-theme').value;
+
+  const manifest = {
+    "name": name,
+    "short_name": short,
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": theme,
+    "icons": [
+      { "src": "./tmgtools/icon-192.png", "sizes": "192x192", "type": "image/png" },
+      { "src": "./tmgtools/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+  };
+
+  document.getElementById('manifest-output').innerText = JSON.stringify(manifest, null, 2);
+}
+
+// 4. Schema Generator
+function generateSchema() {
+  const type = document.getElementById('schema-type').value;
+  const name = document.getElementById('schema-name').value || 'Example';
+  const url = document.getElementById('schema-url').value || 'https://example.com';
+
+  const schemaObj = {
+    "@context": "https://schema.org",
+    "@type": type,
+    "name": name,
+    "url": url
+  };
+
+  const code = `<script type="application/ld+json">\n${JSON.stringify(schemaObj, null, 2)}\n<\/script>`;
+  document.getElementById('schema-output').innerText = code;
+}
+
+// 5. Canonical Checker
+function checkCanonical() {
+  const url = document.getElementById('canon-input').value.trim();
+  if (!url) return alert('الرجاء كتابة رابط صالح');
+  
+  let validUrl = url;
+  if (!validUrl.startsWith('http://') && !validUrl.startsWith('https://')) {
+    validUrl = 'https://' + validUrl;
+  }
+  
+  const tag = `<link rel="canonical" href="${validUrl}" />`;
+  document.getElementById('canon-output').innerText = `<!-- كود Canonical الخاص بصفحتك -->\n${tag}`;
+}
+
+// Service Worker Registration
+window.onload = () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./webcraft/sw.js').catch(err => console.log(err));
+  }
+};
+</script>
+
+<!--social bar-->
+<script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

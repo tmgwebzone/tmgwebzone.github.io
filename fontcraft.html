@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FontCraft - منصة الزخرفة والرموز والخطوط الاحترافية | TMG WEB ZONE</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة FontCraft الشاملة: زخرفة الأسماء والنصوص عربي وإنجليزي، توليد رموز هيبة للألعاب PUBG وFree Fire، خطوط Fancy Fonts، إيموجي وKaomoji، الحرف المخفي، وأدوات النص المتقدمة.">
+  <meta name="keywords" content="زخرفة, خطوط, Fancy Text Generator, PUBG Nickname, Discord Fonts, Invisible Character, رموز, Emoji, Kaomoji, SEO Fonts, Text Tools">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./fontcraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+  <!-- مكتبة CryptoJS للـ MD5 و SHA256 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --surface: #f8fafc;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --card-bg: #ffffff;
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --primary: #2563eb;
+      --primary-hover: #3b82f6;
+      --accent: #00adb5;
+      --card-bg: #1a1a1a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); transition: 0.3s; min-height: 100vh; padding: 20px 10px; }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-banner { text-align: center; margin-bottom: 25px; }
+    .header-banner img { max-width: 100%; height: auto; border-radius: 12px; max-height: 180px; object-fit: cover; border: 1px solid var(--border); }
+
+    .main-container { max-width: 1200px; margin: 0 auto; }
+    .title-area { text-align: center; margin-bottom: 25px; }
+    .title-area h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 8px; }
+    .title-area p { color: #888; }
+
+    /* Tabs Bar */
+    .tabs-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    /* Sections Container */
+    .section-card { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .section-card.active { display: block; }
+    .section-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.4rem; }
+
+    /* Inputs & Textareas */
+    input[type="text"], textarea, select {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+
+    /* Output Grid */
+    .output-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+    .font-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      word-break: break-all;
+    }
+    .font-item span { font-size: 1.1rem; }
+    .copy-btn {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: 0.2s;
+      margin-right: 10px;
+    }
+    .copy-btn:hover { background: var(--primary-hover); }
+
+    /* Grid for Symbols & Emojis */
+    .symbols-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 10px; text-align: center; }
+    .symbol-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+      user-select: none;
+    }
+    .symbol-item:hover { transform: scale(1.1); border-color: var(--accent); }
+
+    /* SEO Pages Sub-tabs */
+    .sub-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+    .sub-tab { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+    .sub-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 2000;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="theme-toggle">🌙</button>
+
+  <div id="toast" class="toast">تم النسخ بنجاح!</div>
+
+  <div class="main-container">
+    <div class="header-banner">
+      <img src="./tmgtools/tmgtools.jpg" alt="FontCraft TMG Web Zone Tools">
+    </div>
+
+    <div class="title-area">
+      <h1>FontCraft Tools</h1>
+      <p>منصة الزخرفة الاحترافية، خطوط الألعاب، الرموز النادرة وأدوات النصوص</p>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="tabs-bar">
+      <button class="tab-btn active" onclick="switchTab('basic')">✨ الأدوات الأساسية والخطوط</button>
+      <button class="tab-btn" onclick="switchTab('symbols')">⭐ الرموز والأشكال</button>
+      <button class="tab-btn" onclick="switchTab('trending')">🔥 Trending الشائع</button>
+      <button class="tab-btn" onclick="switchTab('decoration')">🎨 زخرفة الأسماء</button>
+      <button class="tab-btn" onclick="switchTab('emoji')">😊 إيموجي و Kaomoji</button>
+      <button class="tab-btn" onclick="switchTab('seo')">🚀 منصات التواصل (SEO)</button>
+      <button class="tab-btn" onclick="switchTab('tools')">🛠️ أدوات النص والمشفرات</button>
+    </div>
+
+    <!-- 1. BASIC & FANCY FONTS -->
+    <div id="tab-basic" class="section-card active">
+      <h2>مولد الخطوط والأشكال الاحترافية (Fancy & Stylish Text)</h2>
+      <input type="text" id="basic-input" placeholder="اكتب النص هنا والمعاينة فورية... (Write text here)" value="FontCraft" oninput="renderBasicFonts()">
+      
+      <div style="margin-bottom: 15px;">
+        <button class="copy-btn" style="padding: 10px 20px; font-size: 1rem;" onclick="copyInvisible()">👻 نسخ الحرف المخفي (Invisible Character)</button>
+      </div>
+
+      <div class="output-grid" id="basic-output"></div>
+    </div>
+
+    <!-- 2. SYMBOLS SECTION -->
+    <div id="tab-symbols" class="section-card">
+      <h2>مكتبة الرموز الشاملة (انقر على أي رمز للنسخ)</h2>
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="filterSymbols('hearts')">1000+ Hearts القلوب</button>
+        <button class="sub-tab" onclick="filterSymbols('stars')">1000+ Stars النجوم</button>
+        <button class="sub-tab" onclick="filterSymbols('arrows')">1000+ Arrows الأسهم</button>
+        <button class="sub-tab" onclick="filterSymbols('flowers')">1000+ Flowers الورود</button>
+        <button class="sub-tab" onclick="filterSymbols('music')">1000+ Music الموسيقى</button>
+        <button class="sub-tab" onclick="filterSymbols('math')">1000+ Math الرياضية</button>
+        <button class="sub-tab" onclick="filterSymbols('currency')">1000+ Currency العملات</button>
+        <button class="sub-tab" onclick="filterSymbols('chess')">1000+ Chess الشطرنج</button>
+        <button class="sub-tab" onclick="filterSymbols('zodiac')">1000+ Zodiac الأبراج</button>
+        <button class="sub-tab" onclick="filterSymbols('religious')">1000+ Religious الدينية</button>
+        <button class="sub-tab" onclick="filterSymbols('box')">1000+ Box Drawing أشكال الإطارات</button>
+      </div>
+      <div class="symbols-grid" id="symbols-display"></div>
+    </div>
+
+    <!-- 3. TRENDING SECTION -->
+    <div id="tab-trending" class="section-card">
+      <h2>🔥 الأكثر استخداماً والتريند اليوم (Trending & Most Copied)</h2>
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="loadTrending('top100')">🔥 Top 100 Symbols</button>
+        <button class="sub-tab" onclick="loadTrending('usernames')">🔥 Trending Usernames</button>
+        <button class="sub-tab" onclick="loadTrending('decorations')">🔥 Popular Decorations</button>
+        <button class="sub-tab" onclick="loadTrending('collections')">🔥 New Collections</button>
+      </div>
+      <div class="output-grid" id="trending-output"></div>
+    </div>
+
+    <!-- 4. DECORATION SECTION -->
+    <div id="tab-decoration" class="section-card">
+      <h2>زخرفة الأسماء والبروفايل (عربي & إنجليزي & ألعاب)</h2>
+      <input type="text" id="decor-input" placeholder="أدخل اسمك للزخرفة..." value="المحارب" oninput="renderDecorations()">
+      <div class="output-grid" id="decor-output"></div>
+    </div>
+
+    <!-- 5. EMOJI & KAOMOJI SECTION -->
+    <div id="tab-emoji" class="section-card">
+      <h2>مكتبة الإيموجي و تعبيرات Kaomoji اليابانية</h2>
+      <h3 style="margin: 10px 0; font-size: 1.1rem; color: var(--accent);">رموز Kaomoji اليابانية:</h3>
+      <div class="output-grid" id="kaomoji-output" style="margin-bottom: 20px;"></div>
+
+      <h3 style="margin: 10px 0; font-size: 1.1rem; color: var(--accent);">الإيموجي المصنفة:</h3>
+      <div class="symbols-grid" id="emoji-display"></div>
+    </div>
+
+    <!-- 6. SEO TARGETED PAGES (Instagram, PUBG, TikTok, etc.) -->
+    <div id="tab-seo" class="section-card">
+      <h2>توليد خطوط مخصصة لمنصات التواصل والألعاب</h2>
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="loadSeoCategory('insta')">Fancy Text for Instagram</button>
+        <button class="sub-tab" onclick="loadSeoCategory('tiktok')">Fancy Text for TikTok</button>
+        <button class="sub-tab" onclick="loadSeoCategory('pubg')">PUBG Name Generator</button>
+        <button class="sub-tab" onclick="loadSeoCategory('discord')">Discord Font Generator</button>
+        <button class="sub-tab" onclick="loadSeoCategory('whatsapp')">WhatsApp Stylish Text</button>
+        <button class="sub-tab" onclick="loadSeoCategory('aesthetic')">Aesthetic Fonts</button>
+        <button class="sub-tab" onclick="loadSeoCategory('cute')">Cute Text Generator</button>
+      </div>
+      <input type="text" id="seo-input" placeholder="اكتب النص للتخصيص..." value="Legend Player" oninput="renderSeoFonts()">
+      <div class="output-grid" id="seo-output"></div>
+    </div>
+
+    <!-- 7. EXTRA TOOLS & UTILITIES -->
+    <div id="tab-tools" class="section-card">
+      <h2>الأدوات المتقدمة والمشفّرات (Text Utilities & Security)</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+        <!-- Word Counter & Cleaner -->
+        <div style="background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+          <h3>عداد الأحرف وإزالة المسافات</h3>
+          <textarea id="counter-text" placeholder="اكتب أو ألصق النص هنا..." oninput="processText()"></textarea>
+          <p id="counter-info">الأحرف: 0 | الكلمات: 0</p>
+          <div style="margin-top: 8px;">
+            <button class="copy-btn" onclick="cleanSpaces()">إزالة المسافات الزائدة</button>
+            <button class="copy-btn" onclick="changeCase('upper')">كبيرة UPPER</button>
+            <button class="copy-btn" onclick="changeCase('lower')">صغيرة lower</button>
+          </div>
+        </div>
+
+        <!-- Generators -->
+        <div style="background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+          <h3>توليد نص وكلمات سر عشوائية</h3>
+          <button class="copy-btn" style="margin-bottom: 8px;" onclick="genPassword()">توليد كلمة سر قوية</button>
+          <button class="copy-btn" style="margin-bottom: 8px;" onclick="genUsername()">توليد اسم مستخدم عشوائي</button>
+          <button class="copy-btn" style="margin-bottom: 8px;" onclick="repeatText()">تكرار النص (Text Repeater)</button>
+          <div id="gen-result" style="margin-top: 10px; font-weight: bold; word-break: break-all;"></div>
+        </div>
+
+        <!-- Base64 & Hashes -->
+       <div style="background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+      <h3>تشفير Base64 و Hash</h3>
+      <input type="text" id="crypto-input" placeholder="أدخل النص للتشفير أو التجهيز...">
+      <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;">
+      <button class="copy-btn" onclick="encodeBase64()">تشفير Base64</button>
+      <button class="copy-btn" onclick="decodeBase64()">فك Base64</button>
+      <button class="copy-btn" onclick="generateHashes()">توليد MD5 / SHA256</button>
+      </div>
+        <div id="crypto-result" style="margin-top: 10px; font-weight: bold; word-break: break-all;"></div>
+      </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- native banner -->
+  <script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+  <div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme Dark/Light logic
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme){
+        document.body.classList.toggle("dark", savedTheme === "dark");
+    }else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+        document.body.classList.add("dark");
+    }
+
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        const dark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    // Navigation Tabs Logic
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.section-card').forEach(card => card.classList.remove('active'));
+
+      event.target.classList.add('active');
+      document.getElementById('tab-' + tabId).classList.add('active');
+    }
+
+    function showToast(msg = "تم النسخ بنجاح!") {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2000);
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast();
+      });
+    }
+
+    function copyInvisible() {
+      copyToClipboard('\u2800');
+      showToast("تم نسخ الحرف المخفي!");
+    }
+
+    // 1. Basic & Fancy Fonts Generator
+    // كائنات تحويل الحروف الكاملة للخطوط اللاتينية
+const fullUnicodeMaps = {
+  bold: "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑼𝑑custom𝑹𝑺𝑻𝑼𝑽𝑑𝑑𝑿𝒀𝒁0123456789",
+  serifBold: "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗",
+  bubble: "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ⓪①②③④⑤⑥⑦⑧⑨",
+  square: "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄯🅀🅁🅂🅃🅄🅅789🅇🅈🅉🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅789🅇🅈🅉",
+  smallCaps: "ᴀʙᴄᴅᴇғɢʜɪᴊᴋʟᴍɴᴏᴘǫʀsᴛᴜᴠᴡxʏᴢABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+  script: "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵0123456789"
+};
+
+const alphaNormal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+function mapString(str, targetMap) {
+  return str.split('').map(char => {
+    const idx = alphaNormal.indexOf(char);
+    return idx !== -1 ? targetMap[idx] || char : char;
+  }).join('');
+}
+
+// دالة النص المقلوب Upside Down
+function flipText(str) {
+  const normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?.!,_";
+  const flipped = "ɐqɔpǝɟɓɥıɾʞlɯudnbɹsʇnʌʍxʎz∀𐐒Ɔ◖ƎℲ⅁HIſ⋊˥𐑌NԀ𐐯ↃᴚS⊥∩ΛM⅋⅄Z0ƖᄅƐㄣϛ9ㄥ86¿¡'·‾";
+  return str.split('').map(c => {
+    const i = normal.indexOf(c);
+    return i !== -1 ? flipped[i] : c;
+  }).reverse().join('');
+}
+
+// دالة النص المتوهج/المعطوب Glitch Text
+function glitchText(str) {
+  const glitchChars = ['̵', '̶', '̷', '̸', '͎', '͓', '͔', '͕', '͘', '͝', '͠', '͡'];
+  return str.split('').map(c => c + glitchChars[Math.floor(Math.random() * glitchChars.length)]).join('');
+}
+
+// تحديث عرض الخطوط الأساسية بالكامل
+function renderBasicFonts() {
+  const val = document.getElementById('basic-input').value || "FontCraft";
+  const container = document.getElementById('basic-output');
+  
+  const styles = [
+    { name: "Bold Text", text: mapString(val, fullUnicodeMaps.bold) },
+    { name: "Serif Bold", text: mapString(val, fullUnicodeMaps.serifBold) },
+    { name: "Bubble Text", text: mapString(val, fullUnicodeMaps.bubble) },
+    { name: "Square Text", text: mapString(val, fullUnicodeMaps.square) },
+    { name: "Small Caps", text: mapString(val, fullUnicodeMaps.smallCaps) },
+    { name: "Script Cursive", text: mapString(val, fullUnicodeMaps.script) },
+    { name: "Upside Down", text: flipText(val) },
+    { name: "Glitch Text", text: glitchText(val) },
+    { name: "Mirror Text", text: val.split('').reverse().join('') }
+  ];
+
+  container.innerHTML = styles.map(s => `
+    <div class="font-item">
+      <span><strong>${s.name}:</strong> ${s.text}</span>
+      <button class="copy-btn" onclick="copyToClipboard('${s.text.replace(/'/g, "\\'")}')">نسخ</button>
+    </div>
+  `).join('');
+}
+    // 2. Symbols Libraries
+   const symbolCategories = {
+     hearts: ['♡', '♥', '❥', '❣', '❦', '❧', '🎔', '💓', '💔', '💖', '💗', '💘', '💙', '💚', '💛', '💜', '🖤', '🤍', '🤎', '❣', '☙', '🩵', '🩶', '🩷', '🪽', '💑', '👩‍❤️‍👨', '💏', '🫀', '🫁'],
+     stars: ['★', '☆', '✦', '✧', '✨', '✩', '✪', '✫', '✬', '✭', '✮', '✯', '✰', '🌟', '☸', '🟆', '🌌', '🌃', '🌠', '🎇', '🎆', '💫', '⚡', '☄️', '💥', '💥', '⚡', '☀️', '✹', '✸', '✷'],
+     arrows: ['➜', '➝', '➤', '➥', '➠', '➡', '➢', '➔', '➪', '➭', '➯', '🡆', '🡄', '🡅', '🡇', '↩', '↪', '⬅️', '⬆️', '⬇️', '↗️', '↘️', '↙️', '↖️', '↕️', '↔️', '🔄', '◀️', '▶️', '🔼', '🔽'],
+     flowers: ['✿', '❀', '❁', '🌾', '💐', '🌸', '🏵️', '🌹', '🌺', '🌻', '🌼', '🌷', '☘️', '🍀', '🪴', '🌱', '🌿', '🍃', '🍁', '🍂', '🍄', '🌵', '🌴', '🌳', '🌲', '🪵'],
+     music: ['🎵', '🎶', '🎼', '🎹', '🎷', '🎺', '🎸', '🪕', '🎻', '🎙️', '🎚️', '🎛️', '📻', '🎧', '🎤', '🔊', '🔉', '🔈', '🔇', '🥁', '🪘', '🪗'],
+     math: ['∀', '∁', '∂', '∃', '∄', '∅', '∆', '∇', '∈', '∉', '∊', '∋', '∌', '∍', '∎', '∏', '∐', '∑', '−', '∓', '∔', '∕', '∖', '∗', '∘', '∙', '√', '∛', '∜', '∝', '∞', '∟', '∠', '∡', '∢', '∣', '∤', '∥', '∦', '∧', '∨', '∩', '∪', '∫', '∬', '∭', '∮', '∯', '∰', '∱', '∲', '∳'],
+     currency: ['$', '€', '£', '¥', '₿', '₹', '₽', '₩', '₺', '₴', '₲', '💱', '💲', '₳', '₵', '₢', '₡', '₯', '₠', '₣', '₰', '₭', '₥', '₦', '₧', '₱', '₲', '₳', '₴', '₵', '₸', '🏷️'],
+     chess: ['♔', '♕', '♖', '♗', '♘', '♙', '♚', '♛', '♜', '♝', '♞', '♟', '🎮', '🕹️', '🎯', '🎲', '🎰', '🧩', '🃏', '🀄', '🎴', '🎳'],
+     zodiac: ['♈', '♉', '♊', '♋', '♌', '♍', '♎', '♏', '♐', '♑', '♒', '♓', '⛎', '☀️', '🌙', '⭐', '🪐', '🌌'],
+     religious: ['✝', '☪', '☸', '✡', '🔯', '☯', '☦', '🛐', '🕉️', '🕎', '⚛️', '🏷️', '🕊️', '🕌', '🕍', '🛕', '⛪', '⛩️'],
+     box: ['─', '━', '│', '┃', '┄', '┅', '┆', '┇', '┈', '┉', '┊', '┋', '┌', '┍', '┎', '┏', '┐', '┑', '┒', '┓', '└', '┕', '┖', '┗', '┘', '┙', '┚', '┛', '├', '┝', '┞', '┟', '┠', '┡', '┢', '┣', '┤', '┥', '┦', '┧', '┨', '┩', '┪', '┫', '┬', '┭', '┮', '┯', '┰', '┱', '┲', '┳', '┴', '┵', '┶', '┷', '┸', '┹', '┺', '┻', '┼', '┽', '┾', '┿', '╀', '╁', '╂', '╃', '╄', '╅', '╆', '╇', '╈', '╉', '╊', '╋']
+     };
+
+    function filterSymbols(cat) {
+      document.querySelectorAll('#tab-symbols .sub-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const container = document.getElementById('symbols-display');
+      const list = symbolCategories[cat] || [];
+      container.innerHTML = list.map(sym => `
+        <div class="symbol-item" onclick="copyToClipboard('${sym}')">${sym}</div>
+      `).join('');
+    }
+
+    // 3. Trending Section
+    const trendingData = {
+      top100: ['★彡[Name]彡★', '꧁༺NAME༻꧂', '⚡NAMES⚡', '☠️DANGER☠️', '♛QUEEN♛', '☯️SHADOW☯️', '꧁𓊈NAME𓊈꧂'],
+      usernames: ['Dark_Viper', 'Aesthetic_Vibes', 'Pro_Sniper_99', 'Ghost_Rider', 'Cyber_King'],
+      decorations: ['★•.★•.Name.•★.•★', '『Name』', '✦Name✦', '︻╦╤─ Name', '꧁VIP꧂'],
+      collections: ['╰‿╯', '乄', '卍', '𓆩♡𓆪', '𓆩⚡𓆪', '⚔️', '👑']
+    };
+
+    function loadTrending(type) {
+      document.querySelectorAll('#tab-trending .sub-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      const container = document.getElementById('trending-output');
+      const list = trendingData[type] || [];
+      container.innerHTML = list.map(item => `
+        <div class="font-item">
+          <span>${item}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${item}')">نسخ</button>
+        </div>
+      `).join('');
+    }
+
+    // 4. Decoration Section
+    function renderDecorations() {
+      const name = document.getElementById('decor-input').value || "المحارب";
+      const decors = [
+        `★彡[${name}]彡★`,
+        `꧁༺${name}༻꧂`,
+        `👑 [${name}] 👑`,
+        `⚡ ${name} ⚡`,
+        `☠️ ${name} ☠️`,
+        `『${name}』`,
+        `✿ ${name} ✿`,
+        `꧁𓊈${name}𓊈꧂`,
+        `︻╦╤─ ${name}`
+      ];
+
+      const container = document.getElementById('decor-output');
+      container.innerHTML = decors.map(d => `
+        <div class="font-item">
+          <span>${d}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${d}')">نسخ</button>
+        </div>
+      `).join('');
+    }
+
+    // 5. Emoji & Kaomoji Section
+    const kaomojis = ['(⁠◕⁠‿⁠◕⁠)', '(⁠╯⁠°⁠□⁠°⁠）⁠╯', 'ಠ⁠_⁠ಠ', '(⁠｡⁠♡⁠‿⁠♡⁠｡⁠)', '╰( ͡° ͜ʖ ͡° )つ──☆*:・ﾟ', '(⁠┬⁠─⁠┬⁠ノ⁠┬⁠─⁠┬⁠)', '(⁠ ͡⁠°⁠ ⁠͜⁠ʖ⁠ ⁠͡⁠°⁠)'];
+    const emojis = ['😀', '😃', '😄', '😁', '😆', '😅', '😂', '🤣', '🥹', '😊', '😇', '🙂', '🙃', '😉', '😌', '😍', '🥰', '😘', '😗', '😙', '😚', '😋', '😛', '😝', '😜', '🤪', '🤨', '🧐', '🤓', '😎', '🥸', '🤩', '🥳', '😏', '😒', '😞', '😔', '😟', '😕', '🙁', '☹️', '😣', '😖', '😫', '😩', '🥺', '😢', '😭', '😮‍💨', '😤', '😠', '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😱', '😨', '😰', '😥', '😓', '🫣', '🤗', '🫡', '🤔', '🫣', '🤭', '🥱', '😴', '🫥', '🫠', '🤐', '😯', '😦', '😧', '😮', '😲', '🥱', '😴', '🤤', '😪', '😵', '😵‍💫', '🤐', '🥴', '🤢', '🤮', '🤧', '😷', '🤒', '🤕'];
+
+    function initEmojis() {
+      const kaoContainer = document.getElementById('kaomoji-output');
+      kaoContainer.innerHTML = kaomojis.map(k => `
+        <div class="font-item">
+          <span>${k}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${k}')">نسخ</button>
+        </div>
+      `).join('');
+
+      const emoContainer = document.getElementById('emoji-display');
+      emoContainer.innerHTML = emojis.map(e => `
+        <div class="symbol-item" onclick="copyToClipboard('${e}')">${e}</div>
+      `).join('');
+    }
+
+    // 6. SEO Categories Logic
+    function loadSeoCategory(cat) {
+      document.querySelectorAll('#tab-seo .sub-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      renderSeoFonts();
+    }
+
+    function renderSeoFonts() {
+      const text = document.getElementById('seo-input').value || "Legend";
+      const styles = [
+        `✨ ${text} ✨`,
+        `𓆩 ${text} 𓆪`,
+        `꧁ ${text} ꧂`,
+        `『 ${text} 』`,
+        `𝔽𝕒𝕟𝕔𝕪 ${text}`,
+        `★ ${text} ★`
+      ];
+
+      const container = document.getElementById('seo-output');
+      container.innerHTML = styles.map(s => `
+        <div class="font-item">
+          <span>${s}</span>
+          <button class="copy-btn" onclick="copyToClipboard('${s}')">نسخ</button>
+        </div>
+      `).join('');
+    }
+
+    // 7. Extra Utilities Logic
+    function processText() {
+      const val = document.getElementById('counter-text').value;
+      const chars = val.length;
+      const words = val.trim() ? val.trim().split(/\s+/).length : 0;
+      document.getElementById('counter-info').textContent = `الأحرف: ${chars} | الكلمات: ${words}`;
+    }
+
+    function cleanSpaces() {
+      const el = document.getElementById('counter-text');
+      el.value = el.value.replace(/\s+/g, ' ').trim();
+      processText();
+      showToast("تم إزالة المسافات الزائدة!");
+    }
+
+    function changeCase(type) {
+      const el = document.getElementById('counter-text');
+      el.value = type === 'upper' ? el.value.toUpperCase() : el.value.toLowerCase();
+      processText();
+    }
+
+    function genPassword() {
+      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+      let res = "";
+      for(let i=0; i<16; i++) res += chars.charAt(Math.floor(Math.random() * chars.length));
+      document.getElementById('gen-result').textContent = "كلمة السر: " + res;
+    }
+
+    function genUsername() {
+      const names = ["Shadow", "Viper", "Cyber", "Phoenix", "Legend", "Nexus", "Titan"];
+      const res = names[Math.floor(Math.random()*names.length)] + "_" + Math.floor(Math.random()*999);
+      document.getElementById('gen-result').textContent = "اسم المستخدم: " + res;
+    }
+
+    function repeatText() {
+      const val = document.getElementById('counter-text').value || "FontCraft";
+      document.getElementById('counter-text').value = (val + "\n").repeat(5);
+      processText();
+    }
+
+    function encodeBase64() {
+      const val = document.getElementById('crypto-input').value;
+      try {
+        document.getElementById('crypto-result').textContent = btoa(val);
+      } catch(e) {
+        document.getElementById('crypto-result').textContent = "خطأ في التشفير";
+      }
+    }
+
+    function decodeBase64() {
+      const val = document.getElementById('crypto-input').value;
+      try {
+        document.getElementById('crypto-result').textContent = atob(val);
+      } catch(e) {
+        document.getElementById('crypto-result').textContent = "صيغة غير صحيحة";
+      }
+    }
+
+    // Initializations
+    renderBasicFonts();
+    filterSymbols('hearts');
+    loadTrending('top100');
+    renderDecorations();
+    initEmojis();
+    renderSeoFonts();
+
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../fontcraft/sw.js');
+      });
+    }
+
+   function generateHashes() {
+  const val = document.getElementById('crypto-input').value;
+  if(!val) {
+    document.getElementById('crypto-result').textContent = "يرجى كتابة نص لحسابه";
+    return;
+  }
+  const md5 = CryptoJS.MD5(val).toString();
+  const sha256 = CryptoJS.SHA256(val).toString();
+
+  document.getElementById('crypto-result').innerHTML = `
+    <div style="margin-top:10px;">
+      <p><strong>MD5:</strong> ${md5} <button class="copy-btn" onclick="copyToClipboard('${md5}')">نسخ</button></p>
+      <p style="margin-top:5px;"><strong>SHA256:</strong> ${sha256} <button class="copy-btn" onclick="copyToClipboard('${sha256}')">نسخ</button></p>
+    </div>
+  `;
+}
+  </script>
+
+  <!-- social bar -->
+  <script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

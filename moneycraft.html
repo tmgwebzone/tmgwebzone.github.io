@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة الإدارة والتحليل المالي الشاملة</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة ماني كرافت الشاملة للمال والأعمال: إدارة المصروفات، تتبع الدخل، تخطيط الميزانية، حاسبة الاستثمار والادخار، الأهداف المالية، ورسوم بيانية تفاعلية.">
+  <meta name="keywords" content="إدارة الأموال, تتبع المصروفات, ميزانية, حاسبة الاستثمار, ادخار, أهداف مالية, رسوم بيانية مالية, money management">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- Chart.js للرسوم البيانية -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./moneycraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png"> <!--ثابت-->
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png"> <!--ثابت-->
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --surface: #f8fafc;
+      --border: #cbd5e1;
+      --card-bg: #ffffff;
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .dark {
+      --bg: #121212;
+      --text: #ffffff;
+      --surface: #1e1e1e;
+      --border: #333333;
+      --card-bg: #1e1e1e;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 45px;
+      height: 45px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .tab-btn {
+      padding: 10px 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      box-sizing: border-box;
+    }
+
+    button.btn-act {
+      background: var(--primary);
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button.btn-act:hover {
+      background: var(--primary-hover);
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .income-text { color: var(--success); font-weight: bold; }
+    .expense-text { color: var(--danger); font-weight: bold; }
+
+    .chart-container {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<button id="theme-toggle">🌙</button>
+
+<header>
+  <h1>💰 MoneyCraft - منصة التخطيط والإدارة المالية الشاملة</h1>
+  <img src="tmgtools/tmgtools.jpg" alt="صورة المال والأعمال" class="hero-img">
+</header>
+
+<div class="container">
+  <!-- أزرار القائمة -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="openTab('tracker')">📊 الدخل والمصروفات</button>
+    <button class="tab-btn" onclick="openTab('budget')">📐 الميزانية (Rule 50/30/20)</button>
+    <button class="tab-btn" onclick="openTab('investment')">📈 حاسبة الاستثمار</button>
+    <button class="tab-btn" onclick="openTab('savings')">🎯 الادخار والأهداف</button>
+    <button class="tab-btn" onclick="openTab('charts')">📉 الرسوم البيانية</button>
+  </div>
+
+  <!-- 1. تتبع الدخل والمصروفات -->
+  <div id="tracker" class="tab-content active">
+    <div class="summary-grid">
+      <div class="summary-card">
+        <small>إجمالي الدخل</small>
+        <h3 class="income-text" id="total-income">$0</h3>
+      </div>
+      <div class="summary-card">
+        <small>إجمالي المصروفات</small>
+        <h3 class="expense-text" id="total-expense">$0</h3>
+      </div>
+      <div class="summary-card">
+        <small>الرصيد المتبقي</small>
+        <h3 id="total-balance">$0</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>إضافة معاملة مالية جديدة</h3>
+      <input type="text" id="trans-title" placeholder="وصف المعاملة (مثال: راتب، تسوق...)">
+      <input type="number" id="trans-amount" placeholder="المبلغ">
+      <select id="trans-type">
+        <option value="income">دخل (Income)</option>
+        <option value="expense">مصروف (Expense)</option>
+      </select>
+      <button class="btn-act" onclick="addTransaction()">إضافة المعاملة</button>
+    </div>
+
+    <div class="card">
+      <h3>سجل المعاملات</h3>
+      <div id="trans-list"></div>
+    </div>
+  </div>
+
+  <!-- 2. الميزانية (قاعدة 50/30/20) -->
+  <div id="budget" class="tab-content">
+    <div class="card">
+      <h3>مخطط الميزانية الذكي (قاعدة 50/30/20)</h3>
+      <p>أدخل دخلك الشهري لتقسيم الميزانية تلقائياً:</p>
+      <input type="number" id="monthly-income-input" placeholder="الدخل الشهري الأجمالي...">
+      <button class="btn-act" onclick="calcBudget()">حساب الميزانية</button>
+
+      <div id="budget-results" style="margin-top:20px; display:none;">
+        <div class="summary-grid">
+          <div class="summary-card">
+            <h4>الاحتياجات الأساسية (50%)</h4>
+            <p id="b-needs" style="font-weight:bold; font-size:1.2rem;">$0</p>
+            <small>سكن، فواتير، طعام، علاج</small>
+          </div>
+          <div class="summary-card">
+            <h4>الرغبات والكماليات (30%)</h4>
+            <p id="b-wants" style="font-weight:bold; font-size:1.2rem;">$0</p>
+            <small>ترفيه، تسوق، سفر، مطاعم</small>
+          </div>
+          <div class="summary-card">
+            <h4>الادخار والاستثمار (20%)</h4>
+            <p id="b-savings" style="font-weight:bold; font-size:1.2rem;">$0</p>
+            <small>صندوق الطوارئ، استثمار، تسديد ديون</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. حاسبة الاستثمار والنمو المركب -->
+  <div id="investment" class="tab-content">
+    <div class="card">
+      <h3>حاسبة أرباح الاستثمار (Compound Interest)</h3>
+      <label>المبلغ الأولي المستثمر:</label>
+      <input type="number" id="inv-init" value="1000">
+      <label>الإضافة الشهرية:</label>
+      <input type="number" id="inv-monthly" value="100">
+      <label>نسبة الربح السنوية المتوقعة (%):</label>
+      <input type="number" id="inv-rate" value="8">
+      <label>عدد السنوات:</label>
+      <input type="number" id="inv-years" value="10">
+      <button class="btn-act" onclick="calcInvestment()">حساب النمو الاستثماري</button>
+
+      <div id="inv-result" style="margin-top:15px; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- 4. الادخار والأهداف المالية -->
+  <div id="savings" class="tab-content">
+    <div class="card">
+      <h3>حاسبة الوصول للأهداف المالية</h3>
+      <label>اسم الهدف (مثال: شراء سيارة، شراء منزل):</label>
+      <input type="text" id="goal-name" placeholder="هدف المستقبلي">
+      <label>المبلغ المطلوب للهدف:</label>
+      <input type="number" id="goal-target" placeholder="المبلغ الكلي">
+      <label>المبلغ الأدخاري الشهري المتاح:</label>
+      <input type="number" id="goal-monthly" placeholder="كم تستطيع ادخاره شهرياً؟">
+      <button class="btn-act" onclick="calcGoal()">حساب الفترة الزمنية للوصول للهدف</button>
+
+      <div id="goal-result" style="margin-top:15px; font-weight:bold; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- 5. الرسوم البيانية -->
+  <div id="charts" class="tab-content">
+    <div class="card">
+      <h3>الرسم البياني لتوزيع الدخل والمصروفات</h3>
+      <div class="chart-container">
+        <canvas id="financeChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--native banner-->
+<script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+<div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+<!-- Footer -->
+<footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+  <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+  <p>
+    <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+    <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+    <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+    <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+  </p>
+</footer>
+
+<script>
+// Theme Toggle
+const toggle = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme");
+
+if(savedTheme){
+    document.body.classList.toggle("dark", savedTheme === "dark");
+}else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+    document.body.classList.add("dark");
+}
+
+toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    const dark = document.body.classList.contains("dark");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+    toggle.textContent = dark ? "☀️" : "🌙";
+};
+
+// Tabs Navigation
+function openTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if(tabId === 'charts') renderChart();
+}
+
+// Income & Expenses Tracker
+let transactions = JSON.parse(localStorage.getItem('moneycraft_trans')) || [];
+
+function updateTracker() {
+  const list = document.getElementById('trans-list');
+  list.innerHTML = '';
+  let income = 0;
+  let expense = 0;
+
+  transactions.forEach((t, index) => {
+    if(t.type === 'income') income += t.amount;
+    else expense += t.amount;
+
+    list.innerHTML += `
+      <div class="list-item">
+        <span>${t.title}</span>
+        <span class="${t.type === 'income' ? 'income-text' : 'expense-text'}">
+          ${t.type === 'income' ? '+' : '-'}$${t.amount.toFixed(2)}
+        </span>
+      </div>
+    `;
+  });
+
+  document.getElementById('total-income').innerText = `$${income.toFixed(2)}`;
+  document.getElementById('total-expense').innerText = `$${expense.toFixed(2)}`;
+  document.getElementById('total-balance').innerText = `$${(income - expense).toFixed(2)}`;
+
+  localStorage.setItem('moneycraft_trans', JSON.stringify(transactions));
+}
+
+function addTransaction() {
+  const title = document.getElementById('trans-title').value;
+  const amount = parseFloat(document.getElementById('trans-amount').value);
+  const type = document.getElementById('trans-type').value;
+
+  if(!title || isNaN(amount) || amount <= 0) return alert('الرجاء أدخل تفاصيل صحيحة!');
+
+  transactions.push({ title, amount, type });
+  document.getElementById('trans-title').value = '';
+  document.getElementById('trans-amount').value = '';
+  updateTracker();
+}
+
+// Budget Calculator
+function calcBudget() {
+  const inc = parseFloat(document.getElementById('monthly-income-input').value);
+  if(!inc || inc <= 0) return alert('أدخل مبلغ الدخل الصحيح!');
+
+  document.getElementById('b-needs').innerText = `$${(inc * 0.50).toFixed(2)}`;
+  document.getElementById('b-wants').innerText = `$${(inc * 0.30).toFixed(2)}`;
+  document.getElementById('b-savings').innerText = `$${(inc * 0.20).toFixed(2)}`;
+  document.getElementById('budget-results').style.display = 'block';
+}
+
+// Investment Calculator
+function calcInvestment() {
+  let init = parseFloat(document.getElementById('inv-init').value) || 0;
+  let monthly = parseFloat(document.getElementById('inv-monthly').value) || 0;
+  let rate = (parseFloat(document.getElementById('inv-rate').value) || 0) / 100 / 12;
+  let years = parseInt(document.getElementById('inv-years').value) || 0;
+  let totalMonths = years * 12;
+
+  let total = init;
+  let totalContributed = init;
+
+  for(let i = 0; i < totalMonths; i++) {
+    total = (total + monthly) * (1 + rate);
+    totalContributed += monthly;
+  }
+
+  let totalProfit = total - totalContributed;
+
+  document.getElementById('inv-result').innerHTML = `
+    <h4>القيمة الإجمالية المتوقعة: <span style="color:var(--success);">$${total.toFixed(2)}</span></h4>
+    <p>إجمالي المبالغ المودعة: $${totalContributed.toFixed(2)} | الأرباح الصافية: $${totalProfit.toFixed(2)}</p>
+  `;
+}
+
+// Savings Goal Calculator
+function calcGoal() {
+  const name = document.getElementById('goal-name').value || 'الهدف';
+  const target = parseFloat(document.getElementById('goal-target').value);
+  const monthly = parseFloat(document.getElementById('goal-monthly').value);
+
+  if(!target || !monthly || monthly <= 0) return alert('يرجى كتابة أرقام صحيحة!');
+
+  const monthsNeeded = Math.ceil(target / monthly);
+  const yearsNeeded = (monthsNeeded / 12).toFixed(1);
+
+  document.getElementById('goal-result').innerHTML = `
+    تحتاج إلى حوالي <span style="color:var(--primary);">${monthsNeeded} شهراً</span> (${yearsNeeded} سنة) لتحقيق هدف "${name}".
+  `;
+}
+
+// Chart.js Chart Implementation
+let chartInstance = null;
+function renderChart() {
+  const ctx = document.getElementById('financeChart').getContext('2d');
+  
+  let income = transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0);
+  let expense = transactions.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0);
+
+  if(chartInstance) chartInstance.destroy();
+
+  chartInstance = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['إجمالي الدخل', 'إجمالي المصروفات'],
+      datasets: [{
+        data: [income, expense],
+        backgroundColor: ['#10b981', '#ef4444']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom' }
+      }
+    }
+  });
+}
+
+// Initial Load & PWA Registration
+window.onload = () => {
+  updateTracker();
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./moneycraft/sw.js').catch(err => console.log(err));
+  }
+};
+</script>
+
+<!--social bar-->
+<script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>

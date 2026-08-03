@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ColorCraft - منصة أدوات الألوان والتناقض البصري الشاملة | TMG WEB ZONE</title>
+
+  <!-- تحسين لمحركات البحث -->
+  <meta name="description" content="منصة ColorCraft الشاملة للألوان: توليد تناسق ألوان سريعة، تصميم تدرجات ملونة، فحص وضوح وقراءة النصوص، تحويل صيغ الألوان، استخراج الألوان من الصور، واختبار وضوح الألوان.">
+  <meta name="keywords" content="تنسيق ألوان, درجات الألوان, ألوان متناسقة, فحص القراءة, تدرج ملون, استخراج ألوان الصورة, عمى الألوان, اختيار ألوان, ColorCraft">
+  <meta name="author" content="TMGWEB">
+  <meta name="robots" content="index,follow" />
+
+  <!-- Google Search Verification -->
+  <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-45MPV1T1VS');
+  </script>
+
+  <!-- PWA & Web App Settings -->
+  <link rel="manifest" href="./colorcraft/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+  <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --surface: #1e293b;
+      --surface-border: #334155;
+      --text: #f8fafc;
+      --text-sub: #94a3b8;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #090d16;
+    }
+
+    body.light {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-border: #e2e8f0;
+      --text: #0f172a;
+      --text-sub: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --accent: #00adb5;
+      --code-bg: #f1f5f9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: var(--bg); color: var(--text); transition: background 0.3s, color 0.3s; min-height: 100vh; padding: 20px 10px; }
+
+    #theme-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 45px;
+      height: 45px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-banner { text-align: center; margin-bottom: 25px; }
+    .header-banner img { max-width: 100%; height: auto; border-radius: 12px; max-height: 180px; object-fit: cover; border: 1px solid var(--surface-border); }
+
+    .main-container { max-width: 1200px; margin: 0 auto; }
+    .title-area { text-align: center; margin-bottom: 30px; }
+    .title-area h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 8px; }
+    .title-area p { color: var(--text-sub); }
+
+    /* Layout grid for sidebar & main workspace */
+    .workspace { display: grid; grid-template-columns: 280px 1fr; gap: 20px; }
+    @media (max-width: 850px) { .workspace { grid-template-columns: 1fr; } }
+
+    .tools-nav {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .tool-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-sub);
+      padding: 12px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: right;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+    .tool-btn:hover, .tool-btn.active { background: var(--primary); color: #fff; }
+
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 25px;
+      display: none;
+    }
+    .tool-card.active { display: block; }
+    .tool-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+
+    .editor-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 15px; }
+    input[type="text"], input[type="color"], select, input[type="file"] {
+      width: 100%;
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      color: var(--text);
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    input[type="color"] { height: 50px; cursor: pointer; padding: 5px; }
+    label { font-size: 0.95rem; color: var(--text-sub); margin-bottom: -5px; display: block; }
+
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    .btn-action {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    .btn-action:hover { background: var(--primary-hover); }
+    .btn-sec { background: var(--surface-border); color: var(--text); }
+
+    .palette-box { display: flex; height: 130px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; border: 1px solid var(--surface-border); }
+    .palette-color { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 12px; font-weight: bold; font-size: 0.85rem; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.8); cursor: pointer; transition: transform 0.2s; }
+    .palette-color:hover { transform: scale(1.03); }
+
+    .gradient-preview { height: 160px; border-radius: 12px; margin-bottom: 15px; border: 1px solid var(--surface-border); }
+
+    .output-box {
+      background: var(--code-bg);
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 15px;
+      word-break: break-word;
+      white-space: pre-wrap;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body class="dark">
+
+  <button id="theme-toggle">☀️</button>
+
+  <div class="main-container">
+    <div class="header-banner">
+      <img src="./tmgtools/tmgtools.jpg" alt="ColorCraft TMG Web Zone Tools">
+    </div>
+
+    <div class="title-area">
+      <h1>ColorCraft Tools</h1>
+      <p>منصة تناسق الألوان والدرجات الجذابة لجميع استخداماتك اليومية والتصميمية</p>
+    </div>
+
+    <div class="workspace">
+      <!-- القائمة الجانبية للأدوات -->
+      <nav class="tools-nav">
+        <button class="tool-btn active" onclick="switchTool('palette')">🎨 ابتكار ألوان متناسقة</button>
+
+        <button class="tool-btn" onclick="switchTool('gradient')">🌈 دمج وتدرج الألوان</button>
+
+        <button class="tool-btn" onclick="switchTool('contrast')">🔍 فحص سهولة القراءة</button>
+
+        <button class="tool-btn" onclick="switchTool('converter')">🔀 معرفة وأكواد الألوان</button>
+
+        <button class="tool-btn" onclick="switchTool('blindness')">👁️ تجربة وضوح الألوان للجميع</button>
+
+        <button class="tool-btn" onclick="switchTool('extract')">🖼️ سحب الألوان من أي صورة</button>
+
+      </nav>
+
+      <!-- بيئة العمل الرئيسية -->
+      <main class="tool-content">
+        
+        <!-- PALETTE GENERATOR & RANDOM PALETTE TOOL -->
+        <div id="tool-palette" class="tool-card active">
+          <h2>ابتكار واكتشاف طقم ألوان متناسق</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">اضغط على الزر لاكتشاف تشكيلات ملونة جديدة ومناسبة لتصاميمك أو أعمالك.</p>
+          <div class="palette-box" id="palette-display"></div>
+          <div class="controls">
+            <button class="btn-action" onclick="generateRandomPalette()">🎲 اقتراح طقم ألوان جديد</button>
+            <button class="btn-action btn-sec" onclick="copyResult('palette-output')">نسخ الألوان</button>
+          </div>
+          <div class="output-box" id="palette-output">النتيجة ستظهر هنا...</div>
+        </div>
+
+        <!-- GRADIENT GENERATOR TOOL -->
+        <div id="tool-gradient" class="tool-card">
+          <h2>صانع تدرج الألوان (دمج لونين)</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">اختر لونين لدمجهما معاً وانظر كيف يبدو التدرج بشكل جذاب.</p>
+          <div class="editor-group">
+            <label>اللون الأول:</label>
+            <input type="color" id="grad-color1" value="#2563eb" onchange="updateGradient()">
+            <label>اللون الثاني:</label>
+            <input type="color" id="grad-color2" value="#00adb5" onchange="updateGradient()">
+            <label>اتجاه الدمج:</label>
+            <select id="grad-dir" onchange="updateGradient()">
+              <option value="to right">من اليسار إلى اليمين</option>
+              <option value="to left">من اليمين إلى اليسار</option>
+              <option value="to bottom">من الأعلى إلى الأسفل</option>
+              <option value="135deg">تدرج مائل (زاوية)</option>
+            </select>
+          </div>
+          <div class="gradient-preview" id="gradient-display"></div>
+          <div class="controls">
+            <button class="btn-action" onclick="copyResult('gradient-output')">نسخ قيم التدرج</button>
+          </div>
+          <div class="output-box" id="gradient-output"></div>
+        </div>
+
+        <!-- CONTRAST CHECKER TOOL -->
+        <div id="tool-contrast" class="tool-card">
+          <h2>فحص وضوح وقراءة الكتابة على الخلفية</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">تأكد أن الكتابة واضحة ومريحة للعين فوق اللون الذي اخترته للخلفية.</p>
+          <div class="editor-group">
+            <label>لون النص (الكتابة):</label>
+            <input type="color" id="contrast-text" value="#ffffff" onchange="checkContrast()">
+            <label>لون الخلفية:</label>
+            <input type="color" id="contrast-bg" value="#0f172a" onchange="checkContrast()">
+          </div>
+          <div id="contrast-preview" style="padding: 20px; border-radius: 8px; text-align: center; font-size: 1.2rem; font-weight: bold; margin-bottom: 15px;">
+            هذا نص تجريبي للتأكد من سهولة القراءة والوضوح
+          </div>
+          <div class="output-box" id="contrast-output">اختر الألوان لفحص مستوى الوضوح...</div>
+        </div>
+
+        <!-- COLOR CONVERTER (HEX, RGB, HSL, CMYK) -->
+        <div id="tool-converter" class="tool-card">
+          <h2>معرفة وتفاصيل كود اللون (تحويل بين الصيغ)</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">حدد أي لون للحصول على جميع أرقامه ورموزه المستخدمة في برامج التصميم والطباعة.</p>
+          <div class="editor-group">
+            <label>اختر أي لون لمشهاتة رموزه المفصلة:</label>
+            <input type="color" id="conv-color" value="#2563eb" onchange="convertColors()">
+          </div>
+          <div class="controls">
+            <button class="btn-action" onclick="copyResult('conv-output')">نسخ تفاصيل اللون</button>
+          </div>
+          <div class="output-box" id="conv-output">التفاصيل ستظهر هنا...</div>
+        </div>
+
+        <!-- COLOR BLIND TEST / SIMULATOR -->
+        <div id="tool-blindness" class="tool-card">
+          <h2>تجربة وضوح اللون لأصحاب عمى الألوان</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">شاهد كيف سيظهر اللون الذي اخترته للأشخاص الذين يعانون من مشاكل في تمييز الألوان.</p>
+          <div class="editor-group">
+            <label>اختر اللون لمعاينته:</label>
+            <input type="color" id="blind-color" value="#2563eb" onchange="simulateBlindness()">
+          </div>
+          <div class="output-box" id="blind-output">اختر لوناً لرؤية النتيجة...</div>
+        </div>
+
+        <!-- EXTRACT COLORS FROM IMAGE -->
+        <div id="tool-extract" class="tool-card">
+          <h2>سحب واكتشاف الألوان من أي صورة</h2>
+          <p style="color: var(--text-sub); margin-bottom: 15px; font-size: 0.9rem;">ارفع أي صورة تعجبك وسنقوم باستخراج الألوان الأساسية منها فتكود جاهزة للاستخدام.</p>
+          <div class="editor-group">
+            <label>اختر صورة من جهازك:</label>
+            <input type="file" id="img-input" accept="image/*" onchange="extractColors(event)">
+          </div>
+          <canvas id="extract-canvas" style="display:none;"></canvas>
+          <div class="palette-box" id="extract-display"></div>
+          <div class="output-box" id="extract-output">قم برفع صورة لبدء استخراج الألوان...</div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- native banner -->
+  <script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+  <div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; margin-top: 50px; padding: 20px; border-top: 1px solid #333; color: #888;">
+    <p>&copy; 2026 TMG WEB ZONE - جميع الحقوق محفوظة</p>
+    <p>
+      <a href="tmgtools/about9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">عن الموقع</a> | 
+      <a href="tmgtools/privacy9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">سياسة الخصوصية</a> | 
+      <a href="tmgtools/terms9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">الشروط والأحكام</a> | 
+      <a href="tmgtools/contact9.html" style="color: #00adb5; margin: 0 8px; text-decoration: none;">اتصل بنا</a>
+    </p>
+  </footer>
+
+  <script>
+    // Theme logic
+    const toggle = document.getElementById("theme-toggle");
+    const savedTheme = localStorage.getItem("theme");
+
+    if(savedTheme){
+        document.body.classList.toggle("dark", savedTheme === "dark");
+        document.body.classList.toggle("light", savedTheme === "light");
+    } else if(window.matchMedia("(prefers-color-scheme: dark)").matches){
+        document.body.classList.add("dark");
+    }
+
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+
+    toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        document.body.classList.toggle("light");
+        const dark = document.body.classList.contains("dark");
+        localStorage.setItem("theme", dark ? "dark" : "light");
+        toggle.textContent = dark ? "☀️" : "🌙";
+    };
+
+    // Navigation Logic
+    function switchTool(toolId) {
+      document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tool-card').forEach(card => card.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById('tool-' + toolId).classList.add('active');
+    }
+
+    // Palette & Random Generator
+    function generateRandomPalette() {
+      const display = document.getElementById('palette-display');
+      display.innerHTML = '';
+      let colors = [];
+      for(let i=0; i<5; i++) {
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+        colors.push(randomColor);
+        const div = document.createElement('div');
+        div.className = 'palette-color';
+        div.style.backgroundColor = randomColor;
+        div.innerHTML = `<span>${randomColor}</span>`;
+        display.appendChild(div);
+      }
+      document.getElementById('palette-output').textContent = "🎨 الألوان المختارة:\n" + colors.join('  -  ');
+    }
+
+    // Gradient Generator
+    function updateGradient() {
+      const c1 = document.getElementById('grad-color1').value;
+      const c2 = document.getElementById('grad-color2').value;
+      const dir = document.getElementById('grad-dir').value;
+      const gradCss = `linear-gradient(${dir}, ${c1}, ${c2})`;
+      
+      document.getElementById('gradient-display').style.background = gradCss;
+      document.getElementById('gradient-output').textContent = `الرمز الملون: ${gradCss}\n\nاللون الأول: ${c1}\nاللون الثاني: ${c2}`;
+    }
+
+    // Contrast Checker
+    function checkContrast() {
+      const text = document.getElementById('contrast-text').value;
+      const bg = document.getElementById('contrast-bg').value;
+      
+      const preview = document.getElementById('contrast-preview');
+      preview.style.color = text;
+      preview.style.backgroundColor = bg;
+
+      const ratio = getContrastRatio(text, bg);
+      let status = "";
+      if (ratio >= 7) {
+        status = "🌟 مريحة وممتازة جداً للعين وسهلة القراءة للجميع";
+      } else if (ratio >= 4.5) {
+        status = "✅ جيدة وواضحة ومناسبة للقراءة";
+      } else {
+        status = "⚠️ غير واضحة وقد تسبب صعوبة في القراءة، يفضل اختيار لون أغمق أو أفاتح";
+      }
+
+      document.getElementById('contrast-output').textContent = `🔍 درجة وضوح النص: ${ratio.toFixed(1)} من 21\nالتقييم: ${status}`;
+    }
+
+    function getLuminance(hex) {
+      const rgb = hexToRgb(hex);
+      const a = [rgb.r, rgb.g, rgb.b].map(v => {
+        v /= 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    }
+
+    function getContrastRatio(hex1, hex2) {
+      const lum1 = getLuminance(hex1);
+      const lum2 = getLuminance(hex2);
+      return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+    }
+
+    // Color Converter
+    function convertColors() {
+      const hex = document.getElementById('conv-color').value;
+      const rgb = hexToRgb(hex);
+      const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+      const cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
+
+      document.getElementById('conv-output').textContent = 
+        `📌 كود اللون العام (HEX): ${hex.toUpperCase()}\n` +
+        `📌 كود الشاشات (RGB): rgb(${rgb.r}, ${rgb.g}, ${rgb.b})\n` +
+        `📌 كود الإضاءة (HSL): hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)\n` +
+        `📌 كود الطباعة (CMYK): cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`;
+    }
+
+    function hexToRgb(hex) {
+      let c = hex.substring(1);
+      if(c.length === 3) c = c.split('').map(x => x+x).join('');
+      const num = parseInt(c, 16);
+      return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+    }
+
+    function rgbToHsl(r, g, b) {
+      r /= 255; g /= 255; b /= 255;
+      let max = Math.max(r, g, b), min = Math.min(r, g, b);
+      let h, s, l = (max + min) / 2;
+
+      if (max === min) {
+        h = s = 0;
+      } else {
+        let d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+          case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+          case g: h = (b - r) / d + 2; break;
+          case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+      }
+      return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+    }
+
+    function rgbToCmyk(r, g, b) {
+      let c = 1 - (r / 255);
+      let m = 1 - (g / 255);
+      let y = 1 - (b / 255);
+      let k = Math.min(c, Math.min(m, y));
+
+      if (k === 1) return { c: 0, m: 0, y: 0, k: 100 };
+      return {
+        c: Math.round(((c - k) / (1 - k)) * 100),
+        m: Math.round(((m - k) / (1 - k)) * 100),
+        y: Math.round(((y - k) / (1 - k)) * 100),
+        k: Math.round(k * 100)
+      };
+    }
+
+    // Color Blindness Simulator
+    function simulateBlindness() {
+      const hex = document.getElementById('blind-color').value;
+      const rgb = hexToRgb(hex);
+
+      const protanopia = `rgb(${Math.round(rgb.r * 0.56 + rgb.g * 0.43)}, ${Math.round(rgb.r * 0.55 + rgb.g * 0.45)}, ${rgb.b})`;
+      const tritanopia = `rgb(${rgb.r}, ${Math.round(rgb.g * 0.7 + rgb.b * 0.3)}, ${Math.round(rgb.g * 0.3 + rgb.b * 0.7)})`;
+
+      document.getElementById('blind-output').textContent = 
+        `👁️ اللون الأصلـي: ${hex}\n\n` +
+        `🔴 الرؤية عند عدم تمييز اللون الأحمر: ${protanopia}\n` +
+        `🔵 الرؤية عند عدم تمييز اللون الأزرق: ${tritanopia}`;
+    }
+
+    // Extract Colors from Image
+    function extractColors(e) {
+      const file = e.target.files[0];
+      if(!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.getElementById('extract-canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = 50;
+          canvas.height = 50;
+          ctx.drawImage(img, 0, 0, 50, 50);
+
+          const display = document.getElementById('extract-display');
+          display.innerHTML = '';
+          let extractedHex = [];
+
+          for(let i=0; i<5; i++) {
+            const x = Math.floor(Math.random() * 50);
+            const y = Math.floor(Math.random() * 50);
+            const data = ctx.getImageData(x, y, 1, 1).data;
+            const hex = "#" + ((1 << 24) + (data[0] << 16) + (data[1] << 8) + data[2]).toString(16).slice(1);
+            extractedHex.push(hex);
+
+            const div = document.createElement('div');
+            div.className = 'palette-color';
+            div.style.backgroundColor = hex;
+            div.innerHTML = `<span>${hex}</span>`;
+            display.appendChild(div);
+          }
+
+          document.getElementById('extract-output').textContent = "🎨 الألوان المسحوبة من الصورة:\n" + extractedHex.join('  -  ');
+        }
+        img.src = event.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+
+    function copyResult(boxId) {
+      const text = document.getElementById(boxId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("تم نسخ التفاصيل بنجاح!");
+      });
+    }
+
+    // Initializations
+    generateRandomPalette();
+    updateGradient();
+    checkContrast();
+    convertColors();
+
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../colorcraft/sw.js');
+      });
+    }
+  </script>
+
+  <!-- social bar -->
+  <script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>
