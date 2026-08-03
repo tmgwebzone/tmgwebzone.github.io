@@ -1,0 +1,30 @@
+{
+  "short_name": "TMG ZONE",
+  "name": "TMG WEB ZONE - المنصة الرسمية للأدوات",
+  "icons": [
+    {
+      "src": "icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "../tmgtools.html",
+  "background_color": "#0b0f19",
+  "theme_color": "#2563eb",
+  "display": "standalone"
+}
