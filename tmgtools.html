@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMG WEB ZONE | المنصة الرسمية للأدوات الذكية</title>
+    
+    <!-- Google Search Verification -->
+    <meta name="google-site-verification" content="XTZBiB9SZZI219bvsV0qDf3JN6P4LBREvPApsYeFhBU" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-45MPV1T1VS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-45MPV1T1VS');
+    </script>
+    
+    <!-- PWA & Web App Settings -->
+    <link rel="manifest" href="./tmgtools/manifest.json">
+    <meta name="theme-color" content="#2563eb">
+
+    <!-- Favicons & Icons -->
+    <link rel="icon" type="image/png" sizes="96x96" href="./tmgtools/icon-96.png">
+    <link rel="shortcut icon" href="./tmgtools/icon-96.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="./tmgtools/icon-192.png">
+
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== ألوان وتنسيقات الموقع Modern Tech Palette ===== */
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-glow: #2563eb;
+            --accent-cyan: #06b6d4;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        /* ===== Header Section ===== */
+        header {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .hero-banner {
+            width: 100%;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* ===== Cards Container ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 35px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #06b6d4);
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 12px 25px rgba(6, 182, 212, 0.15);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .card-icon {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            color: #38bdf8;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.15);
+            color: #60a5fa;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #475569;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <img src="tmgtools/tmgtools.jpg" alt="TMG WEB ZONE Banner" class="hero-banner">
+        <h1>TMG WEB ZONE</h1>
+        <p class="subtitle">منصتك الشاملة لأدوات الويب المتقدمة والخدمات الرقمية</p>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container">
+        <h2 class="section-title">الأدوات والتطبيقات المتاحة</h2>
+
+        <div class="cards-grid">
+            <!-- PDF Converter -->
+            <a href="pdfconverter.html" class="card">
+                <i class="fa-solid fa-file-pdf card-icon"></i>
+                <div class="card-title">PDF Converter</div>
+                <div class="card-desc">تحويل، دمج، وتعديل مستندات الـ PDF بكل سهولة</div>
+            </a>
+
+            <!-- Media Converter -->
+            <a href="mediaconvert.html" class="card">
+                <i class="fa-solid fa-file-audio card-icon"></i>
+                <div class="card-title">Media Converter</div>
+                <div class="card-desc">تحويل مقاطع الفيديو MP4 إلى ملفات صوتية MP3 عالية الجودة</div>
+            </a>
+
+            <!-- Photo Converter -->
+            <a href="photoconvert.html" class="card">
+                <i class="fa-solid fa-file-image card-icon"></i>
+                <div class="card-title">Photo Converter</div>
+                <div class="card-desc">تغيير صيغ الصور، ضغط الحجم، والتعديل عليها فورياً</div>
+            </a>
+
+            <!-- Calc Craft -->
+            <a href="calccraft.html" class="card">
+                <i class="fa-solid fa-calculator card-icon"></i>
+                <div class="card-title">CalcCraft</div>
+                <div class="card-desc">حاسبات شاملة (رياضية، علمية، وفيزيائية) في مكان واحد</div>
+            </a>
+
+            <!-- Color Craft -->
+            <a href="colorcraft.html" class="card">
+                <i class="fa-solid fa-palette card-icon"></i>
+                <div class="card-title">ColorCraft</div>
+                <div class="card-desc">مستكشف ومولد لوحات الألوان وشفرات HEX/RGB للمصممين</div>
+            </a>
+
+            <!-- Dev Craft -->
+            <a href="devcraft.html" class="card">
+                <i class="fa-solid fa-code card-icon"></i>
+                <div class="card-title">DevCraft</div>
+                <div class="card-desc">حقيبة أدوات المبرمجين (مشفّرات، تنسيق أكواد، ومحولات)</div>
+            </a>
+
+            <!-- Font Craft -->
+            <a href="fontcraft.html" class="card">
+                <i class="fa-solid fa-font card-icon"></i>
+                <div class="card-title">FontCraft</div>
+                <div class="card-desc">استكشاف، معاينة، وتنسيق الخطوط الاحترافية للتصميم</div>
+            </a>
+
+            <!-- Gamer Craft -->
+            <a href="gamercraft.html" class="card">
+                <i class="fa-solid fa-gamepad card-icon"></i>
+                <div class="card-title">GamerCraft</div>
+                <div class="card-desc">أدوات واختبارات قياس السرعة والأداء الخاصة باللاعبين</div>
+            </a>
+
+            <!-- Imag Craft -->
+            <a href="imagcraft.html" class="card">
+                <i class="fa-solid fa-wand-magic-sparkles card-icon"></i>
+                <div class="card-title">ImagCraft</div>
+                <div class="card-desc">تأثيرات وتعديلات احترافية وسريعة على الصور</div>
+            </a>
+
+            <!-- Money Craft -->
+            <a href="moneycraft.html" class="card">
+                <i class="fa-solid fa-coins card-icon"></i>
+                <div class="card-title">MoneyCraft</div>
+                <div class="card-desc">حاسبات القروض، الفوائد، والتحويلات المالية والتخطيط</div>
+            </a>
+
+            <!-- Web Craft -->
+            <a href="webcraft.html" class="card">
+                <i class="fa-solid fa-sitemap card-icon"></i>
+                <div class="card-title">WebCraft</div>
+                <div class="card-desc">أدوات ترتيب وترقيم ملفات البرمجة وتحسين هيكلة الويب</div>
+            </a>
+        </div>
+    </main>
+
+    <!-- native banner -->
+    <script async="async" data-cfasync="false" src="https://pl30639701.effectivecpmnetwork.com/adb54a68fba1569dd3990194129df9df/invoke.js"></script>
+    <div id="container-adb54a68fba1569dd3990194129df9df"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-links">
+            <a href="readme/about9.html">عن الموقع</a>
+            <span>•</span>
+            <a href="readme/contact9.html">اتصل بنا</a>
+            <span>•</span>
+            <a href="readme/privacy9.html">سياسة الخصوصية</a>
+            <span>•</span>
+            <a href="readme/terms9.html">شروط الاستخدام</a>
+        </div>
+        <p class="copyright">جميع الحقوق محفوظة &copy; 2026 TMG WEB ZONE</p>
+    </footer>
+
+    <script>
+      // Service Worker Registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./tmgtools/sw.js')
+            .catch(err => console.log('SW registration failed:', err));
+        });
+      }
+    </script>
+
+    <!-- social bar -->
+    <script src="https://pl30639400.effectivecpmnetwork.com/16/84/5f/16845fa0945c049073a8584a25c333e4.js"></script>
+</body>
+</html>
