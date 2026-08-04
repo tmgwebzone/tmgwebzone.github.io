@@ -503,35 +503,4 @@
     <loc>https://tmgwebzone.github.io/tmgtools.html</loc>
     <priority>0.80</priority>
   </url>
-</urlset>>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/colorcraft.html</loc>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/devcraft.html</loc>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/fontcraft.html</loc>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/gamercraft.html</loc>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/imgcraft.html</loc>
-   <priority>0.80</priority>
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/moneycraft.html</loc>
-   <priority>0.80</priority> 
- </url>
- <url>
-   <loc>https://tmgwebzone.github.io/webcraft.html</loc>
-   <priority>0.80</priority>
- </url>
- </urlset>
+</urlset>
